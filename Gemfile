@@ -36,6 +36,9 @@ end
 gem 'jquery-rails'
 gem 'stripe'
 
+
+# gem 'spree_stripe', :git=>"git://github.com/adiastyle/spree-stripe.git"
+
 #gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 
