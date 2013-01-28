@@ -36,7 +36,7 @@ end
 gem 'jquery-rails'
 gem 'stripe'
 
-gem 'rqrcode-rails3', :git => "git@github.com:samvincent/rqrcode-rails3.git"
+gem 'rqrcode-rails3', :git => 'git@github.com:samvincent/rqrcode-rails3.git'
 
 #devise for making user login...
 gem 'devise'
