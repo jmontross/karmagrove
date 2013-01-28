@@ -40,6 +40,8 @@ gem 'rqrcode-rails3', :git => "git@github.com:samvincent/rqrcode-rails3.git"
 
 #devise for making user login...
 gem 'devise'
+gem "nifty-generators", :group => :development
+
 
 # gem 'spree_stripe', :git=>"git://github.com/adiastyle/spree-stripe.git"
 
