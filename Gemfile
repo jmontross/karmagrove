@@ -9,7 +9,9 @@ group :development do
 end
 
 group :production do
- gem 'pg'
+ # gem 'RMagick'
+  gem 'rmagick'
+  gem 'pg'
 end
 
 
@@ -39,6 +41,7 @@ gem 'stripe'
 
 # for making physical products to sell....
 gem 'rqrcode-rails3'
+
 gem 'mini_magick'
 
 #, :git => 'git://github.com:samvincent/rqrcode-rails3.git'
