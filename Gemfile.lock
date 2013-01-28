@@ -1,10 +1,3 @@
-GIT
-  remote: git@github.com:samvincent/rqrcode-rails3.git
-  revision: d168787329ef5a139c4e4a77dcb6449412bc2663
-  specs:
-    rqrcode-rails3 (0.1.6)
-      rqrcode (>= 0.4.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,7 +67,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
-    nifty-generators (0.4.6)
     orm_adapter (0.4.0)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -106,7 +98,6 @@ GEM
     ref (1.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rqrcode (0.4.2)
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
@@ -159,10 +150,8 @@ DEPENDENCIES
   devise
   jquery-rails
   less-rails
-  nifty-generators
   pg
   rails (= 3.2.9)
-  rqrcode-rails3!
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
