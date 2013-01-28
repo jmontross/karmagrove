@@ -21,13 +21,33 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Some Store</a>
+        <a class="brand" href="#">Karma Grove</a>
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Browse Products", products_path %></li>
             <li><%= link_to "Price List" %></li>
             <li><%= link_to "Contact Us" %></li>
             <li><%= link_to "Cart" %></li>
+                <!-- <div id="user_nav"> -->
+    <% if user_signed_in? %>
+
+    <li>    <%= link_to 'Edit profile', edit_user_registration_path %>      </li>
+    <li>    <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+        <li> <a href="#"> Welcome <%= current_user.email %> </a>  </li>
+    <% else %>
+    <li>   <%= link_to "Sign up", new_user_registration_path %>   </li>
+    <li>   <%= link_to "Login", new_user_session_path %>           </li>
+
+      <% flash.each do |name, msg| %>
+
+      <li> <a> <%= content_tag :div, msg, id: "flash_#{name}" %> </a></li>
+      <% end %>
+
+    <% end %>
+  <!-- </div> -->
+
+
+
           </ul>
         </div>
       </div>
@@ -35,6 +55,8 @@
     </div>
 
   <div class="container">
+
+
     <div class="row">
       <div class="span9">
         <%= yield %>
@@ -42,7 +64,15 @@
 
       <div class="span3">
         <h2> about us </h2>
+          <p>
           We are all about giving back.  Help karma grow and buy some joy coins.  90% of the   profits go to charity.  You decide where 50% of the profits go.
+          </p>
+          <% if user_signed_in? %>
+          <p>
+          We want you to help <%= current_user.email %>
+          Tell your friends about how you are giving while making purchases.
+          </p>
+          <% end %>
       </div>
     </div>
   </div>
