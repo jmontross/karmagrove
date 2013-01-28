@@ -36,11 +36,21 @@ end
 gem 'jquery-rails'
 gem 'stripe'
 
-#gem 'rqrcode-rails3', :git => 'git://github.com:samvincent/rqrcode-rails3.git'
+
+# for making physical products to sell....
+gem 'rqrcode-rails3'
+gem 'mini_magick'
+
+#, :git => 'git://github.com:samvincent/rqrcode-rails3.git'
+
+
+gem 'activeadmin'
 
 #devise for making user login...
 gem 'devise'
 
+
+gem 'workflow'
 #gem "nifty-generators", :group => :development
 
 

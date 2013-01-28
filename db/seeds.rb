@@ -13,7 +13,7 @@ Product.create({
   })
 
 Product.create({
-    :name => "Joy Coin 3 pack",
+    :name => "Joy Coin 6 pack",
     :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
     :price => "13.00"
   })
@@ -22,4 +22,19 @@ Product.create({
     :name => "Joy Coin 10 pack",
     :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
     :price => "26.00"
+  })
+
+Product.create({
+    :name => "Joy Coin Single",
+    :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
+    :price => "2.50"
+  })
+
+User.create( { "email"=>"admin@example.com" })
+
+Purchase.create(
+  {
+    "donation_id"=>nil,
+    "product_id"=>1,
+    "seller_id"=>1
   })

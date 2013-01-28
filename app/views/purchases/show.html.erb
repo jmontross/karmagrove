@@ -1,0 +1,14 @@
+<%- model_class = Purchase -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong> name:</strong></dt>
+  <dd><%= @purchase.product.name %></dd>
+  <dt><strong> description:</strong></dt>
+  <dd><%= @purchase.product.description %></dd>
+  <dt><strong> Price </strong></dt>
+  <dd><%= @purchase.product.price %></dd>
+</dl>
+
