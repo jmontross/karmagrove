@@ -28,9 +28,10 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Browse Products", products_path %></li>
-            <li><%= link_to "Price List" %></li>
+            <li><%= link_to "About us", about_path  %></li>
+            <li><%= link_to "Joy Coin Facts", "/joy_coin_facts" %></li>
             <li><%= link_to "Contact Us" %></li>
-            <li><%= link_to "Cart" %></li>
+            <!-- <li><%= link_to "Cart" %></li> -->
                 <!-- <div id="user_nav"> -->
     <% if user_signed_in? %>
 
@@ -68,7 +69,7 @@
       <div class="span3">
         <h2> about us </h2>
           <p>
-          We are all about giving back.  Help karma grow and buy some joy coins.  90% of the   profits go to charity.  You decide where 50% of the profits go.
+          We are all about giving back.  Help karma grow and buy some joy coins.  80% of the would be profits go to charity.  You decide where 50% of the profits go.  We give away 30% and give 10% as bonus to our workers. That remaining 10% - that's to help karma grow.
           </p>
           <% if user_signed_in? %>
           <p>
