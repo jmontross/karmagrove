@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128033508) do
+ActiveRecord::Schema.define(:version => 20130213225817) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -87,9 +87,10 @@ ActiveRecord::Schema.define(:version => 20130128033508) do
     t.integer  "buyer_id"
     t.integer  "seller_id"
     t.integer  "donation_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "state"
+    t.string   "stripe_customer_token"
   end
 
   add_index "purchases", ["buyer_id"], :name => "index_purchases_on_buyer_id"
