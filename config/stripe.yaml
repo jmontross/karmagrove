@@ -1,0 +1,2 @@
+api_key: ENV['strip_api_key']
+public_key: ENV['stripe_public_key']
