@@ -1,3 +1,5 @@
+<% javascript 'purchases.js' %>
+
 <%= form_for [@product, @purchase], :url => {:action => "create"} do |f| %>
   <% if @purchase.errors.any? %>
     <div class="error_messages">
