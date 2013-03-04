@@ -1,4 +1,4 @@
-<% javascript 'purchases.js' %>
+<% javascript 'purchases.js.coffee' %>
 
 <%= form_for [@product, @purchase], :url => {:action => "create"} do |f| %>
   <% if @purchase.errors.any? %>
