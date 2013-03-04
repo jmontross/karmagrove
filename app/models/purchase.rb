@@ -21,6 +21,7 @@ class Purchase < ActiveRecord::Base
     # customer = Stripe::Customer.create(description: email ,purchase_id: purchase_id,  card: stripe_card_token)
     customer = Stripe::Customer.create(description: self.product_id)
     self.stripe_customer_token = customer.id
+    self.stripe_transaction_id = customer.id
     # self.stripe_customer_token = customer.id
     save!
   end
