@@ -45,7 +45,7 @@ module Karmagrove
     #  for heroku to precompile for us...
     config.assets.initialize_on_precompile = false
     config.serve_static_assets = true
-    config.assets.compile = true
+    # config.assets.compile = true
     config.assets.precompile += %w( purchases.js *.js *.css *.js.coffee purchases.js.coffee)
     # config.assets.precompile
 
