@@ -44,6 +44,10 @@ module Karmagrove
 
     #  for heroku to precompile for us...
     config.assets.initialize_on_precompile = false
+    config.serve_static_assets = true
+    config.assets.compile = true
+    config.assets.precompile += %w( *.js *.css )
+    # config.assets.precompile
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,

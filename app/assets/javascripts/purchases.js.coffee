@@ -21,13 +21,11 @@ purchase =
       number: $('#card_number').val()
       cvc: $('#card_code').val()
       expMonth: $('#card_month').val()
-      amount: "10.00"
       expYear: $('#card_year').val()
     Stripe.createToken(card, purchase.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
     if status == 200
-
       $('#new_purchase').append($('<input type="hidden" name="stripeToken" />').val(response.id))
       # console.log(response);
       # console.log($('#purchase_stripe_card_token').val(response.id));

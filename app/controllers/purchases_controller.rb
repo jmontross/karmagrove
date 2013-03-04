@@ -36,6 +36,8 @@ end
   def create
   @purchase = Purchase.new(params[:purchase])
   @purchase.product_id = params[:product_id]
+  # @purchase.buyer_id =
+
   @product = Product.find params[:product_id]
   @purchase.save
 
