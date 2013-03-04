@@ -15,7 +15,6 @@ class Purchase < ActiveRecord::Base
 
   validates_presence_of  :product_id
 
-
   def save_with_payment
   if valid?
     # email = params[user]['email']

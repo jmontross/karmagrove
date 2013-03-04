@@ -4,14 +4,14 @@
 
 jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-  subscription.setupForm()
+  purchase.setupForm()
 
-subscription =
+purchase =
   setupForm: ->
-    $('#new_subscription').submit ->
+    $('#new_purchase').submit ->
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
-        subscription.processCard()
+        purchase.processCard()
         false
       else
         true
@@ -21,13 +21,34 @@ subscription =
       number: $('#card_number').val()
       cvc: $('#card_code').val()
       expMonth: $('#card_month').val()
+      amount: "10.00"
       expYear: $('#card_year').val()
-    Stripe.createToken(card, subscription.handleStripeResponse)
+    Stripe.createToken(card, purchase.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#subscription_stripe_card_token').val(response.id)
-      $('#new_subscription')[0].submit()
+
+      $('#new_purchase').append($('<input type="hidden" name="stripeToken" />').val(response.id))
+      # console.log(response);
+      # console.log($('#purchase_stripe_card_token').val(response.id));
+
+      # token = response.id
+      # # function(response){
+      # #   console.log('Got token ID:', response.id);
+      # #   response.id
+      # # };
+
+      # StripeCheckout.open
+      #   key:         $('meta[name="stripe-key"]').attr('content')
+      #   address:     true
+      #   amount:      5000
+      #   name:        'Joes Pistachios'
+      #   description: 'A bag of Pistachios'
+      #   panelLabel:  'Checkout'
+      #   token:       token
+
+      $('#new_purchase')[0].submit()
+      # $form.get(0).submit();
     else
       $('#stripe_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)

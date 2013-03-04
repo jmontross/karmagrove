@@ -14,7 +14,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
+        <td><%= link_to "Purchase", new_product_purchase_path(product) %></td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td>$<%= product.price %></td>
