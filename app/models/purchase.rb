@@ -4,7 +4,7 @@ class Purchase < ActiveRecord::Base
   belongs_to :seller
   belongs_to :donation
 
-  attr_accessible :stripe_card_token, :buyer_id, :product_id, :seller_id, :state, :donation_id, :id
+  attr_accessible :stripe_customer_token, :buyer_id, :product_id, :seller_id, :state, :donation_id, :id
 
   include Workflow
   workflow do
@@ -20,7 +20,7 @@ class Purchase < ActiveRecord::Base
     # email = params[user]['email']
     # customer = Stripe::Customer.create(description: email ,purchase_id: purchase_id,  card: stripe_card_token)
     customer = Stripe::Customer.create(description: self.product_id)
-    self.stripe_card_token = customer.id
+    self.stripe_customer_token = customer.id
     # self.stripe_customer_token = customer.id
     save!
   end
