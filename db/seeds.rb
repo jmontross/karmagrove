@@ -17,8 +17,9 @@ product = Product.create!({
 
 d = Donation.create!(:charity_id => c.id, :amount => 30.00, :donation_date => "Thu, 21 Mar 2013 05:13:44 UTC +00:00")
 r = Retailer.create!(:name => "cruzio cafe", :description => "that awesome cafe inside cruzio", :address => "877 Cedar St #150  Santa Cruz, CA 95060")
-Purchase.create!(:retailer_id => r.id, :donation_id => d.id, :product_id => product.id)
-
+p = Purchase.create!(:retailer_id => r.id, :donation_id => d.id, :product_id => product.id)
+d.purchase_id = p.id
+d.save
 Product.create({
     :name => "Joy Coin 6 pack",
     :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
