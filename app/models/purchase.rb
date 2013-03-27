@@ -4,7 +4,7 @@ class Purchase < ActiveRecord::Base
   belongs_to :seller
   belongs_to :donation
 
-  attr_accessible :stripe_customer_token, :buyer_id, :product_id, :seller_id, :state, :donation_id, :id, :stripe_transaction_id
+  attr_accessible :stripe_customer_token, :buyer_id, :product_id, :seller_id, :state, :donation_id, :id, :stripe_transaction_id, :retailer_id
 
   include Workflow
   workflow do

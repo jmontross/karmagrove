@@ -9,7 +9,11 @@ Karmagrove::Application.routes.draw do
     resources :purchases
   end
 
-  root :to => "products#index"
+  resources :donations do
+    resources :purchases
+  end
+
+  root :to => "donations#index"
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}

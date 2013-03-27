@@ -1,0 +1,24 @@
+<%- model_class = Donation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Amount Donated</th>
+      <th>Deductibility Status Description</th>
+      <th>Donation Date </th>
+      <th>Retailer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td> $<%= donation.amount %></td>
+        <td> <%= @charities.first.deductibility_status_description %></td>
+        <td> <%= donation.donation_date %></td>
+        <td> <%= @retailers.name %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
