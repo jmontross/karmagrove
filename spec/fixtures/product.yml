@@ -1,0 +1,13 @@
+---
+products_01:
+  name: Karma Coin 6 pack
+  description: Joy coins are sweet\, salty, granola coins consisting of the following ingredients Oats, Organic Hemp Seed, Honey, Nature''s balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter
+  updated_at: 2009-04-30 23:55:50
+  price: 18.0
+  created_at: 2009-04-30 23:55:50
+products_02:
+  name: Karma Coin 12 pack
+  description: Joy coins are sweet\n, salty, granola coins consisting of the following\n    ingredients: Oats, Organic Hemp Seed, Honey, Nature''s balance, Coconut Crystal\n    Sugar, Walnuts, Chocolate, Coconut Butter'
+  updated_at: 2009-04-30 23:55:48
+  price: 30.0
+  created_at: 2009-04-30 23:55:48

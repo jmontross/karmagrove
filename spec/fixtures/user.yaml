@@ -1,0 +1,23 @@
+---
+users_01:
+  name: Marge Palmer
+  sortable_name: palmer, marge
+  updated_at: 2009-04-30 23:55:48
+  type:
+  id: "15"
+  uuid: 5a2ffb00-1810-012c-7a0a-001b632e4c5f
+  merge_to:
+  time_zone:
+  workflow_state: registered
+  created_at: 2009-04-30 23:55:48
+users_02:
+  name: William Robesby
+  sortable_name: robesby, william
+  updated_at: 2009-04-30 23:55:47
+  type:
+  id: "4"
+  uuid: 59bf9810-1810-012c-7a0a-001b632e4c5f
+  merge_to:
+  time_zone:
+  workflow_state: registered
+  created_at: 2009-04-30 23:55:47
