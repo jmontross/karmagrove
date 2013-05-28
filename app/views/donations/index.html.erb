@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @donations.each do |donation| %>
-      <tr>
+      <tr charity_id="<%=donation.charity_id %>">
         <td> $<%= donation.amount %></td>
         <td> <%= @charities.first.deductibility_status_description %></td>
         <td> <%= donation.donation_date %></td>

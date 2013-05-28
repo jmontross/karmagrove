@@ -18,5 +18,6 @@ class DonationsController < ApplicationController
     end
   end
   # index
+
 end
 # DonationsController

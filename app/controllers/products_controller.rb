@@ -24,11 +24,15 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
-    @product = Product.new
+    if user_signed_in?
+      @product = Product.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @product }
+      end
+    else
+      redirect_to("/")
     end
   end
 

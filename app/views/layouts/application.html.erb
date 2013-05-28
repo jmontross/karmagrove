@@ -33,12 +33,11 @@
             <li><%= link_to "Browse Products", products_path %></li>
             <li><%= link_to "About us", about_path  %></li>
             <li><%= link_to "Joy Coin Facts", "/joy_coin_facts" %></li>
-            <li><%= link_to "Contact Us" %></li>
             <!-- <li><%= link_to "Cart" %></li> -->
                 <!-- <div id="user_nav"> -->
     <% if user_signed_in? %>
 
-    <li>    <%= link_to 'Edit profile', edit_user_registration_path %>      </li>
+    <li>    <%= link_to 'My profile', edit_user_registration_path %>      </li>
     <li>    <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
         <li> <a href="#"> Welcome <%= current_user.email %> </a>  </li>
     <% else %>
@@ -79,7 +78,7 @@
             <li> 10% is reserved for those helped bring the item to market. </li>
             <li>That remaining 10% we save to expand the grove.  </li>
           </ul>
-          <%= content_tag :img, "", :src => "assets/karma_grove_tree.jpg" %>
+          <%= image_tag("karma_grove_tree.jpg") %>
           </p>
           <% if user_signed_in? %>
           <p>

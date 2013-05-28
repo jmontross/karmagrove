@@ -3,11 +3,15 @@ class PurchasesController < ApplicationController
 
 
 def index
-   @purchases = Purchase.all
+   if user_signed_in?
 
-   respond_to do |format|
-     #format.html  # index.html.erb
-     format.json { render json: @purchases }
+   else
+     @purchases = Purchase.all
+
+     respond_to do |format|
+       #format.html  # index.html.erb
+       format.json { render json: @purchases }
+     end
    end
   #format.html "hello"
 end
@@ -20,6 +24,7 @@ def show
      format.json { render json: @purchase }
    end
 end
+
 
 # GET /products/new
 # GET /products/new.json
@@ -57,6 +62,7 @@ end
     )
   rescue Stripe::CardError => e
     # The card has been declined
+    Rails.logger.info "error: #{e.message}"
   end
 
   # @purchase.stripe_customer_token = charge.id
