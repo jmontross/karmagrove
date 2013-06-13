@@ -1,0 +1,15 @@
+---
+donations_01:
+  purchase_id: 26
+  charity_id: 1006724
+  amount: 30.0
+  created_at: 2013-03-27 05:06:39.849617000
+  updated_at: 2013-03-27 05:42:28.447903000
+  donation_date: 2013-03-21
+donations_02:
+  purchase_id: 72
+  charity_id: 1006724
+  amount: 45.0
+  created_at: 2013-03-27 05:06:39.849617000
+  updated_at: 2013-03-27 05:42:28.447903000
+  donation_date: 2013-03-21

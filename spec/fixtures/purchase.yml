@@ -1,0 +1,12 @@
+---
+purchases_26:
+  buyer_id: 1
+  seller_id: 2
+  product_id: 1
+  donation_id: 1
+
+purchases_72:
+  buyer_id: 2
+  seller_id: 1
+  product_id: 2
+  donation_id: 2
