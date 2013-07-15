@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Batch name:</b>
+  <%= @batch.batch_name %>
+</p>
+
+<p>
+  <b>Sales:</b>
+  <%= @batch.sales %>
+</p>
+
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>

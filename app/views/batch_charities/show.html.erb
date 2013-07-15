@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Batch:</b>
+  <%= @batch_charity.batch_id %>
+</p>
+
+<p>
+  <b>Charity:</b>
+  <%= @batch_charity.charity_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_batch_charity_path(@batch_charity) %> |
+<%= link_to 'Back', batch_charities_path %>

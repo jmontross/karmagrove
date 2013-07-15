@@ -3,8 +3,13 @@ class Purchase < ActiveRecord::Base
   belongs_to :buyer
   belongs_to :seller
   belongs_to :donation
+  belongs_to :batch
 
-  attr_accessible :stripe_customer_token, :buyer_id, :product_id, :seller_id, :state, :donation_id, :id, :stripe_transaction_id, :retailer_id
+  attr_accessible :stripe_customer_token, :buyer_id, :product_id,
+                  :seller_id, :state, :donation_id, :id, :stripe_transaction_id, :retailer_id,
+                  :batch_id, :cost, :final_purchase_price
+
+  ## final purchase price is for auction only....
 
   include Workflow
   workflow do

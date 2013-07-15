@@ -1,0 +1,25 @@
+<%= form_for(@batch_charity) do |f| %>
+  <% if @batch_charity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@batch_charity.errors.count, "error") %> prohibited this batch_charity from being saved:</h2>
+
+      <ul>
+      <% @batch_charity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :batch_id %><br />
+    <%= f.text_field :batch_id %>
+  </div>
+  <div class="field">
+    <%= f.label :charity_id %><br />
+    <%= f.text_field :charity_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

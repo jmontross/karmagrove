@@ -1,7 +1,5 @@
 class PurchasesController < ApplicationController
 
-
-
 def index
    if user_signed_in?
 
@@ -20,7 +18,7 @@ def show
    @purchase = Purchase.find(params[:id])
    respond_to do |format|
      format.html
-     format.svg  { render :qrcode => request.url, :unit => 10 }
+     format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
      format.json { render json: @purchase }
    end
 end
@@ -34,6 +32,24 @@ end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @purchase }
+    end
+  end
+
+  def update
+    @disable_nav = true
+    @disable_sidebar = true
+    @charity = Charity.find(params[:donation_id])
+    @purchase = Purchase.find(params[:purchase_id])
+    @donation = Donation.where(:charity_id => @charity.id,:purchase_id => @purchase.id).first
+    @donation ||= Donation.new(:charity_id => @charity.id,:purchase_id => @purchase.id)
+    @donation.save
+    @purchase.donation_id = @donation.id
+    if @purchase.donation_id
+      respond_to do |format|
+        format.html
+      end
+    else
+      render "404"
     end
   end
 
