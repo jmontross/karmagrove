@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-batch = Batch.create!(:name => "cruzio karma")
+batch = Batch.create!(:batch_name => "cruzio karma")
 
-c = Charity.create!(:legal_name => "Grey Bears", :state => "CA", :deductibility_status_description => "Grey bears is a 501 3(c) charity that feeds the hungry and elderly in Santa Cruz county.  They run primarly off of volunteers and more can be learned about them at http://www.greybears.org/")
+c1 = Charity.create!(:legal_name => "Grey Bears", :state => "CA", :deductibility_status_description => "Grey bears is a 501 3(c) charity that feeds the hungry and elderly in Santa Cruz county.  They run primarly off of volunteers and more can be learned about them at http://www.greybears.org/")
 c2 = Charity.create!(:legal_name => "Elephants and Bees", :state => "Africa", :deductibility_status_description => "Build fences out of beehives to save elephants lives and help African farmers.  http://www.elephantsandbees.com")
-c3 = Charity.create!(:legal_name => "Nuru International", :state => "Global", :deductibility_status_description => "Building the world’s first self-sustaining, self-scaling, integrated development model to end extreme poverty.  http://http://www.nuruinternational.org/")
+c3 = Charity.create!(:legal_name => "Nuru International", :state => "Global", :deductibility_status_description => "Building the world's first self-sustaining, self-scaling, integrated development model to end extreme poverty.  http://http://www.nuruinternational.org/")
 
 BatchCharity.create!(:batch_id => batch.id, :charity_id => c1.id)
 BatchCharity.create!(:batch_id => batch.id, :charity_id => c2.id)
