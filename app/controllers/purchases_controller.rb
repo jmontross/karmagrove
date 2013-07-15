@@ -40,10 +40,12 @@ end
     @disable_sidebar = true
     @charity = Charity.find(params[:donation_id])
     @purchase = Purchase.find(params[:purchase_id])
+    @product = Product.find(@purchase.product_id)
     @donation = Donation.where(:charity_id => @charity.id,:purchase_id => @purchase.id).first
     @donation ||= Donation.new(:charity_id => @charity.id,:purchase_id => @purchase.id)
     @donation.save
     @purchase.donation_id = @donation.id
+    @purchase.save
     if @purchase.donation_id
       respond_to do |format|
         format.html

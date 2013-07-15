@@ -18,9 +18,10 @@ BatchCharity.create!(:batch_id => batch.id, :charity_id => c3.id)
 product = Product.create!({
     :name => "Karma Coin",
     :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
-    :price => "2"
+    :price => "2.00"
 })
 
+Retailer.create!(:name => "Sentinel Cafe", :description => "The sentinel cafe is inside of Cruz.io in Santa Cruz")
 
 # product = Product.create!({
 #     :name => "Joy Coin Batch 1 for Cruzio",
@@ -65,3 +66,5 @@ product = Product.create!({
 #     "product_id"=>1,
 #     "seller_id"=>1
 #   })
+
+# d = Donation.create!(:charity_id => c.id, :amount => 30.00, :donation_date => "Thu, 21 Mar 2013 05:13:44 UTC +00:00")

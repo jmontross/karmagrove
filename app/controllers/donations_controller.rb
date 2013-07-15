@@ -28,7 +28,7 @@ class DonationsController < ApplicationController
     charity_ids = BatchCharity.where(:batch_id => @batch_id).map {|batch_charity| batch_charity.charity_id }
     @charities = Charity.find(charity_ids)
     @product_id = Product.where(:name => "Karma Coin").first.id
-    @purchase = Purchase.new(:product_id => @product_id,:batch_id => @batch_id)
+    @purchase = Purchase.new(:product_id => @product_id,:batch_id => @batch_id, :retailer_id => 1)
     @purchase.save
     respond_to do |format|
       format.html
