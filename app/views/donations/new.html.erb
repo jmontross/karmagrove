@@ -1,1 +1,23 @@
-new.html.erb
+<!-- http://localhost:3000/batches/1/donations/new -->
+
+<h1 class="icon-align-center"> Give Good Karma </h1>
+
+<% @charities.each do |charity| %>
+<br />
+<a href="/batches/<%=@batch.id%>/donations/<%=charity.id%>/purchases/<%=@purchase.id%>/update"> <button class="btn btn-large btn-block" type="button">
+  <h3> <%= charity.legal_name %>
+     <% if charity.city && charity.state %>
+       <small> <%= charity.city %>, <%= charity.state %> </small>
+     <% elsif charity.city %>
+       <small> <%= charity.city %> </small>
+     <% elsif charity.state %>
+       <small> <%= charity.state %> </small>
+     <% else %>
+     <% end %>
+  </h3>
+  <br />
+  <%= charity.deductibility_status_description %>
+
+</button>
+</a>
+<% end %>

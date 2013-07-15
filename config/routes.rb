@@ -1,4 +1,10 @@
 Karmagrove::Application.routes.draw do
+  resources :batch_charities
+
+
+  resources :batches
+
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -8,6 +14,19 @@ Karmagrove::Application.routes.draw do
   resources :products do
     resources :purchases
   end
+
+  resources :batches
+
+  resources :batches do
+    resources :donations do
+      resources :purchases
+    end
+  end
+
+  match "/batches/:batch_id/donations/:donation_id/purchases/:purchase_id/update" => "purchases#update"
+
+  #"/batches/1/donations/1/purchases/4/update"
+  # match 'batch/#{id}/donate' => "batch#donate"
 
   resources :donations do
     resources :purchases
@@ -20,6 +39,7 @@ Karmagrove::Application.routes.draw do
 
   match 'about' => 'about#index'
   match 'joy_coin_facts' => 'about#joy_coin'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

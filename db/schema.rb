@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327052731) do
+ActiveRecord::Schema.define(:version => 20130714232052) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(:version => 20130327052731) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "batch_charities", :force => true do |t|
+    t.integer  "batch_id"
+    t.integer  "charity_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "batches", :force => true do |t|
+    t.string   "batch_name"
+    t.float    "sales"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "buyers", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -94,6 +108,9 @@ ActiveRecord::Schema.define(:version => 20130327052731) do
     t.string   "stripe_customer_token"
     t.string   "stripe_transaction_id"
     t.integer  "retailer_id"
+    t.integer  "batch_id"
+    t.float    "purchase_price"
+    t.float    "cost"
   end
 
   add_index "purchases", ["buyer_id"], :name => "index_purchases_on_buyer_id"
