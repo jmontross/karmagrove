@@ -3,3 +3,15 @@
 <h3>
  You just gave approximately $1.50 to <%= @charity.legal_name %>.  The exact amount of the donation will be updated at the end of the month when costs are known.
 </h3>
+
+<h3>
+  Why not log in with facebook and watch your karma grow?
+  <div id="user_nav">
+</h3>
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+  </div>
