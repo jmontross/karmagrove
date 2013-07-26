@@ -15,7 +15,7 @@
     <% @donations.each do |donation| %>
       <tr charity_id="<%=donation.charity_id %>">
         <td> $<%= donation.amount %></td>
-        <td> <%= @charities.first.deductibility_status_description %></td>
+        <td> <%= @charities[donation.id].deductibility_status_description %></td>
         <td> <%= donation.donation_date %></td>
         <td> <%= @retailers.name %> </td>
       </tr>

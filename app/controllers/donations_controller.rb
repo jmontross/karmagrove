@@ -1,10 +1,10 @@
 class DonationsController < ApplicationController
   def index
     @donations = Donation.all
-    @charities = []
+    @charities = {}
     @retailers = []
     @donations.each do |donation|
-      @charities << Charity.find(donation.charity_id)
+      @charities[donation.id] = Charity.find(donation.charity_id)
       if donation.purchase_id
         purchase = Purchase.find(donation.purchase_id)
         if purchase
@@ -23,6 +23,7 @@ class DonationsController < ApplicationController
   end
   # index
 
+  # batches/{batch_id}/donations/new.svg
   def new
     @disable_nav = true
     @disable_sidebar = true
@@ -42,3 +43,4 @@ class DonationsController < ApplicationController
 
 end
 # DonationsController
+
