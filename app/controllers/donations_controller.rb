@@ -8,7 +8,11 @@ class DonationsController < ApplicationController
       if donation.purchase_id
         purchase = Purchase.find(donation.purchase_id)
         if purchase
-          @retailers = Retailer.find purchase.retailer_id
+          if Retailer.exists? purchase.retailer_id
+            @retailers = Retailer.find purchase.retailer_id
+          else
+            @retailers = []
+          end
         end
       end
     end
