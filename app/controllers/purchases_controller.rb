@@ -46,6 +46,8 @@ end
     @donation.save
     @purchase.donation_id = @donation.id
     @purchase.save
+
+    # session['callback_code'] = @code
     if @purchase.donation_id
       respond_to do |format|
         format.html
