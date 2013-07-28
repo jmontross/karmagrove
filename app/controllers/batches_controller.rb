@@ -8,6 +8,8 @@ class BatchesController < InheritedResources::Base
     @charities = Charity.find(charity_ids)
     @product_id = Product.where(:name => "Karma Coin").first.id
     @purchase = Purchase.new(:product_id => @product_id)
+    @disable_nav = true
+    @disable_sidebar = true
     respond_to do |format|
       format.html
       format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }

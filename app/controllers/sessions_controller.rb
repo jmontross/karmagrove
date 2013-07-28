@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def setup_oauth(donation_id="")
     callback_url = "http://localhost:3000/auth/facebook/callback"
+
     @oauth = Koala::Facebook::OAuth.new("402764733175875", "b91c8b29bf5295730b4d8100f76ded1d", callback_url)
     @url_for_facebook = @oauth.url_for_oauth_code(:state=>donation_id)
   end

@@ -41,6 +41,15 @@ class DonationsController < ApplicationController
     end
   end
 
+  def show
+    @disable_nav = true
+    @disable_sidebar = true
+    respond_to do |format|
+      format.html
+      format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
+    end
+  end
+
 end
 # DonationsController
 
