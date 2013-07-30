@@ -44,6 +44,16 @@ class DonationsController < ApplicationController
   def show
     @disable_nav = true
     @disable_sidebar = true
+    bitly = Bitly.new('o_t7uc2iai2','R_46b43d229bccf6d317eca02d76d48818')
+    if request.url.match 'localhost:3000'
+      url = request.url.gsub('localhost:3000','www.karmagrove.com')
+      u = bitly.shorten(url)
+    else
+      u = bitly.shorten(request.url)
+    end
+    @short_url = u.short_url
+    @short_url ||= bitly.shorten("http://www.karmagrove.com/batches/1/donations/new.svg").short_url
+    Rails.logger.info @short_url
     respond_to do |format|
       format.html
       format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
