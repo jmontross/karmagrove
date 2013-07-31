@@ -46,6 +46,7 @@ class SessionsController < ApplicationController
       Rails.logger.info " @token #{@token} and params[:state] #{params[:state]}"
       if params[:state]
         @purchase = Purchase.find params[:state]
+        Rails.logger.info " @profile['id'] #{@profile['id']}"
         @user = User.find_or_create_by_facebook_id @profile['id']
         @purchase.buyer_id = @user.id
         @purchase.save

@@ -26,6 +26,15 @@ class User < ActiveRecord::Base
   #   end
   # end
 
+  def self.find_or_create_by_facebook_id(facebook_id)
+    if User.exists?(:facebook_id => facebook_id)
+      return User.where(:facebook_id => facebook_id)
+    else
+      user = User.create!(:facebook_id => facebook_id,:email=>"",:password => "")
+      return user
+    end
+  end
+
   def find_or_create_by_facebook_id(facebook_id)
     if User.exists?(:facebook_id => facebook_id)
       return User.where(:facebook_id => facebook_id)
