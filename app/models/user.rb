@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     if User.exists?(:facebook_id => facebook_id)
       return User.where(:facebook_id => facebook_id)
     else
-      user = User.create!(:facebook_id => facebook_id,:email=>"",:password => "")
+      user = User.create!(:facebook_id => facebook_id,:email=>"fakeemail@awesome.com",:password => "fakepassword")
       return user
     end
   end
