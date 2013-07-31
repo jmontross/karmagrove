@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
     Rails.logger.info "code : #{params[:code]}"
     if @code
       Rails.logger.info("@code : #{@code}")
+      Rails.logger.info("made it through the if statement!")
       # fetch the access token once you have the code
       # callback_url = "http://localhost:3000/auth/facebook/callback"
       # @oauth = Koala::Facebook::OAuth.new("402764733175875", "b91c8b29bf5295730b4d8100f76ded1d", callback_url)
