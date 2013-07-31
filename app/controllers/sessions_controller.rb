@@ -34,8 +34,8 @@ class SessionsController < ApplicationController
 
       @profile = @rest.get_object("me")
       @profile_path = @rest.get_picture(@profile['id'],:type => "large")
-      @name_pic = @rest.fql_query("select uid, name, pic_square from user where uid in (select uid2 from friend where uid1 = me())")
-      Rails.logger.info @name_pic
+      # @name_pic = @rest.fql_query("select uid, name, pic_square from user where uid in (select uid2 from friend where uid1 = me())")
+      # Rails.logger.info @name_pic
 
       # @rest.fql_query(my_fql_query) # convenience method
 
@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
       # @rest.rest_call("stream.publish", arguments_hash) # generic version
 
 
-      Rails.logger.info " @token #{@token}"
+      Rails.logger.info " @token #{@token} and params[:state] #{params[:state]}"
       if params[:state]
         @purchase = Purchase.find params[:state]
         @user = User.find_or_create_by_facebook_id @profile['id']
