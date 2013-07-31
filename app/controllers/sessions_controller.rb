@@ -33,6 +33,7 @@ class SessionsController < ApplicationController
       # @graph = Koala::Facebook::API.new(oauth_access_token)
 
       @profile = @rest.get_object("me")
+      Rails.logger.info @profile.inspect
       @profile_path = @rest.get_picture(@profile['id'],:type => "large")
       # @name_pic = @rest.fql_query("select uid, name, pic_square from user where uid in (select uid2 from friend where uid1 = me())")
       # Rails.logger.info @name_pic
