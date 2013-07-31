@@ -49,7 +49,7 @@ class DonationsController < ApplicationController
       url = request.url.gsub('localhost:3000','www.karmagrove.com')
       u = bitly.shorten(url)
     else
-      u = bitly.shorten(request.url)
+      u = bitly.shorten(request.url.gsub('show','new'))
     end
     @short_url = u.short_url
     @short_url ||= bitly.shorten("http://www.karmagrove.com/batches/1/donations/new.svg").short_url
