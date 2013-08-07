@@ -1,5 +1,11 @@
 <img src="<%= @profile_path %>"> </img> Thanks for donating <%= @profile['first_name'] %>.
 <br />
-Thanks for your recent purchase of <%= @product.name %>.
 
-You have made <%=@purchases.count%> purchases on karma grove.
+<% if @product and @product.name %>
+  Thanks for your recent purchase of <%= @product.name %>.
+<% end %>
+
+<% if @purchases and @purchases.count %>
+  You have made <%= @purchases.count%> purchases on karma grove.
+
+<% end %>
