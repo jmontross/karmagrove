@@ -14,6 +14,10 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
+<div class="fb-login-button" data-width="200">
 <%= link_to "Sign in with Facebook", "/auth/facebook/login?donation_id=#{params[:purchase_id]}", id: "sign_in" %>
+</div>
+
+
 
 <%= render "devise/shared/links" %>
