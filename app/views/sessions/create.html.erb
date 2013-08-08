@@ -1,7 +1,12 @@
-<img src="<%= @profile_path %>"> </img> Thanks for donating <%= @profile['first_name'] %>.
-<br />
+
+
+<img src="<%= @profile_path %>"> </img> Welcome to the grove <%= @profile['first_name'] %>. <br/ > We are a marketplace focused on spreading good karma in your local and our global communities.
+
 
 <% if @product and @product.name %>
+
+  Thanks for donating <%= @profile['first_name'] %>
+  <br />
   Thanks for your recent purchase of <%= @product.name %>.
 <% end %>
 
