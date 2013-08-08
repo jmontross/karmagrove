@@ -51,8 +51,7 @@ Karmagrove::Application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   match 'about' => 'about#index'
-  match 'joy_coin_facts' => 'about#joy_coin'
-
+  match 'karma_coin_facts' => 'about#karma_coin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -24,7 +24,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=402764733175875";
+  js.src = "/auth/facebook/login";
   fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
    </script>
@@ -38,13 +38,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/"><%= image_tag("karma_grove_tree.jpg",:size => "100x100")  %> Karma Grove</a>
+        <a class="brand" href="/"> Karma Grove </a>
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Karma Coin Facts", "/karma_coin_facts" %></li>
             <li><%= link_to "Charities", "/charities" %></li>
             <li><%= link_to "Products", products_path %></li>
-            <li><%= link_to "Donations", products_path %></li>
+            <li><%= link_to "Donations", donations_path %></li>
             <li><%= link_to "About us", about_path  %></li>
             <!-- <li><%= link_to "Cart" %></li> -->
                 <!-- <div id="user_nav"> -->
