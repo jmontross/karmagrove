@@ -29,7 +29,7 @@ def index
 
   def grove
   #  @products = Product.all
-
+    @disable_sidebar = true
     respond_to do |format|
       format.html # joy_coin.html.erb
    #   format.json { render json: @products }
