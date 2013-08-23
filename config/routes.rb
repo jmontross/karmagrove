@@ -52,6 +52,7 @@ Karmagrove::Application.routes.draw do
 
   match 'about' => 'about#index'
   match 'karma_coin_facts' => 'about#karma_coin'
+  match 'grove' => 'about#grove'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
