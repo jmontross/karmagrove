@@ -1,5 +1,5 @@
 class Batch < ActiveRecord::Base
-  attr_accessible :batch_name, :sales, :state, :workflow_state
+  attr_accessible :batch_name, :sales, :workflow_state
   include Workflow
 
   workflow do
