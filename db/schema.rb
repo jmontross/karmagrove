@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808034832) do
+ActiveRecord::Schema.define(:version => 20131208205249) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -86,6 +86,19 @@ ActiveRecord::Schema.define(:version => 20130808034832) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
   end
+
+  create_table "charity_payments", :force => true do |t|
+    t.integer  "donation_id"
+    t.integer  "payment_reference"
+    t.string   "payment_provider"
+    t.integer  "charity_id"
+    t.string   "state"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "charity_payments", ["charity_id"], :name => "index_charity_payments_on_charity_id"
+  add_index "charity_payments", ["donation_id"], :name => "index_charity_payments_on_donation_id"
 
   create_table "donations", :force => true do |t|
     t.integer  "purchase_id"
