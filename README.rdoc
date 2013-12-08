@@ -1,3 +1,20 @@
 Karma Grove
 ================================================
 We are empowered to improve our world by donating the profits of a transaction. A portion of the money you exchange for a purchase goes right to a local charity of your choice.  We give exactly 50% of the profits from your sale where you choose. This is your right for buying anything from karma grove. We also give our the portion to charities we like, and we are transparent about where the money goes so you can help karma grow.
+
+Contribute - write code - tackle an issue from https://github.com/jmontross/karmagrove/issues
+
+Get some dummy data for development
+================================================
+bundle exec rake db:seed
+
+Run tests
+================================================
+Before running tests you need to migrate db
+bundle exec rake db:migrate
+
+To test everything
+bundle exec rspec spec
+
+To test models
+bundle exec rspec spec/models/
