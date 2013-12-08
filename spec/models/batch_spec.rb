@@ -18,6 +18,14 @@ describe Batch do
       @batch.state.should == 'closed'
     end
 
+    it "should be able to be cancelled and resumed" do
+      @batch.cancel!
+      @batch.current_state.to_s.should == 'cancelled'
+      # @batch.state.should == 'closed'
+      @batch.resume!
+      @batch.current_state.to_s.should == 'open'
+    end
+
     it "should not allow state other than open or closed" do
       @batch.state = "dead"
       @batch.current_state.to_s.should == "open"

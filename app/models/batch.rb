@@ -10,7 +10,7 @@ class Batch < ActiveRecord::Base
     state :closed do
       event :cancel, transition_to: :cancelled
     end
-    state :canceled do
+    state :cancelled do
       event :resume, transition_to: :open
     end
 
