@@ -9,12 +9,13 @@ We are empowered to improve our world by donating the profits of a transaction. 
 
 Quick Start
 ===========
-
+```
 git clone git@github.com:jmontross/karmagrove.git
 cd karmagrove
 bundle exec rake db:migrate
 bundle exec rake db:seed
 bundle exec rails s
+```
 
 Contribute
 ===========
