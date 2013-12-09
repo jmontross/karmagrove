@@ -1,7 +1,7 @@
 Karma Grove
 ===========
 
-This is [Karma Grove](www.karmagrove.com), an experiment in conscious capitalism
+This is [Karma Grove](www.karmagrove.com), an experiment in conscious commerce
 
 Mission
 ===========
