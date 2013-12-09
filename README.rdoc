@@ -24,7 +24,7 @@ tackle an issue from https://github.com/jmontross/karmagrove/issues
 
 Run tests
 ===========
-bundle exec rake db:migrate
+export RAILS_ENV=test;bundle exec rake db:migrate
 
 To test everything
 bundle exec rspec spec

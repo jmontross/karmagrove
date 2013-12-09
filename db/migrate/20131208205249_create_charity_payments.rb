@@ -5,7 +5,7 @@ class CreateCharityPayments < ActiveRecord::Migration
       t.string :payment_provider
       t.references :charity
       t.string :state
-
+      t.integer :amount
       t.timestamps
     end
 
