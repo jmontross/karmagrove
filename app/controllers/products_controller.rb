@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    if params["name"] && Product.find_by_name(params["name"]).nil? == false
+      puts params["name"]
+      @products = Product.find_all_by_name(params["name"])
+    end
 
     respond_to do |format|
       format.html # index.html.erb

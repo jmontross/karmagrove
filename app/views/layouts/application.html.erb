@@ -41,11 +41,10 @@
         <a class="brand" href="/"> Karma Grove </a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Karma Coin Facts", "/karma_coin_facts" %></li>
+            <li><%= link_to "Karma Coin Facts", "/Karma-Coin-Facts" %></li>
             <!-- <li><%= link_to "Charities",  "/charities" %></li> -->
-            <li><%= link_to "Products", products_path %></li>
-            <li><%= link_to "Donations", donations_path %></li>
-            <li><%= link_to "About us", about_path  %></li>
+            <li><%= link_to "Get Involved", "/Get-Involved" %></li>
+            <li><%= link_to "About", about_path  %></li>
             <!-- <li><%= link_to "Cart" %></li> -->
                 <!-- <div id="user_nav"> -->
     <% if user_signed_in? %>
@@ -82,23 +81,21 @@
         <%= yield %>
       </div>
       <% else %>
-      <div class="span9">
+      <div class="span8">
         <%= yield %>
       </div>
       <% end %>
 
 
       <% unless @disable_sidebar %>
-      <div class="span3">
-        <h2> Who Are We? </h2>
+      <div class="span4">
+        <!-- <h2> Who Are We? </h2> -->
           <p>
-          We enable conscious commerce.  80% of the would be profits go to charity:
+<!--           We enable conscious commerce.  80% of the would be profits go to charity:
           <ul>
-            <li>The customer has the right to decide where 50% of the profits go.  </li>
-            <li> Us karma grove workers choose where to give 30%</li>
-            <li> 10% is reserved for those helped bring the item to market. </li>
-            <li>That remaining 10% we save to expand the grove.  </li>
-          </ul>
+            <li> Half the profits are given by the buyer  </li>
+            <li> Thirty percent are given by the seller </li>
+          </ul> -->
           <%= image_tag("karma_grove_tree.jpg") %>
           </p>
           <% if user_signed_in? %>
