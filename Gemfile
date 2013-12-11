@@ -15,8 +15,9 @@ group :development do
 end
 
 group :production do
- # gem 'RMagick'
-  gem 'rmagick'
+ # specifically rmagick 2.12.2 works with ruby 1.9.3
+ # and supports ImageMagick v6.8
+  gem 'rmagick', '2.13.2'
   gem 'pg'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

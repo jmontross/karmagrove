@@ -70,11 +70,6 @@ ActiveRecord::Schema.define(:version => 20131209030710) do
     t.string   "state"
   end
 
-  create_table "buyers", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "charities", :force => true do |t|
     t.integer  "ein"
     t.string   "legal_name"
