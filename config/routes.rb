@@ -2,6 +2,10 @@ Karmagrove::Application.routes.draw do
 
   match 'auth/facebook/callback', to: 'sessions#create'
   match 'auth/facebook/login', to: 'sessions#login'
+
+  # resources :user :email_subscriber
+  match '/users/email-subscribe', to: 'users#email_subscribe'
+
   # match 'auth/failure', to: redirect('/')
   # match 'signout', to: 'sessions#destroy', as: 'signout'
 
@@ -54,7 +58,7 @@ Karmagrove::Application.routes.draw do
   match 'karma_coin_facts' => 'about#karma_coin'
   match 'Karma-Coin-Facts' => 'about#karma_coin'
   match 'grove' => 'about#grove'
-  match 'get_involved' => 'about#get_involved'
+  match 'Get-Involved' => 'about#get_involved'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

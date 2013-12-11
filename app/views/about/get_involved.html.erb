@@ -7,10 +7,18 @@
        Write some code - this website is open source <%= link_to "Karma Grove Source Code", "www.github.com/jmontross/karmagrove" %></li>
 </ul>
 
-<h1> Join our mailing list </h1>
-
+<h1> Why not join the Grove? </h1>
+<ul>
+  <strong>
+  <li> We will email you once per month showing what charities received donations </li>
+  <li> We will update you no more than once per month aside from the monthly donation email </li>
+  <li> We will never sell or share your email under any circumstances </li>
+</strong>
+</ul>
+<form action="/users/email-subscribe" method="post">
 <input type="text" name="email" text="valid email"> </input>
 <br />
-<button type="button"> email me updates </button>
+<input name="email-subscribe" type="submit" value="Grow My Karma!">
 <br />
-<small> We will never sell your email and promise not to harass you more than once a week <small>
+</form>
+

@@ -23,6 +23,11 @@ Contribute
 ===========
 tackle an issue from https://github.com/jmontross/karmagrove/issues
 
+Dependencies
+===========
+
+ruby 1.9.3 because it is not tested in 1.8.7
+image magick for the qr code generation
 
 Run tests
 ===========
