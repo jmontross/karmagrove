@@ -84,14 +84,14 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <%=  image_tag("photo1.jpg") %>
+       <%=  link_to image_tag("photo1.jpg"), "/Get-Involved" %>
       <div class="carousel-caption">
         <p>Each batch of Karma coins is meticulously made with whole ingredients, and then slow-roasted with love.</p>
       </div>
     </div>
 
     <div class="item">
-      <%=  image_tag("photo2.jpg") %>
+      <%=  link_to image_tag("photo2.jpg"), "/Karma-Coin-Facts" %>
       <div class="carousel-caption">
         <p> 30 at a time, the batches sizzle in The Sentinel's oven. The Sentinel is a cafe in the Santa Cruz mountains.</p>
       </div>
@@ -112,7 +112,8 @@
 $(document).ready(function(){
 
   $('.carousel').carousel({
-    interval: 6000
+    pause: "hover",
+    interval: 5500
   })
 })
 </script>
