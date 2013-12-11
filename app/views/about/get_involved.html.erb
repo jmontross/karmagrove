@@ -7,7 +7,9 @@
        Write some code - this website is open source <%= link_to "Karma Grove Source Code", "www.github.com/jmontross/karmagrove" %></li>
 </ul>
 
-<h1> Why not join the Grove? </h1>
+
+<!-- # todo make this and the grove.html.erb file a _partial so code is not duplicated -->
+<h1> Plant yourself in the grove </h1>
 <ul>
   <strong>
   <li> We will email you once per month showing what charities received donations </li>
@@ -16,9 +18,12 @@
 </strong>
 </ul>
 <form action="/users/email-subscribe" method="post">
-<input type="text" name="email" text="valid email"> </input>
+<input type="text" class="email" name="email" text="valid email" value="your email"> </input>
 <br />
 <input name="email-subscribe" type="submit" value="Grow My Karma!">
 <br />
+<!-- TODO - put this js in somewwheres... only make it nil if val is "your email"  -->
+<!-- $('.email').click(function(){ $('.email').val('') }); -->
+
 </form>
 

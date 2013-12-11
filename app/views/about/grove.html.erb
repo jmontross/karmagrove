@@ -136,6 +136,14 @@
   <div class="carousel-inner">
     <div class="item active">
       <%=  image_tag("maize_nuru_image.jpg") %>
+
+      <!--
+      #TODO - figure out way to make the caption at the top.
+      Remove the <p>Nourish your body </p> from the carousel caption.
+      <div class="carousel-caption" style="position-relative:top:0px">
+        <p>Nourish your body </p>
+      </div>
+       -->
       <div class="carousel-caption">
         <h2>
         <p>Nourish your body </p>
@@ -297,7 +305,7 @@ $(document).ready(function(){
 
 <div class="row">
    <div class="span12">
-   <h1> Care to join the revolution? </h1>
+   <h1> Join the revolution!</h1>
   </div>
 
    <div class="span12">
@@ -308,6 +316,23 @@ $(document).ready(function(){
 
 </div>
 
+<h1> Plant your seed and help karma grow </h1>
+<ul>
+  <strong>
+  <li> We will email you once per month showing what charities received donations </li>
+  <li> We will update you no more than once per month aside from the monthly donation email </li>
+  <li> We will never sell or share your email under any circumstances </li>
+</strong>
+</ul>
+<form action="/users/email-subscribe" method="post">
+<input type="text" class="email" name="email" text="valid email" value="your email"> </input>
+<br />
+<input name="email-subscribe" type="submit" value="Grow My Karma!">
+<br />
+<!-- TODO - put this js in somewwheres... only make it nil if val is "your email"  -->
+<!-- $('.email').click(function(){ $('.email').val('') }); -->
+
+</form>
 
 
 
