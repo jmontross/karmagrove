@@ -20,6 +20,7 @@ class CharityPayment < ActiveRecord::Base
     self.state = response.state
     self.save!
     if self.state == "cleared"
+      @charity.payment_notification
       return "success"
     else
       return "failure"

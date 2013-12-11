@@ -11,6 +11,9 @@ class Charity < ActiveRecord::Base
     self.donations.sum(:amount)
   end
 
+  def payment_notification
+    puts "imagine that an email is sent to the contact at the charity"
+  end
   # def balanced_customer
   #   customer.credit(:amount => 500, :description => "awesome credit")
   # end

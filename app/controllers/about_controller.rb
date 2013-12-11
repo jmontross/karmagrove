@@ -1,8 +1,15 @@
 class AboutController < ApplicationController
 
-def index
+  def index
   #  @products = Product.all
 
+    respond_to do |format|
+      format.html # index.html.erb
+   #   format.json { render json: @products }
+    end
+  end
+
+  def get_involved
     respond_to do |format|
       format.html # index.html.erb
    #   format.json { render json: @products }
