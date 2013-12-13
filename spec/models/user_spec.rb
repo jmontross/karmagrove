@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should allow a created user to begin as an email subsciber" do
+    u = User.create! :email => "foo@f.com", :password => "oasdafasdfa "
+    u.email_subscriber.should == false
+  end
 end
