@@ -28,16 +28,21 @@ class DonationsController < ApplicationController
     @disable_nav = true
     @disable_sidebar = true
     @batch_id = params[:batch_id]
-    @batch = Batch.find(@batch_id)
-    puts @batch_id
-    charity_ids = BatchCharity.where(:batch_id => @batch_id).map {|batch_charity| batch_charity.charity_id }
-    @charities = Charity.find(charity_ids)
-    @product_id = Product.where(:name => "Karma Coin").first.id
-    @purchase = Purchase.new(:product_id => @product_id,:batch_id => @batch_id, :retailer_id => 1)
-    @purchase.save
+    if Batch.exists? @batch_id
+      @batch = Batch.find(@batch_id)
+      puts @batch_id
+      charity_ids = BatchCharity.where(:batch_id => @batch_id).map {|batch_charity| batch_charity.charity_id }
+      @charities = Charity.find(charity_ids)
+      @product_id = Product.where(:name => "Karma Coin").first.id
+      @purchase = Purchase.new(:product_id => @product_id,:batch_id => @batch_id, :retailer_id => 1)
+      @purchase.save
+    else
+      @error = true
+
+    end
     respond_to do |format|
-      format.html
-      format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
+        format.html
+        format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
     end
   end
 
