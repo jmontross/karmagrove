@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require purchases
+//= require get_involved
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 

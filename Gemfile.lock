@@ -95,6 +95,8 @@ GEM
     jquery-rails (2.2.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-validation-rails (1.11.1)
+      thor (~> 0.14)
     json (1.7.6)
     jwt (0.1.8)
       multi_json (>= 1.5)
@@ -235,6 +237,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  jquery-validation-rails
   koala (~> 1.7.0rc1)
   less-rails
   mini_magick

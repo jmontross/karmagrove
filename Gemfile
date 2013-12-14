@@ -38,6 +38,7 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-validation-rails'
   gem "therubyracer"
   gem "less-rails"
   gem 'twitter-bootstrap-rails'

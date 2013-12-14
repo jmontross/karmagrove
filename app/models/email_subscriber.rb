@@ -1,5 +1,11 @@
 class EmailSubscriber < User
 
+  validates_presence_of :email
+  validates :email, format: { with: /\w+@\w+\.\w{2,3}/ }
+  validates :email, uniqueness: true
+
+
+
   # TODO: Put fancy validation so we can do EmailSubscriber.new("email@foo.com")
   # vaidates :presence_of :EmailSubscriber
   def self.subscribe(email)
