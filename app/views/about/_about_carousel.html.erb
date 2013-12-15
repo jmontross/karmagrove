@@ -28,19 +28,22 @@
 
 <script>
 $(document).ready(function(){
+
   $('.carousel').carousel({
     pause: "hover",
     interval: 10000,
     wrap: true
-  })
+  });
 
 
-  $(".carousel").swiperight(function() {
+  $('.carousel').swiperight(function() {
     $(".carousel").carousel('prev');
   });
-  $(".carousel").swipeleft(function() {
+
+  $('.carousel').swipeleft(function() {
     $(".carousel").carousel('next');
   });
+
 });
 </script>
 
