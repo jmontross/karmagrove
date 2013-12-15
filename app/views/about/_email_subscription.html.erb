@@ -6,6 +6,7 @@
       <li> We will never sell or share your email under any circumstances </li>
     </strong>
   </ul>
+  <div id="error-spot"></div>
   <form id="signup-form" action="/users/email-subscribe" method="post">
     <input type="text" class="email" name="email" text="valid email" placeholder="your email"> </input>
     <br />
@@ -31,7 +32,11 @@
         {
           event.preventDefault();
 
-          alert("Please enter a valid email address and continue.")
+          var errorAlert = "<div class='alert alert-info'><a href='#'' class='close' data-dismiss='alert'>&times;</a><p><strong>Email Invalid.</strong> Please enter a valid email address.</p></div>"
+
+          $("#error-spot").html(errorAlert)
+
+          // alert("Please enter a valid email address and continue.")
         }
 
       });
