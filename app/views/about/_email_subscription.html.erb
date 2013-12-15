@@ -1,0 +1,41 @@
+ <h1> Plant yourself in the grove </h1>
+   <ul>
+    <strong>
+      <li> We will email you once per month showing what charities received donations </li>
+      <li> We will update you no more than once per month aside from the monthly donation email </li>
+      <li> We will never sell or share your email under any circumstances </li>
+    </strong>
+  </ul>
+  <form id="signup-form" action="/users/email-subscribe" method="post">
+    <input type="text" class="email" name="email" text="valid email" placeholder="your email"> </input>
+    <br />
+    <input name="email-subscribe" type="submit" value="Grow My Karma!">
+    <br />
+  </form>
+
+    <script>
+
+    $(document).ready(function(){
+
+      $('#signup-form').submit(function(event){
+
+        var regEx = /[a-z0-9!#$%&'*+/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
+        var userInp = $(".email").val()
+
+        if (regEx.test(userInp))
+        {
+          console.log("signup successful")
+        }
+        else
+        {
+          event.preventDefault();
+
+          alert("Please enter a valid email address and continue.")
+        }
+
+      });
+
+    });
+
+    </script>
