@@ -13,6 +13,9 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
   <%= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js", "application" %>
+  <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js" %>
+<%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" %>
+
   <%= yield(:head) %>
   <%= csrf_meta_tags %>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">

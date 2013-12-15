@@ -7,6 +7,7 @@ gem 'omniauth-facebook'
 gem 'balanced'
 gem "koala", "~> 1.7.0rc1"
 gem "bitly"
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -38,7 +39,7 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-validation-rails'
+  # gem 'jquery-validation-rails'
   gem "therubyracer"
   gem "less-rails"
   gem 'twitter-bootstrap-rails'
@@ -48,8 +49,6 @@ group :test do
   gem 'rspec-rails'
 end
 
-
-gem 'jquery-rails'
 gem 'stripe'
 
 

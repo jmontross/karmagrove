@@ -3,27 +3,36 @@
   <li> <strong> Want hyperpalatable healthy snack? </strong><br /> <%= link_to "Buy some Karma Coins", "#{products_path}?name=Karma%20Coin"  %> or <%= link_to "anything on Karma Grove", products_path %> , give away the profits, and tell your friends </li>
   <li> <strong> Love to Cook? </strong> <br />
     <%= link_to "Make some Karma Coins", "/Karma-Coin-Recipe" %> and nourish those you love </li>
-  <li> <strong> Know how to program? </strong>  <br />
-       Write some code - this website is open source <%= link_to "Karma Grove Source Code", "www.github.com/jmontross/karmagrove" %></li>
-</ul>
+    <li> <strong> Know how to program? </strong>  <br />
+     Write some code - this website is open source <%= link_to "Karma Grove Source Code", "www.github.com/jmontross/karmagrove" %></li>
+   </ul>
 
 
-<!-- # todo make this and the grove.html.erb file a _partial so code is not duplicated -->
-<h1> Plant yourself in the grove </h1>
-<ul>
-  <strong>
-  <li> We will email you once per month showing what charities received donations </li>
-  <li> We will update you no more than once per month aside from the monthly donation email </li>
-  <li> We will never sell or share your email under any circumstances </li>
-</strong>
-</ul>
-<form action="/users/email-subscribe" method="post">
-<input type="text" class="email" name="email" text="valid email" placeholder="your email"> </input>
-<br />
-<input name="email-subscribe" type="submit" value="Grow My Karma!">
-<br />
-<!-- TODO - put this js in somewwheres... only make it nil if val is "your email"  -->
-<!-- $('.email').click(function(){ $('.email').val('') }); -->
+   <!-- # todo make this and the grove.html.erb file a _partial so code is not duplicated -->
+   <h1> Plant yourself in the grove </h1>
+   <ul>
+    <strong>
+      <li> We will email you once per month showing what charities received donations </li>
+      <li> We will update you no more than once per month aside from the monthly donation email </li>
+      <li> We will never sell or share your email under any circumstances </li>
+    </strong>
+  </ul>
+  <form id="email-sign-up" action="/users/email-subscribe" method="post">
+    <input type="text" class="name" name="name" placeholder="Your First Name"> </input>
+    <input type="text" class="email" name="email" placeholder="Your E-Mail Address"> </input>
+    <br />
+    <input name="email-subscribe" type="submit" value="Grow My Karma!">
+    <br />
+    <!-- TODO - put this js in somewwheres... only make it nil if val is "your email"  -->
+    <!-- $('.email').click(function(){ $('.email').val('') }); -->
 
-</form>
+  </form>
+
+  <%= form_for("ryan", :url => "/users/email-subscribe", :html => { :id => "signupForm"} ) do |f| %>
+
+    <%= f.label :email, "All we need is your email address:" %>
+    <%= f.text_field :email, :value => "you@site.com" %>
+    <button type="submit">Sign Up</button>
+
+<% end -%>
 
