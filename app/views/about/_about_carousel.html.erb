@@ -1,0 +1,50 @@
+<br />
+
+<div id="about-carousel" class="carousel slide" data-ride="carousel">
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+     <%=  link_to image_tag("photo1.jpg"), "/Get-Involved" %>
+     <div class="carousel-caption">
+      <p>Each batch of Karma coins is meticulously made with whole ingredients, and then slow-roasted with love.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <%=  link_to image_tag("photo2.jpg"), "/Karma-Coin-Facts" %>
+    <div class="carousel-caption">
+      <p> 30 at a time, the batches sizzle in The Sentinel's oven. The Sentinel is a cafe in the Santa Cruz mountains.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Controls -->
+<a class="carousel-control left" href="#about-carousel" data-slide="prev">&lsaquo;
+</a>
+<a class="carousel-control right" href="#about-carousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<script>
+$(document).ready(function(){
+
+  $('.carousel').carousel({
+    pause: "hover",
+    interval: 10000,
+    wrap: true
+  });
+
+
+  $('.carousel').swiperight(function() {
+    $(".carousel").carousel('prev');
+  });
+
+  $('.carousel').swipeleft(function() {
+    $(".carousel").carousel('next');
+  });
+
+});
+</script>
+
+<br />
