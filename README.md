@@ -19,6 +19,24 @@ $ bundle exec rake db:seed
 $ bundle exec rails s
 ```
 
+Quick Start with vagrant
+===========
+
+This is a work in progress and describes the ideal.
+A vagrant file is provided
+ubuntu 12.04 if you want OS that is tested
+for info see vagrantup.com
+
+````
+git clone git@github.com:jmontross/karmagrove.git
+vagrant up
+````
+You should be able to access the application on
+localhost:8081
+or
+localhost:8082 for https
+
+
 Contribute
 ===========
 tackle an issue from https://github.com/jmontross/karmagrove/issues
@@ -46,3 +64,4 @@ To test models
 ```
 $ bundle exec rspec spec/models/
 ```
+
