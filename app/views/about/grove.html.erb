@@ -165,13 +165,11 @@
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#about-carousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#about-carousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+<a class="carousel-control left" href="#about-carousel" data-slide="prev">&lsaquo;
+</a>
+<a class="carousel-control right" href="#about-carousel" data-slide="next">&rsaquo;</a>
 </div>
+
 
 <script>
 $(document).ready(function(){
@@ -324,15 +322,10 @@ $(document).ready(function(){
   <li> We will never sell or share your email under any circumstances </li>
 </strong>
 </ul>
-<form action="/users/email-subscribe" method="post">
-<input type="text" class="email" name="email" text="valid email" placeholder="your email"> </input>
-<br />
-<input name="email-subscribe" type="submit" value="Grow My Karma!">
-<br />
-<!-- TODO - put this js in somewwheres... only make it nil if val is "your email"  -->
-<!-- $('.email').click(function(){ $('.email').val('') }); -->
 
-</form>
+<br />
+
+<%= render "about/email_subscription" %>
 
 
 
