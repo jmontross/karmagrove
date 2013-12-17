@@ -1,7 +1,7 @@
 Karma Grove
 ===========
 
-This is [Karma Grove](www.karmagrove.com), an experiment in conscious commerce
+This is [Karma Grove](http://www.karmagrove.com), an experiment in conscious commerce
 
 Mission
 ===========
@@ -40,6 +40,7 @@ localhost:8082 for https
 Contribute
 ===========
 tackle an issue from https://github.com/jmontross/karmagrove/issues
+Join hipchat https://www.hipchat.com/invite/80443/cb97666cdcc40d22c4ffff1b0e9dc76b"
 
 Dependencies
 ===========
