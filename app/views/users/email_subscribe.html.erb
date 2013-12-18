@@ -5,7 +5,8 @@
 <h2> <%= @email %> </h2>
 
 Update it below if you would like.
-  <form id="signup-form" action="/users/email-subscribe" method="post">
+  <form id="signup-form" action="/users/email-subscribe/update" method="post">
+    <input type="hidden" class="id" name="id" value="<%= @user.id %>"> </input>
     <input type="text" class="email" name="email" text="valid email" placeholder="<%= @email %>"> </input>
     <br />
     <input name="email-subscribe" type="submit" value="Update My Email">

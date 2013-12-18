@@ -5,6 +5,7 @@ Karmagrove::Application.routes.draw do
 
   # resources :user :email_subscriber
   match '/users/email-subscribe', to: 'users#email_subscribe'
+  match '/users/email-subscribe/update', to: 'users#email_subscribe_update'
 
   # match 'auth/failure', to: redirect('/')
   # match 'signout', to: 'sessions#destroy', as: 'signout'
