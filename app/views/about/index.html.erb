@@ -79,18 +79,18 @@
 
 <h2> Copyright Information </h2>
 <p>
-  For Karma Grove's licensing information <a class="modal-popup" data-toggle="modal" data-target="#myModal">
+  For Karma Grove's licensing information <a class="modal-popup" data-controls-modal="your_div_id" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#copyright-modal">
     <b>click here</b>
   </a>.
 </p>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="copyright-modal" tabindex="-1" role="dialog" aria-labelledby="copyright-modalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">
+        <h4 class="modal-title" id="copyright-modalLabel">
           Karma Grove Copyright Information
         </h4>
       </div>
@@ -105,3 +105,9 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<style>
+.modal-backdrop.fade.in {
+opacity: 0.2;
+}
+</style>
