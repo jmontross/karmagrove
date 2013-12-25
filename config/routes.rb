@@ -52,12 +52,13 @@ Karmagrove::Application.routes.draw do
 
   root :to => "about#grove"
 
-
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   match 'about' => 'about#index'
   match 'karma_coin_facts' => 'about#karma_coin'
   match 'Karma-Coin-Facts' => 'about#karma_coin'
+  match 'Karma-Coin' => 'about#karma_coin'
+  match 'KarmaCoin' => 'about#karma_coin'
   match 'grove' => 'about#grove'
   match 'Get-Involved' => 'about#get_involved'
 
