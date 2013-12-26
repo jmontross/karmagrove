@@ -15,8 +15,6 @@
 
   <h2> You are purchasing <%= @product.name %> </h2>
 
-  <% if user_signed_in? %>
-
   <%= f.hidden_field :buyer_id %>
   <%= f.hidden_field :id %>
 
@@ -25,10 +23,11 @@
     <%= product.hidden_field :id, :value => @product.id %>
   <% end %>
 
-
+  <% if current_user %>
   <%= fields_for :user do |buyer| %>
     <%= buyer.hidden_field :email, :value => current_user.email %>
   <% end %>
+  <%end %>
 
 
   <div class="field">
@@ -45,31 +44,12 @@
     <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
   </div>
 
-
-  <% else %>
-  You must <%= link_to "create an account", "/users/sign_up" %>  or  <%= link_to "sign in", "/users/login" %> to make a purchase.
-<!--
-<h2>Sign up</h2>
-
-<%= form_for(:user, :as => "user", :url => "/users") do |f| %>
-
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
- -->
-<% end %>
-
-
-
-
+  <% unless current_user %>
+    <%= fields_for :user do |buyer| %>
+    <%= label_tag :email, "Your email " %>
+    <%= text_field_tag :email, nil, name: nil %>
+    <% end %>
   <% end %>
-
    <div id="stripe_error">
     <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
   </div>

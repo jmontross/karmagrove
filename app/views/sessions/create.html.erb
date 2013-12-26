@@ -10,7 +10,10 @@
   Thanks for your recent purchase of <%= @product.name %>.
 <% end %>
 
-<% if @purchases and @purchases.count %>
-  You have made <%= @purchases.count%> purchases on karma grove.
 
+
+<% if @purchases and @purchases.count and @user %>
+  You have made <%= link_to "#{@purchases.count} purchases", "/purchases/user=#{@user.id}" %> on Karma Grove.
+<% elsif @purchases and @purchases.count  %>
+  You have made <%= purchases.count %> on Karma Grove.
 <% end %>
