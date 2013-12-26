@@ -149,4 +149,10 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder options (default is {})
   # config.csv_options = {}
+
+config.clear_stylesheets!
+config.register_stylesheet 'admin/active_admin.css'
+
+config.clear_javascripts!
+config.register_javascript 'admin/active_admin.js'
 end

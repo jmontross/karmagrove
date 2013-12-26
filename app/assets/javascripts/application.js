@@ -14,5 +14,15 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require purchases
-//= require_tree .
+//= require bootstrap
+//= require batch_charities
+//= require batches
+//= require charities
+//= require donations
+//= require facebook
+//= require products
+//= require donations
+//= require batches
+//= require_directory .
+
 
