@@ -43,7 +43,9 @@ module Karmagrove
     config.active_support.escape_html_entities_in_json = true
 
     #  for heroku to precompile for us...
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
+    # The above needs to be true I think..... Joshua .. images are not serving.
+
     config.serve_static_assets = true
     # config.assets.compile = true
     config.assets.precompile += %w( purchases.js *.js *.css *.js.coffee purchases.js.coffee)
