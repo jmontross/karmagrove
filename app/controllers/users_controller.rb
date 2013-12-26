@@ -18,8 +18,10 @@ class UsersController < InheritedResources::Base
     @email = params[:email]
     if User.exists?(:id => params[:id])
       @user = User.find params[:id]
+
     end
     if @user
+      if @email == "" then @email = @user.email end
       @user, @status = EmailSubscriber.update @user.id, @email
       @status
     end

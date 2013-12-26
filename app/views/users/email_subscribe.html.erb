@@ -14,7 +14,6 @@ Update it below if you would like.
   </form>
 
 
-<%= link_to "Connect with Facebook", "/auth/facebook/login?donation_id=#{@user.id}", id: "sign_in" %>
-
+<%= render "users/facebook_login" %>
 
 <!-- ## TODO : Make this page redisplay email and give them option to update it... -->
