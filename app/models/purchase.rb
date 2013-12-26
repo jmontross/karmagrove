@@ -11,6 +11,8 @@ class Purchase < ActiveRecord::Base
 
   ## final purchase price is for auction only....
 
+  ## Validate here that the batch is not closed before allowing a purchase of a batch that is done....
+
   include Workflow
   workflow do
     state :physical_sale

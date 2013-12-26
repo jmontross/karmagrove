@@ -1,5 +1,5 @@
 class Batch < ActiveRecord::Base
-  attr_accessible :batch_name, :sales, :workflow_state
+  attr_accessible :batch_name, :sales, :workflow_state, :state
   include Workflow
 
   workflow do
@@ -17,7 +17,7 @@ class Batch < ActiveRecord::Base
     state :shipped
   end
 
-  def initialize(arg1,arg2)
+  def initialize(arg1,arg2=nil)
     super(arg1,arg2)
     @batch = self
     self.state = "open"
@@ -27,6 +27,10 @@ class Batch < ActiveRecord::Base
   def close
      @batch.state = "closed"
      @batch.save
+  end
+
+  def new_purchase(product_id)
+    Purchase.new(:batch_id => self.batch_id, :product_id => product_id)
   end
 
   # def close(allowed_to_close = true)
