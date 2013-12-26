@@ -1,15 +1,10 @@
-
-
 <img src="<%= @profile_path %>"> </img> Welcome to the grove <%= @profile['first_name'] %>. <br/ > We are a marketplace focused on spreading good karma in your local and our global communities.
 
-
 <% if @product and @product.name %>
-
   Thanks for donating <%= @profile['first_name'] %>
   <br />
   Thanks for your recent purchase of <%= @product.name %>.
 <% end %>
-
 
 
 <% if @purchases and @purchases.count and @user %>
@@ -17,3 +12,11 @@
 <% elsif @purchases and @purchases.count  %>
   You have made <%= purchases.count %> on Karma Grove.
 <% end %>
+
+<h2> Would you like to  <%= link_to "buy some Karma Coins??", "/products?name=Karma Coin" %>   </h2>
+
+<h1> Coming soon </h1>
+
+<h2> Would you like to post anything to your local marketplace?  </h2>
+
+<h2> Browse the marketplace </h2>
