@@ -32,7 +32,7 @@ end
 # GET /products/new.json
   def new
     @product = Product.find(params[:product_id])
-    @purchase = Purchase.new
+    @purchase = Purchase.new(:product_id => @product.id)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @purchase }
