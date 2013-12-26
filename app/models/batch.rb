@@ -30,7 +30,7 @@ class Batch < ActiveRecord::Base
   end
 
   def new_purchase(product_id)
-    Purchase.new(:batch_id => self.batch_id, :product_id => product_id)
+    Purchase.new(:batch_id => self.id, :product_id => product_id)
   end
 
   # def close(allowed_to_close = true)

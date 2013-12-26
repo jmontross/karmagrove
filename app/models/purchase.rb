@@ -20,6 +20,20 @@ class Purchase < ActiveRecord::Base
     state :completed
   end
 
+
+  ## TODO - does this make sense?  to ahndle here in intialize?  RYAN?
+  def initialize(arg1=nil,arg2=nil)
+    super(arg1,arg2)
+    @purchase = self
+    @purchase.state = "open"
+    @purchase.save
+    puts @purchase.batch_id
+    if @batch = Batch.find(@purchase.batch_id) and @batch.status == "closed"
+      return false
+    end
+    self
+  end
+
   validates_presence_of  :product_id
 
   def save_with_payment
