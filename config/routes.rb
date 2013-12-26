@@ -19,6 +19,8 @@ Karmagrove::Application.routes.draw do
   #   get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   # end
 
+  resources :charities
+
   resources :batch_charities
 
   resources :batches
