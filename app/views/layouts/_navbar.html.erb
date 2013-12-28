@@ -35,13 +35,11 @@
             </a>
           </li>
           <% else %>
-          <!-- <li>   <%= link_to "Sign up", new_user_registration_path %>   </li> -->
-          <li class="dropdown">
-            <%= link_to "Sign In", new_user_session_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
-            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-              <%= render "devise/sessions/new" %>
-            </div>
+             <li>
+          <%= link_to "Market", "/markets" %>
           </li>
+
+
 
           <% flash.each do |name, msg| %>
 
@@ -87,7 +85,7 @@
       </div> <!-- .nav-collapse -->
     </div> <!-- .container -->
   </div><!--  .nav-inner -->
-</div>
+</div> <!-- navbar-fixed-top -->
 <% end %>
 <style type='text/css'>
 .gsc-control-cse {

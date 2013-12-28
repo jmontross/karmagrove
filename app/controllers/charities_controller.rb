@@ -25,4 +25,14 @@ class CharitiesController < ApplicationController
       end
     end
   end
+
+  def show
+    @charity = Charity.find params[:id]
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @purchase }
+    end
+  end
+
+
 end

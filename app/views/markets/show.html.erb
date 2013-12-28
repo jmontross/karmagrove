@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Country:</b>
+  <%= @market.country %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @market.state %>
+</p>
+
+<p>
+  <b>County:</b>
+  <%= @market.county %>
+</p>
+
+<p>
+  <b>District:</b>
+  <%= @market.district %>
+</p>
+
+<p>
+  <b>Intersection:</b>
+  <%= @market.intersection %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @market.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_market_path(@market) %> |
+<%= link_to 'Back', markets_path %>

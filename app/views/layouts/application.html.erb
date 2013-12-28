@@ -32,8 +32,6 @@
 <%= render "layouts/navbar"%>
 
     <div class="container">
-
-
       <div class="row">
         <% if @disable_sidebar %>
         <div class="span12">
@@ -45,28 +43,27 @@
         </div>
         <% end %>
 
-
         <% unless @disable_sidebar %>
-        <div class="span4">
-          <!-- <h2> Who Are We? </h2> -->
-          <p>
-<!--           We enable conscious commerce.  80% of the would be profits go to charity:
-          <ul>
-            <li> Half the profits are given by the buyer  </li>
-            <li> Thirty percent are given by the seller </li>
-          </ul> -->
-          <%= image_tag("karma_grove_tree.jpg") %>
-        </p>
-        <% if user_signed_in? %>
-        <p>
+          <div class="span4">
+            <!-- <h2> Who Are We? </h2> -->
+            <p>
+<!--             We enable conscious commerce.  80% of the would be profits go to charity:
+            <ul>
+              <li> Half the profits are given by the buyer  </li>
+              <li> Thirty percent are given by the seller </li>
+            </ul> -->
+            <%= image_tag("karma_grove_tree.jpg", :class => "karmatree") %>
+            </p>
+            <% if user_signed_in? %>
+            <p>
           We want you to help <%= current_user.email %>
           Tell your friends about how you are giving while making purchases.
-        </p>
+            </p>
+            <% end %>
+          </div>
         <% end %>
       </div>
-      <% end %>
     </div>
-  </div>
     <%= render 'layouts/footer' %>
 </body>
 </html>
