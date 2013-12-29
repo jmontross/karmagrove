@@ -4,6 +4,17 @@
 <br>
 <h2> Choose the charity who benefits from your purchase </h2>
 
+<% if @charities.nil? %>
+
+Hmm.. the charities dont seem to be set up.
+Feel free to look around or check out a batch with charities...
+
+<% @batch_charities.each do |batch_charity| %>
+  <% link_to "other charity", "/donations/#{batch_charity.charity_id}" %>
+<% end %>
+
+<% else %>
+
 <% @charities.each do |charity| %>
 <br />
 <a href="/batches/<%=@batch.id%>/donations/<%=charity.id%>/purchases/<%=@purchase.id%>/update"> <button class="btn btn-large btn-block" type="button">
@@ -22,4 +33,5 @@
 
 </button>
 </a>
+<% end %>
 <% end %>
