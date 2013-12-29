@@ -51,13 +51,22 @@ module Karmagrove
     # config.assets.precompile += %w( my.css )
 
 
+    # config.clear_javascripts!
+    # config.clear_stylesheets!
+
+  #   config.register_javascript 'active_admin/admin.js'
+  #   config.register_stylesheet 'active_admin/admin.css'
+
+  # # register plugin js/css, located in vendor/assets
+  #   config.register_javascript 'plugin/plugin.js'
+  #   config.register_stylesheet 'plugin/style.css'
 
     config.serve_static_assets = true
     # config.assets.compile = true
     config.assets.precompile += %w( purchases.js *.js *.css *.js.coffee purchases.js.coffee active_admin.css active_admin.js )
 
 
-    config.assets.precompile
+    # config.assets.precompile
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -71,11 +80,14 @@ module Karmagrove
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true
+    config.assets.enabled = false
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
     config.assets.precompile += %w(admin/active_admin.css admin/active_admin.js)
+    config.assets.precompile += %w( frontend.css frontend.js active_admin.css active_admin.js _base.css base.css)
+    config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
+    # Rails.application.assets.each_logical_path { |asset_path| puts asset_path if precompile.any? { |rule| rule === asset_path } }; nil
   end
 end

@@ -320,6 +320,7 @@ $(document).ready(function(){
   </div>
 </div>
  <hr />
+
 <div class="row">
 
 
@@ -334,30 +335,16 @@ $(document).ready(function(){
   </div>
 </div>
 
-  <div class="row">
-   <div class="span12">
-   <h1> <a href="/products?name=Karma%20Coin"> Share some karma ; eat a tasty treat </a> </h1>
 <div class="row">
-  <div class="span4">
-  </div>
-  <div class="span4">
-
-    <%= image_tag("karmabar.jpg", :link => '/products?name=Karma%20Coin') %>
-  </div>
-  <div class="span4">
-  </div>
-
+    <div class="span6">
+      <h1> <a href="/products?name=Karma%20Coin"> Buy tasty Karma Coins <br /> <br /> Give the profits </a> </h1>
+    </div>
+    <div class="span6">
+      <%= image_tag("karmabar.jpg", :link => '/products?name=Karma%20Coin') %>
+    </div>
 </div>
 
-  </div>
 
-   <div class="span12">
-  <form>
-
-  </form>
-  </div>
-
-</div>
 
 
 <%= render "about/email_subscription" %>
