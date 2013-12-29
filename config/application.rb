@@ -54,11 +54,10 @@ module Karmagrove
 
     config.serve_static_assets = true
     # config.assets.compile = true
-    config.assets.precompile += %w( purchases.js *.js *.css *.js.coffee purchases.js.coffee)
-    # fix the active admin stuff
-    config.assets.precompile += ['active_admin.css', 'active_admin.js']
+    config.assets.precompile += %w( purchases.js *.js *.css *.js.coffee purchases.js.coffee active_admin.css active_admin.js )
 
-    # config.assets.precompile
+
+    config.assets.precompile
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -77,6 +76,6 @@ module Karmagrove
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.precompile += %w[admin/active_admin.css admin/active_admin.js]
+    config.assets.precompile += %w(admin/active_admin.css admin/active_admin.js)
   end
 end
