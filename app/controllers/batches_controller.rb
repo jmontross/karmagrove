@@ -2,9 +2,16 @@ class BatchesController < InheritedResources::Base
 
 
   def show
+    Logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+
+    Logger.tagged("BCX") { Logger.info "Stuff" }
+    puts "FUCK YEA"
+    Rails.logger.info "fuck yea"
     @batch = Batch.find(params[:id])
+    @id = params[:id]
     puts params[:id]
     charity_ids = BatchCharity.where(:batch_id => params[:id].to_i).map {|batch_charity| batch_charity.charity_id }
+    @charity_ids = charity_ids
     @charities = Charity.find(charity_ids)
     if @charities.nil?
       @charities = Charity.find [99837, 99838, 99839]
@@ -21,7 +28,14 @@ class BatchesController < InheritedResources::Base
   end
 
   def donate
+    puts "FUCK YEA"
+    puts "FUCK Yar"
+    Logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+
+Logger.tagged("BCX") { Logger.info "Stuff" }
     @batch = Batch.find(params[:id])
+    @batch = Batch.find(params[:id])
+    @id = params[:id]
     puts params[:id]
     charity_ids = BatchCharity.where(:batch_id => params[:id].to_i).map {|batch_charity| batch_charity.charity_id }
     # puts "charity_ids = #{charity_ids}"

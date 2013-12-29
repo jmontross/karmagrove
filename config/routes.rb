@@ -28,8 +28,6 @@ Karmagrove::Application.routes.draw do
 
   resources :batch_charities
 
-  resources :batches
-
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -40,7 +38,7 @@ Karmagrove::Application.routes.draw do
     resources :purchases
   end
 
-  resources :batches
+  # resources :batches
 
   resources :batches do
     resources :donations do
@@ -51,7 +49,7 @@ Karmagrove::Application.routes.draw do
   match "/batches/:batch_id/donations/:donation_id/purchases/:purchase_id/update" => "purchases#update"
 
   #"/batches/1/donations/1/purchases/4/update"
-  # match 'batch/#{id}/donate' => "batch#donate"
+  match 'batch/#{id}/donation/new' => "batch#donate"
 
   resources :donations do
     resources :purchases
