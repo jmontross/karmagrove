@@ -37,4 +37,6 @@ Karmagrove::Application.configure do
 
   # devise mailer config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # config.balanced_api
 end

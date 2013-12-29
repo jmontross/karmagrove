@@ -43,12 +43,21 @@ module Karmagrove
     config.active_support.escape_html_entities_in_json = true
 
     #  for heroku to precompile for us...
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
+
     # The above needs to be true I think..... Joshua .. images are not serving.
+    # http://stackoverflow.com/questions/9095249/undefined-mixin-global-reset-when-deploying-to-heroku
+    # config.assets.initialize_on_precompile = false
+    # config.assets.precompile += %w( my.css )
+
+
 
     config.serve_static_assets = true
     # config.assets.compile = true
     config.assets.precompile += %w( purchases.js *.js *.css *.js.coffee purchases.js.coffee)
+    # fix the active admin stuff
+    config.assets.precompile += ['active_admin.css', 'active_admin.js']
+
     # config.assets.precompile
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
