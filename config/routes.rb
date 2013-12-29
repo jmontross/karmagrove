@@ -1,5 +1,8 @@
 Karmagrove::Application.routes.draw do
 
+  resources :markets
+
+
   match 'auth/facebook/callback', to: 'sessions#create'
   match 'auth/facebook/login', to: 'sessions#login'
 
@@ -20,6 +23,8 @@ Karmagrove::Application.routes.draw do
   # end
 
   resources :charities
+
+  resources :markets
 
   resources :batch_charities
 

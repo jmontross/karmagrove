@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213151838) do
+ActiveRecord::Schema.define(:version => 20131228050920) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -93,9 +93,9 @@ ActiveRecord::Schema.define(:version => 20131213151838) do
     t.string   "payment_provider"
     t.integer  "charity_id"
     t.string   "state"
-    t.integer  "amount"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.decimal  "amount",            :precision => 8, :scale => 2
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   add_index "charity_payments", ["charity_id"], :name => "index_charity_payments_on_charity_id"
@@ -111,6 +111,17 @@ ActiveRecord::Schema.define(:version => 20131213151838) do
 
   add_index "donations", ["charity_id"], :name => "index_donations_on_charity_id"
   add_index "donations", ["purchase_id"], :name => "index_donations_on_purchase_id"
+
+  create_table "markets", :force => true do |t|
+    t.string   "country"
+    t.string   "state"
+    t.string   "county"
+    t.string   "district"
+    t.string   "intersection"
+    t.string   "address"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "products", :force => true do |t|
     t.string   "name"
