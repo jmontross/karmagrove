@@ -13,6 +13,7 @@ class DonationsController < ApplicationController
     end
 
     @batch_charities = BatchCharity.all
+    @batch.batch_products
     @product_id = Product.where(:name => "Karma Coin").first.id
     @purchase = Purchase.create(:product_id => @product_id)
     @disable_nav = true

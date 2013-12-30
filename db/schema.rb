@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131229224731) do
+ActiveRecord::Schema.define(:version => 20131229225209) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -54,14 +54,14 @@ ActiveRecord::Schema.define(:version => 20131229224731) do
   end
 
   create_table "batch_products", :force => true do |t|
-    t.integer  "batch_id_id"
-    t.integer  "product_id_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "batch_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "batch_products", ["batch_id_id"], :name => "index_batch_products_on_batch_id_id"
-  add_index "batch_products", ["product_id_id"], :name => "index_batch_products_on_product_id_id"
+  add_index "batch_products", ["batch_id"], :name => "index_batch_products_on_batch_id"
+  add_index "batch_products", ["product_id"], :name => "index_batch_products_on_product_id"
 
   create_table "batch_users", :force => true do |t|
     t.integer  "user_id_id"
@@ -78,11 +78,6 @@ ActiveRecord::Schema.define(:version => 20131229224731) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "state"
-  end
-
-  create_table "buyers", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "charities", :force => true do |t|
@@ -103,9 +98,9 @@ ActiveRecord::Schema.define(:version => 20131229224731) do
     t.string   "payment_provider"
     t.integer  "charity_id"
     t.string   "state"
-    t.decimal  "amount",            :precision => 8, :scale => 2
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.integer  "amount"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   add_index "charity_payments", ["charity_id"], :name => "index_charity_payments_on_charity_id"

@@ -1,5 +1,8 @@
 class Batch < ActiveRecord::Base
   attr_accessible :batch_name, :sales, :workflow_state, :state
+  has_many :batch_products
+  has_many :batch_charities
+
   include Workflow
 
   workflow do
