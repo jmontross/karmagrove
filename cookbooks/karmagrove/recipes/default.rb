@@ -63,3 +63,9 @@ script "install dependencies for kg" do
   EOH
   ignore_failure true
 end
+
+cookbook_file "/etc/nginx/sites-available/karmagrove" do
+  source "nginx-karmagrove"
+  mode 0644
+  # notifies nginx restart
+end
