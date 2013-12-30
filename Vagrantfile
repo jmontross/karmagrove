@@ -52,9 +52,9 @@ Vagrant::Config.run do |config|
   #
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "../my-recipes/cookbooks"
-    chef.roles_path = "../my-recipes/roles"
-    chef.data_bags_path = "../my-recipes/data_bags"
+    chef.cookbooks_path = "./cookbooks"
+    # chef.roles_path = "../my-recipes/roles"
+    # chef.data_bags_path = "../my-recipes/data_bags"
     chef.add_recipe "karmagrove"
 
 
