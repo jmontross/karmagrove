@@ -11,11 +11,12 @@
 execute "apt-get-update" do
   command "sudo apt-get update"
   ignore_failure true
-  action :nothing
+  action :run
 end
 
 # provides /var/lib/apt/periodic/update-success-stamp on apt-get update
 package "update-notifier-common" do
+  ignore_failure true
   notifies :run, resources(:execute => "apt-get-update"), :immediately
 end
 
@@ -30,19 +31,29 @@ execute "apt-get-update-periodic" do
 end
 
 # install lots of aptitude packages needed for it all to work.
-%w(git curl imagemagick nginx).each do |pkg|; package pkg; end
+%w(dpkg-dev build-essential nginx git curl ruby-bundler rubygems postgresql-devel).each do |pkg|; package pkg; end
 
-# sudo apt-get install imagemagick --fix-missing
-
-
-directory "/opt/karmagrove" do
-  action :create
+script "install dependencies for kg" do
+  interpreter "bash"
+  user "root"
+  # cwd "#{['p3node']['repo_dir']}"
+  # cwd "/opt/picarro/node.js"
+  code <<-EOH
+    sudo apt-get install imagemagick --fix-missing
+  EOH
+  ignore_failure true
 end
 
-git "/opt/karmagrove" do
+directory "/opt/www/karmagrove" do
+  action :create
+  recursive true
+end
+
+
+git "/opt/www/karmagrove" do
   user "root"
   group "root"
-  destination "/opt/karmagrove"
+  destination "/opt/www/karmagrove"
   # this is not a real repo.... where does reportgen
   repository "https://jmontross@github.com/jmontross/karmagrove.git"
   reference "master"
@@ -55,11 +66,12 @@ script "install dependencies for kg" do
   user "root"
   # cwd "#{['p3node']['repo_dir']}"
   # cwd "/opt/picarro/node.js"
-  cwd "/opt/karmagrove/karmagrove"
+  cwd "/opt/www/karmagrove"
   code <<-EOH
-     bundle install
-     bundle exec rake db:migrate
-     bundle exec rails s
+     sudo gem install bundler
+     sudo bundle install
+     sudo bundle exec rake db:migrate
+     sudo bundle exec rails s
   EOH
   ignore_failure true
 end
@@ -69,3 +81,59 @@ cookbook_file "/etc/nginx/sites-available/karmagrove" do
   mode 0644
   # notifies nginx restart
 end
+
+link "/etc/nginx/sites-enabled/karmagrove" do
+  to "/etc/nginx/sites-available/karmagrove"
+end
+
+service "nginx" do
+  supports :restart => true, :reload => true
+  action :restart
+end
+
+# Installing omniauth-facebook (1.4.1)
+
+# Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+
+#         /usr/bin/ruby1.8 extconf.rb
+# checking for pg_config... no
+# No pg_config... trying anyway. If building fails, please try again with
+#  --with-pg-config=/path/to/pg_config
+# checking for libpq-fe.h... no
+# Can't find the 'libpq-fe.h header
+# *** extconf.rb failed ***
+# Could not create Makefile due to some reason, probably lack of
+# necessary libraries and/or headers.  Check the mkmf.log file for more
+# details.  You may need configuration options.
+
+# Provided configuration options:
+#   --with-opt-dir
+#   --without-opt-dir
+#   --with-opt-include
+#   --without-opt-include=${opt-dir}/include
+#   --with-opt-lib
+#   --without-opt-lib=${opt-dir}/lib
+#   --with-make-prog
+#   --without-make-prog
+#   --srcdir=.
+#   --curdir
+#   --ruby=/usr/bin/ruby1.8
+#   --with-pg
+#   --without-pg
+#   --with-pg-dir
+#   --without-pg-dir
+#   --with-pg-include
+#   --without-pg-include=${pg-dir}/include
+#   --with-pg-lib
+#   --without-pg-lib=${pg-dir}/lib
+#   --with-pg-config
+#   --without-pg-config
+#   --with-pg_config
+#   --without-pg_config
+
+
+# Gem files will remain installed in /var/lib/gems/1.8/gems/pg-0.14.1 for inspection.
+# Results logged to /var/lib/gems/1.8/gems/pg-0.14.1/ext/gem_make.out
+
+# An error occurred while installing pg (0.14.1), and Bundler cannot continue.
+# Make sure that `gem install pg -v '0.14.1'` succeeds before bundling.

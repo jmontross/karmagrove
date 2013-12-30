@@ -24,7 +24,7 @@ Vagrant::Config.run do |config|
   # folder, and the third is the path on the host to the actual folder.
   #config.vm.share_folder "v-data", "/code", "/Users/joshua/code"
 
-  config.vm.share_folder "v-data", "/opt/kalani", "/Users/josh/code/kalani"
+  config.vm.share_folder "v-data", "/opt/karmagrove", "/opt/karmagrove"
 
 
   # The url from where the 'config.vm.box' box will be fetched if it
