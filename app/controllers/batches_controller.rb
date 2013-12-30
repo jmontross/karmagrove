@@ -2,11 +2,6 @@ class BatchesController < InheritedResources::Base
 
 
   def show
-    Logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
-
-    Logger.tagged("BCX") { Logger.info "Stuff" }
-    puts "FUCK YEA"
-    Rails.logger.info "fuck yea"
     @batch = Batch.find(params[:id])
     @id = params[:id]
     puts params[:id]
@@ -28,11 +23,6 @@ class BatchesController < InheritedResources::Base
   end
 
   def donate
-    puts "FUCK YEA"
-    puts "FUCK Yar"
-    Logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
-
-Logger.tagged("BCX") { Logger.info "Stuff" }
     @batch = Batch.find(params[:id])
     @batch = Batch.find(params[:id])
     @id = params[:id]
