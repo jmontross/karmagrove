@@ -21,6 +21,8 @@ product = Product.create!({
     :price => "2.00"
 })
 
+BatchProduct.create(:product_id => product.id, :batch_id => batch.id)
+
 Retailer.create!(:name => "Sentinel Cafe", :description => "The sentinel cafe is inside of Cruz.io in Santa Cruz")
 
 # product = Product.create!({
