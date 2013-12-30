@@ -26,6 +26,8 @@ This is a work in progress and describes the ideal.
 A vagrant file is provided
 ubuntu 12.04 if you want OS that is tested
 for info see vagrantup.com
+in short, gem install vagrant, install virtualbox, and get ubuntu 12.04 with
+vagrant box add precise64
 
 ````
 git clone git@github.com:jmontross/karmagrove.git
