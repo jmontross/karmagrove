@@ -40,6 +40,7 @@ script "install dependencies for kg" do
   # cwd "/opt/picarro/node.js"
   code <<-EOH
     sudo apt-get install imagemagick --fix-missing
+    sudo apt-get install postgresql postgresql-server-dev-9.1
   EOH
   ignore_failure true
 end
@@ -90,3 +91,21 @@ service "nginx" do
   supports :restart => true, :reload => true
   action :restart
 end
+
+# Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+
+#         /usr/bin/ruby1.8 extconf.rb
+# checking for pg_config... no
+# No pg_config... trying anyway. If building fails, please try again with
+#  --with-pg-config=/path/to/pg_config
+# checking for libpq-fe.h... no
+# Can't find the 'libpq-fe.h header
+# *** extconf.rb failed ***
+# Could not create Makefile due to some reason, probably lack of
+# necessary libraries and/or headers.  Check the mkmf.log file for more
+# details.  You may need configuration options.
+
+
+# gem install pg -- --with-pg-config=/usr/pgsql-9.1/bin/pg_config
+
+# sudo apt-get install postgresql postgresql-server-dev-9.1
