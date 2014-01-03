@@ -5,6 +5,4 @@ class Donation < ActiveRecord::Base
 
   attr_accessible :amount, :charity_id, :donation_id, :donation_date, :purchase_id, :charity_payment_id
 
-
-
 end
