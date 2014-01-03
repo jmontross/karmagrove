@@ -12,6 +12,7 @@ gem "bitly"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development do
   gem 'sqlite3'
+  gem 'vagrant', '1.0.6'
 end
 
 group :production do
