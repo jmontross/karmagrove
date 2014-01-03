@@ -31,7 +31,7 @@ execute "apt-get-update-periodic" do
 end
 
 # install lots of aptitude packages needed for it all to work.
-%w(dpkg-dev build-essential nginx git curl ruby-bundler rubygems postgresql-devel).each do |pkg|; package pkg; end
+%w(dpkg-dev build-essential nginx git curl ruby-bundler rubygems).each do |pkg|; package pkg; end
 
 script "install dependencies for kg" do
   interpreter "bash"
