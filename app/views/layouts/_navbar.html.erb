@@ -10,8 +10,21 @@
       <a class="brand" href="/"> Karma Grove </a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li>
-            <%= link_to "Karma Coin", "/Karma-Coin" %>
+          <li class="dropdown">
+            <%= link_to "Karma Coins", "/Karma-Coin", class: "dropdown-toggle", "data-toggle" => "dropdown", id: "drop1", role: "button" %>
+            <ul class="dropdown-menu" role="menu", aria-labelledby="drop1">
+              <li>
+                <%= link_to "What Are They?", "/Karma-Coin" %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Buy Karma Coins", "/products?name=Karma Coin" %>
+              </li>
+              <li class="divider"></li>
+               <li>
+                <%= link_to "Nutrition Facts", "#" %>
+              </li>
+            </ul>
           </li>
           <!-- <li><%= link_to "Charities",  "/charities" %></li> -->
           <li><%= link_to "Get Involved", "/Get-Involved" %>
@@ -35,8 +48,8 @@
             </a>
           </li>
           <% else %>
-             <li>
-          <%= link_to "Market", "/markets" %>
+          <li>
+            <%= link_to "Market", "/markets" %>
           </li>
 
 
@@ -107,6 +120,10 @@ input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:
   background-image: none;
   filter: none;
 
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 .gsc-tabHeader.gsc-tabhInactive {
   border-color: #FF9900;

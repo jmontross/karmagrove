@@ -6,6 +6,11 @@ ol.dict {
   margin-left: 50px;
 }
 
+table.table-condensed {
+width: 50%;
+margin-left: 20px;
+}
+
 .modal-backdrop.fade.in {
   opacity: 0.2;
 }
@@ -22,7 +27,7 @@ p {
   border: 1px solid black;
   margin: 20px;
   float: left;
-  width: 300px;
+  width: 320px;
   padding: 0.5rem;
   table {
     border-collapse: collapse;
