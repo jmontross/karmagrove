@@ -11,6 +11,14 @@ width: 50%;
 margin-left: 20px;
 }
 
+.table-header{
+  padding-left: 10px;
+}
+
+table.table-condensed tr > td:not(.table-header){
+padding-left: 20px;
+}
+
 .modal-backdrop.fade.in {
   opacity: 0.2;
 }
