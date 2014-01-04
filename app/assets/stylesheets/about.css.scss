@@ -6,19 +6,6 @@ ol.dict {
   margin-left: 50px;
 }
 
-table.table-condensed {
-width: 50%;
-margin-left: 20px;
-}
-
-.table-header{
-  padding-left: 10px;
-}
-
-table.table-condensed tr > td:not(.table-header){
-padding-left: 20px;
-}
-
 .modal-backdrop.fade.in {
   opacity: 0.2;
 }
@@ -30,6 +17,8 @@ body {
 p {
   margin: 0;
 }
+
+// Nutrition Facts Table
 
 .performance-facts {
   border: 1px solid black;
@@ -61,6 +50,7 @@ p {
       border: 0;
     }
   }
+
   th, td {
     font-weight: normal;
     text-align: left;
@@ -131,3 +121,41 @@ p {
 .thin-end {
   border-bottom: 1px solid black;
 }
+
+// Ingredients Table
+
+table.table-condensed {
+width: 50%;
+margin-left: 20px;
+}
+
+.table-header{
+  padding-left: 10px;
+}
+
+table.table-condensed tr > td:not(.table-header){
+padding-left: 20px;
+}
+
+ div.table-right{
+    float: right;
+  }
+
+  div.table-left{
+    margin-top:17px;
+    float:left;
+  }
+
+  div.table-bottom{
+    clear:both;
+  }
+
+  div.table-container{
+    overflow:hidden;
+    min-width: 700px;
+    width:85%
+  }
+
+  h4.ingredients-table-label{
+    margin-left:60px;
+  }
