@@ -1,0 +1,27 @@
+<h1>Listing buddhas</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>File location</th>
+    <th>Media type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @buddhas.each do |buddha| %>
+  <tr>
+    <td><%= buddha.product %></td>
+    <td><%= buddha.file_location %></td>
+    <td><%= buddha.media_type %></td>
+    <td><%= link_to 'Show', buddha %></td>
+    <td><%= link_to 'Edit', edit_buddha_path(buddha) %></td>
+    <td><%= link_to 'Destroy', buddha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Buddha', new_buddha_path %>

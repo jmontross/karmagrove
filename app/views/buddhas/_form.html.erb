@@ -1,0 +1,29 @@
+<%= form_for(@buddha) do |f| %>
+  <% if @buddha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buddha.errors.count, "error") %> prohibited this buddha from being saved:</h2>
+
+      <ul>
+      <% @buddha.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </div>
+  <div class="field">
+    <%= f.label :file_location %><br />
+    <%= f.text_field :file_location %>
+  </div>
+  <div class="field">
+    <%= f.label :media_type %><br />
+    <%= f.text_field :media_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

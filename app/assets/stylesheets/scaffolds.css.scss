@@ -18,18 +18,14 @@ pre {
   font-size: 11px;
 }
 
-a.link {
-  color: #009999;
-}
-
 a {
-  color: #009999;
+  color: #000;
   &:visited {
-    color: #009999;
+    color: #666;
   }
   &:hover {
-    color: #000000;
-    background-color: white;
+    color: #fff;
+    background-color: #000;
   }
 }
 

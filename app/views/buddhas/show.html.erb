@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @buddha.product %>
+</p>
+
+<p>
+  <b>File location:</b>
+  <%= @buddha.file_location %>
+</p>
+
+<p>
+  <b>Media type:</b>
+  <%= @buddha.media_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_buddha_path(@buddha) %> |
+<%= link_to 'Back', buddhas_path %>
