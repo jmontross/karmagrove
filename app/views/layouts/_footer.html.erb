@@ -13,8 +13,21 @@
     <div class="container">
       <div class="nav-collapse">
         <ul class="nav">
-          <li>
-            <%= link_to "Karma Coin", "/Karma-Coin" %>
+          <li class="dropup">
+            <%= link_to(("Karma Coins " + content_tag(:span,"", class: "caret") + content_tag(:span,"", class: "sr-only")).html_safe, "/Karma-Coin", class: "dropdown-toggle", "data-toggle" => "dropup", id: "drop2", role: "button") %>
+            <ul class="dropdown-menu dropup-menu" role="menu", aria-labelledby="dropFoot">
+              <li>
+                <%= link_to "What Are They?", "/Karma-Coin" %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Buy Karma Coins", "/products?name=Karma Coin" %>
+              </li>
+              <li class="divider"></li>
+               <li>
+                <%= link_to "Nutrition Facts", "#" %>
+              </li>
+            </ul>
           </li>
           <!-- <li><%= link_to "Charities",  "/charities" %></li> -->
           <li><%= link_to "Get Involved", "/Get-Involved" %>
@@ -58,6 +71,13 @@ html, body {
   clear:both;
   padding-top:20px;
 }
+
+.dropdown-menu:before,
+.dropdown-menu:after {
+     border: none !important;
+     content: none !important;
+}
+
 
 </style>
 
