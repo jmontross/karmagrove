@@ -31,6 +31,7 @@ vagrant box add precise64
 
 ````
 git clone git@github.com:jmontross/karmagrove.git
+bundle install | gem install vagrant
 vagrant up
 ````
 You should be able to access the application on

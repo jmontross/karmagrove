@@ -1,5 +1,8 @@
 Karmagrove::Application.routes.draw do
 
+  resources :buddhas
+
+
   resources :markets
 
 

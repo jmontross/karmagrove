@@ -1,0 +1,11 @@
+class CreateBuddhas < ActiveRecord::Migration
+  def change
+    create_table :buddhas do |t|
+      t.reference :product
+      t.string :file_location
+      t.string :media_type
+
+      t.timestamps
+    end
+  end
+end

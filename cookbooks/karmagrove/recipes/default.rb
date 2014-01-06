@@ -61,20 +61,6 @@ git "/opt/www/karmagrove" do
   # not_if {File.exists?('#{node['dev']['host_path']}/p3')}
 end
 
-script "install dependencies for kg" do
-  interpreter "bash"
-  user "root"
-  # cwd "#{['p3node']['repo_dir']}"
-  # cwd "/opt/picarro/node.js"
-  cwd "/opt/www/karmagrove"
-  code <<-EOH
-     sudo gem install bundler
-     sudo bundle install
-  EOH
-  ignore_failure true
-  notifies script("rails s")
-end
-
 script "rails s" do
   interpreter "bash"
   user "root"
@@ -87,6 +73,21 @@ script "rails s" do
   EOH
   action :nothing
 end
+
+script "install dependencies for kg" do
+  interpreter "bash"
+  user "root"
+  # cwd "#{['p3node']['repo_dir']}"
+  # cwd "/opt/picarro/node.js"
+  cwd "/opt/www/karmagrove"
+  code <<-EOH
+     sudo gem install bundler
+     sudo bundle install
+  EOH
+  ignore_failure true
+  notifies resources(:script => "rails s"), :immediately
+end
+
 cookbook_file "/etc/nginx/sites-available/karmagrove" do
   source "nginx-karmagrove"
   mode 0644
