@@ -4,9 +4,9 @@
   <tr>
     <td style="padding-right:20px;">
       <ul>
-        <li> <a class=".nutrition-pop" rel="popover" data-content=<%= render "about/nutrition_facts/oats"%>>Oats</a>                </li>
-        <li> Honey               </li>
-        <li> Hemp Seed           </li>
+        <li> <a class=".nutrition-pop" rel="popover" data-original-title="<h4>WHOLE GRAIN OATS</h4>" data-content=<%= render "about/nutrition_facts/oats"%>>Oats</a>                </li>
+        <li> <a class=".nutrition-pop" rel="popover" data-original-title="<h4>PURE BEE HONEY</h4>" data-content=<%= render "about/nutrition_facts/honey"%>>Honey</a>                </li>
+        <li> <a class=".nutrition-pop" rel="popover" data-original-title="<h4>HEMP SEED</h4>" data-content=<%= render "about/nutrition_facts/hemp_seeds"%>>Hemp Seed</a>           </li>
         <li> Wheat Germ          </li>
         <li> Dried Blueberries   </li>
         <li> Coconut Sugar       </li>
@@ -28,16 +28,11 @@
 
 <br />
 
-<script language="javascript">
-$(document).ready(function(){
-  $("[rel='tooltip' ]").tooltip();
-
-  $(".nutrition-pop").popover({'placement': 'top'});
-});
-</script>
-
 <style>
-.modal-backdrop.fade.in {
-  opacity: 0.2;
+
+.popover{
+  width:600px;
+  height:230px;
 }
+
 </style>
