@@ -1,0 +1,43 @@
+<h1> Karma Coin Superfood Components </h1>
+<br />
+<table style="margin:20px;">
+  <tr>
+    <td style="padding-right:20px;">
+      <ul>
+        <li> <a class=".nutrition-pop" rel="popover" data-content=<%= render "about/nutrition_facts/oats"%>>Oats</a>                </li>
+        <li> Honey               </li>
+        <li> Hemp Seed           </li>
+        <li> Wheat Germ          </li>
+        <li> Dried Blueberries   </li>
+        <li> Coconut Sugar       </li>
+        <li> Dried Goji Berries  </li>
+      </ul>
+    </td>
+    <td>
+      <ul style="margin-top:-20px;">
+        <li> Walnuts             </li>
+        <li> Pecans              </li>
+        <li> Dark Chocolate Chunk</li>
+        <li> Hemp Oil            </li>
+        <li> Molasses            </li>
+        <li> Vanilla             </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+<script language="javascript">
+$(document).ready(function(){
+  $("[rel='tooltip' ]").tooltip();
+
+  $(".nutrition-pop").popover({'placement': 'top'});
+});
+</script>
+
+<style>
+.modal-backdrop.fade.in {
+  opacity: 0.2;
+}
+</style>
