@@ -85,7 +85,7 @@ script "install dependencies for kg" do
      sudo bundle install
   EOH
   ignore_failure true
-  notifies resources(:script => "rails s"), :immediately
+  notifies :run, resources(:script => "rails s"), :immediately
 end
 
 cookbook_file "/etc/nginx/sites-available/karmagrove" do
