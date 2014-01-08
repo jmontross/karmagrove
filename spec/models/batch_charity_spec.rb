@@ -14,13 +14,10 @@ describe BatchCharity do
 
     it "should not allow votes for a closed batch" do
       @batch.close!
-
       BatchCharity.create(:charity_id => @charity.id, :batch_id => @batch.id)
       # should not allow new donation tied to this batch.
       @purchase = Purchase.create
-      Donation.create(purchase_id => ).should == "Exception"
-
-
+      Donation.create(purchase_id => @purchase.id).should == "Exception"
     end
 
   end

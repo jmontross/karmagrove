@@ -2,6 +2,7 @@ class Batch < ActiveRecord::Base
   attr_accessible :batch_name, :sales, :workflow_state, :state
   has_many :batch_products
   has_many :batch_charities
+  has_many :batch_charity_payments
 
   include Workflow
 

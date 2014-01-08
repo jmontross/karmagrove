@@ -1,6 +1,7 @@
 class CharityPayment < ActiveRecord::Base
-  has_many :donations
-  belongs_to :charity
+  has_many :donations :batch_charity_payments
+
+
 
   attr_accessible :payment_provider, :payment_reference, :state, :charity_id, :amount
 
