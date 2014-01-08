@@ -1,5 +1,6 @@
 class CharityPayment < ActiveRecord::Base
-  has_many :donations :batch_charity_payments
+  has_many :donations
+  has_many :batch_charity_payments
 
 
 
@@ -7,6 +8,7 @@ class CharityPayment < ActiveRecord::Base
 
 
   def pay(amount = self.amount, description="distribution from karmagrove")
+
     return "failure: no charity uri, must create charity" unless self.charity_id
     @charity = Charity.find(self.charity_id)
     begin
@@ -27,4 +29,6 @@ class CharityPayment < ActiveRecord::Base
       return "failure"
     end
   end
+
+
 end

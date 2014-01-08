@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131229225209) do
+ActiveRecord::Schema.define(:version => 20140108024039) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20131229225209) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "batch_charity_payments", :force => true do |t|
+    t.integer  "batch_id"
+    t.integer  "charity_payment_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "batch_charity_payments", ["batch_id"], :name => "index_batch_charity_payments_on_batch_id"
+  add_index "batch_charity_payments", ["charity_payment_id"], :name => "index_batch_charity_payments_on_charity_payment_id"
+
   create_table "batch_products", :force => true do |t|
     t.integer  "batch_id"
     t.integer  "product_id"
@@ -78,6 +88,14 @@ ActiveRecord::Schema.define(:version => 20131229225209) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "state"
+  end
+
+  create_table "buddhas", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "file_location"
+    t.string   "media_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "charities", :force => true do |t|
