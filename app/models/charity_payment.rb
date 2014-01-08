@@ -13,7 +13,8 @@ class CharityPayment < ActiveRecord::Base
     @charity = Charity.find(self.charity_id)
     begin
       @customer = Balanced::Customer.find @charity.uri
-    rescue
+    rescue Exception => e
+      Rails.logger.info e
       return "failure"
     end
     # @customer.should.exist
