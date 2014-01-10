@@ -11,6 +11,7 @@ describe CharityPayment do
 
   it "should pay a charity" do
     @charity_payment.pay.should == "success"
+
   end
 
   it "should keep a reference to the payment provider" do
