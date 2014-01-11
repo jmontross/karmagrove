@@ -10,6 +10,9 @@ gem 'balanced'
 gem "koala", "~> 1.7.0rc1"
 gem "bitly"
 
+gem 'resque'
+gem 'resque-scheduler'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development do
