@@ -3,6 +3,8 @@ class Batch < ActiveRecord::Base
   has_many :batch_products
   has_many :batch_charities
   has_many :batch_charity_payments
+  # todo .. has many through ... 
+  # has_many_through :purchases batch_products 
 
   include Workflow
 
@@ -36,6 +38,23 @@ class Batch < ActiveRecord::Base
   def new_purchase(product_id)
     Purchase.new(:batch_id => self.id, :product_id => product_id)
   end
+
+  def map_of_charity_ids
+    map_of_charities = {}
+    self.batch_charities.each do |charity|
+      map_of_charities[charity.id] =0
+    end
+    map_of_charities
+  end
+  
+  def pay_charities
+    map_of_charities_and_amounts = {}
+    self.batch_charities.each do |charity|
+      map_of_charities_and_amounts[charity.id] =0  
+    end
+    map_of_charities
+  end
+
 
   # def close(allowed_to_close = true)
   #   # Let it close! ...

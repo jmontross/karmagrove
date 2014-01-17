@@ -30,6 +30,14 @@ describe Batch do
       @batch.state = "dead"
       @batch.current_state.to_s.should == "open"
     end
-
+     
+    it "should create a map_of_charity_ids" do
+     @charity = Charity.create(:legal_name =>"grind out hunger")
+     @batch_charity = BatchCharity.create(:charity_id=>@charity.id,:batch_id => @batch.id)
+     # @fake_BatchCharity.create(:charity_id=>@charity.id,:batch_id => @batch.id)
+     @batch.batch_charities = [@batch_charity]
+     @batch.save
+     @batch.map_of_charity_ids.should == [@batch_charity.id]
+    end
   end
 end
