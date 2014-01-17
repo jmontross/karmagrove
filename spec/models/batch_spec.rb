@@ -51,6 +51,8 @@ describe Batch do
      @batch.batch_charities = [@batch_charity,@batch_charity2,@batch_charity3]
      @batch.save
      # @batch.calculate_charities_owed.should.sort.eql? {@charity
+     @purchase = Purchase.create(:batch_id => @batch.id)
+     Donation.create(:charity_id => @charity.id, :purchase_id => @purchase.id)
      @batch.calculate_charities_owed.should == {}        
     end
 

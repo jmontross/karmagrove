@@ -57,7 +57,7 @@ class Batch < ActiveRecord::Base
    
   def calculate_charities_owed
    map_of_charity_ids
-   self.batch_products.purchases.each do |purchase|
+   self.purchases.each do |purchase|
      map_of_charity_ids[purchase.donation.id] +=1
    end
    map_of_charity_ids
@@ -66,7 +66,7 @@ class Batch < ActiveRecord::Base
   def pay_charities
     map_of_charities_and_amounts = {}
     self.batch_charities.each do |charity|
-      map_of_charities_and_amounts[charity.id] =0  
+      map_of_charities_and_amounts[charity.id] += 1  
     end
     map_of_charities
   end
