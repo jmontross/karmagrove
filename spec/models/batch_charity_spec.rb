@@ -16,8 +16,10 @@ describe BatchCharity do
       @batch.close!
       BatchCharity.create(:charity_id => @charity.id, :batch_id => @batch.id)
       # should not allow new donation tied to this batch.
-      @purchase = Purchase.create
-      Donation.create(purchase_id => @purchase.id).should == "Exception"
+      @product = Product.create!(:name => "teaching of buddha")
+      @purchase = Purchase.create(:product_id => @product.id)
+      Donation.create!(:purchase_id => @purchase.id).should == "Exception"
+      ## the donation does not concern self with the batch being closed...
     end
 
   end
