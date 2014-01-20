@@ -21,18 +21,22 @@ class Purchase < ActiveRecord::Base
   end
 
 
-  ## TODO - does this make sense?  to ahndle here in intialize?  RYAN?
-  # def initialize(arg1=nil,arg2=nil)
-  #   super(arg1,arg2)
-  #   @purchase = self
-  #   @purchase.state = "open"
-  #   @purchase.save
-  #   # @purch
-  #   if @purchase.batch_id and @batch = Batch.find(@purchase.batch_id) and @batch.status == "closed"
-  #     return false
-  #   end
-  #   self
-  # end
+ # TODO - does this make sense?  to ahndle here in intialize?  RYAN?
+ def initialize(arg1=nil,arg2=nil)
+   super(arg1,arg2)
+   @purchase = self
+   @purchase.state = "open"
+   @purchase.save
+   # @purch
+   if @purchase.batch_id and @batch = Batch.find(@purchase.batch_id) and @batch.status == "closed"
+     @response = false
+     return false
+   else
+     @response =self
+     return self
+   end
+   @response
+ end
 
   validates_presence_of  :product_id
 
