@@ -12,13 +12,4 @@ ActiveAdmin.register Batch do
   f.buttons
 end
 
-  form do |f|
-    f.inputs "User Details" do
-      f.input :name
-      f.input :group, :as => :select, :collection => Group.all
-    end
-    f.buttons
-  end
-
-
 end
