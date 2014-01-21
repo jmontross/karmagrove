@@ -28,7 +28,10 @@ class Purchase < ActiveRecord::Base
    @purchase.state = "open"
    @purchase.save
    # @purch
-   if @purchase.batch_id and @batch = Batch.find(@purchase.batch_id) and @batch.status == "closed"
+   if @purchase.batch_id and @batch = Batch.find(@purchase.batch_id) and @batch.state == "closed"
+     puts @batch.state
+     @purchase.state = "invalid-batch-cancelled"
+     @purchase.save
      @response = false
      return false
    else

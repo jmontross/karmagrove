@@ -8,6 +8,13 @@ describe Batch do
       @batch = Batch.create()
     end
 
+    it "should begin with three new charities" do
+      @charities = Charity.all(:limit => 3).map {|chair| chair.id}
+      @batch.batch_charities.map {|batch_chair| batch_chair.charity_id}
+      # @batch.charity_ids.should == @charities
+    end
+
+
     it "should begin with a state of open" do
       @batch.current_state.to_s.should == 'open'
     end
@@ -30,7 +37,7 @@ describe Batch do
       @batch.state = "dead"
       @batch.current_state.to_s.should == "open"
     end
-     
+
     it "should create a map_of_charity_ids" do
      @charity = Charity.create(:legal_name =>"grind out hunger")
      @batch_charity = BatchCharity.create(:charity_id=>@charity.id,:batch_id => @batch.id)
@@ -40,20 +47,38 @@ describe Batch do
      @batch.map_of_charity_ids.should == { @batch_charity.id => 0 }
     end
 
-    it "should count all the donations of a batch and increment the map of charity ids with a weight of 1 vote per donation" do
-     @charity = Charity.create(:legal_name =>"grind out hunger") 
+    it "should count all the donations of a batch" do
+     @charity = Charity.create(:legal_name =>"grind out hunger")
      @charity2 = Charity.create(:legal_name =>"grey bears")
-     @charity3 = Charity.create(:legal_name =>"second harvest") 
-     
-     @batch_charity = BatchCharity.create(:charity_id=>@charity.id,:batch_id => @batch.id)          
-     @batch_charity2 = BatchCharity.create(:charity_id=>@charity2.id,:batch_id => @batch.id)          
-     @batch_charity3 = BatchCharity.create(:charity_id=>@charity3.id,:batch_id => @batch.id)               
+     @charity3 = Charity.create(:legal_name =>"second harvest")
+
+     @batch_charity = BatchCharity.create(:charity_id=>@charity.id,:batch_id => @batch.id)
+     @batch_charity2 = BatchCharity.create(:charity_id=>@charity2.id,:batch_id => @batch.id)
+     @batch_charity3 = BatchCharity.create(:charity_id=>@charity3.id,:batch_id => @batch.id)
+     @batch.batch_charities = [@batch_charity,@batch_charity2,@batch_charity3]
+     @batch.save
+     # @batch.calculate_charities_owed.should.sort.eql? {@charity
+     @product = Product.create(:name => "teaching of buddha text")
+     @purchase = Purchase.create!(:batch_id => @batch.id, :product_id => @product.id)
+     Donation.create(:charity_id => @charity.id, :purchase_id => @purchase.id)
+     @batch.purchases.first.should == @purchase
+     #@batch.donations.count.should == 1
+    end
+
+    it "should increment the map of charity ids with a weight of 1 vote per donation" do
+     @charity = Charity.create(:legal_name =>"grind out hunger")
+     @charity2 = Charity.create(:legal_name =>"grey bears")
+     @charity3 = Charity.create(:legal_name =>"second harvest")
+
+     @batch_charity = BatchCharity.create(:charity_id=>@charity.id,:batch_id => @batch.id)
+     @batch_charity2 = BatchCharity.create(:charity_id=>@charity2.id,:batch_id => @batch.id)
+     @batch_charity3 = BatchCharity.create(:charity_id=>@charity3.id,:batch_id => @batch.id)
      @batch.batch_charities = [@batch_charity,@batch_charity2,@batch_charity3]
      @batch.save
      # @batch.calculate_charities_owed.should.sort.eql? {@charity
      @purchase = Purchase.create(:batch_id => @batch.id)
      Donation.create(:charity_id => @charity.id, :purchase_id => @purchase.id)
-     @batch.calculate_charities_owed.should == {}        
+     @batch.calculate_charities_owed.should == {}
     end
 
 

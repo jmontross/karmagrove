@@ -4,8 +4,8 @@ class Batch < ActiveRecord::Base
   has_many :batch_charities
   has_many :batch_charity_payments
   has_many :purchases
-  # todo .. has many through ... 
-  # has_many_through :purchases batch_products 
+  # todo .. has many through ...
+  # has_many_through :purchases batch_products
 
   include Workflow
 
@@ -28,6 +28,8 @@ class Batch < ActiveRecord::Base
     super(arg1,arg2)
     @batch = self
     self.state = "open"
+    ## This is where we would default it to something more intelligent based on their location.
+    self.batch_charity_ids = Charity.all(:limit => 3).map {|charity| charity.id }
     self.save
   end
 
@@ -39,12 +41,12 @@ class Batch < ActiveRecord::Base
   def new_purchase(product_id)
     Purchase.new(:batch_id => self.id, :product_id => product_id)
   end
-  
-  def map_of_charities 
+
+  def map_of_charities
     self.batch_charities
     #self.batch_charities<Ri do |charity|
-    #  map_of_charities[charity.id] =0 
-    #end   	
+    #  map_of_charities[charity.id] =0
+    #end
   end
 
   def map_of_charity_ids
@@ -54,7 +56,7 @@ class Batch < ActiveRecord::Base
     end
     @map_of_charities
   end
-   
+
   def calculate_charities_owed
    map_of_charity_ids
    self.purchases.each do |purchase|
@@ -62,11 +64,11 @@ class Batch < ActiveRecord::Base
    end
    map_of_charity_ids
   end
- 
+
   def pay_charities
     map_of_charities_and_amounts = {}
     self.batch_charities.each do |charity|
-      map_of_charities_and_amounts[charity.id] += 1  
+      map_of_charities_and_amounts[charity.id] += 1
     end
     map_of_charities
   end
