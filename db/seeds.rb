@@ -19,6 +19,7 @@ product = Product.create!({
     :name => "Karma Coin",
     :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
     :price => "2.00"
+    :image_url => "/assets/karma_coin_hand.gif"
 })
 
 BatchProduct.create(:product_id => product.id, :batch_id => batch.id)

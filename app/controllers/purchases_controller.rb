@@ -31,8 +31,16 @@ end
 # GET /products/new
 # GET /products/new.json
   def new
-    @product = Product.find(params[:product_id])
-    @purchase = Purchase.new(:product_id => @product.id)
+    if params[:product_id].is_a? Integer
+      @product = Product.find(params[:product_id])
+    else
+      # remove %20 and - and replace with space
+      name = params[:product_id].split('-').map! { |word| word.capitalize! }.join(' ')
+      #.split('%20').map! { |word| word.capitalize! }.join(' ')
+      @product = Product.find_by_name name
+    end
+
+    @purchase = Purchase.create!(:product_id => @product.id)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @purchase }
@@ -46,7 +54,7 @@ end
     @purchase = Purchase.find(params[:purchase_id])
     @product = Product.find(@purchase.product_id)
     @donation = Donation.where(:charity_id => @charity.id,:purchase_id => @purchase.id).first
-    @donation ||= Donation.new(:charity_id => @charity.id,:purchase_id => @purchase.id)
+    @donation ||= Donation.create(:charity_id => @charity.id,:purchase_id => @purchase.id)
     @donation.save
     @purchase.donation_id = @donation.id
     @purchase.save

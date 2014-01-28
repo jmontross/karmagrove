@@ -15,6 +15,12 @@
 
   <h2> You are purchasing <%= @product.name %> </h2>
 
+  <% if @product.image_url %>
+
+    <%= image_tag(@product.image_url,{:alt => @product.name}) %>
+
+  <% end %>
+
   <%= f.hidden_field :buyer_id %>
   <%= f.hidden_field :id %>
 

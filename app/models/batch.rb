@@ -29,7 +29,8 @@ class Batch < ActiveRecord::Base
     @batch = self
     self.state = "open"
     ## This is where we would default it to something more intelligent based on their location.
-    self.batch_charity_ids = Charity.all(:limit => 3).map {|charity| charity.id }
+    self.batch_charity_ids = Charity.all(:limit => 3).map {|charity| BatchCharity.create(:batch_id => self.id, :charity_id => charity.id).charity_id }
+
     self.save
   end
 
