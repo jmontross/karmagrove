@@ -35,7 +35,7 @@ end
       @product = Product.find(params[:product_id])
     else
       # remove %20 and - and replace with space
-      name = params[:product_id].split('-').map! { |word| word.capitalize! }.join(' ')
+      name = params[:product_id].split('-').map! { |word| word.capitalize }.join(' ')
       #.split('%20').map! { |word| word.capitalize! }.join(' ')
       @product = Product.find_by_name name
     end
