@@ -43,11 +43,15 @@ Karmagrove::Application.routes.draw do
 
   # resources :batches
 
+  # resources :batches
+
   resources :batches do
     resources :donations do
       resources :purchases
     end
   end
+
+  match 'Karma-Coin-Recipe' => "about#_karma_coin_recipe"
 
   match "/batches/:batch_id/donations/:donation_id/purchases/:purchase_id/update" => "purchases#update"
 
