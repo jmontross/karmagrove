@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe BatchCharityPayment do
-  pending "add some examples to (or delete) #{__FILE__}"
 
   before do
    @batch_complete = Batch.create(:batch_name => "test batch that is done", :sales => 1000, :state => "closed")

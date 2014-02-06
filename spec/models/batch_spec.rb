@@ -78,7 +78,9 @@ describe Batch do
      # @batch.calculate_charities_owed.should.sort.eql? {@charity
      @purchase = Purchase.create(:batch_id => @batch.id)
      Donation.create(:charity_id => @charity.id, :purchase_id => @purchase.id)
-     @batch.calculate_charities_owed.should == {}
+
+     # this is sort of confusing.  Need to clean up this logic of voting for profits of a batch.
+     @batch.calculate_charities_owed.should == {@charity => 1 , @charity2=>0, @charity3 => 0}
     end
 
 

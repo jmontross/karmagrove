@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe BatchCharity do
+
    describe "batch charity voting" do
       before :each do
       @batch = Batch.create
