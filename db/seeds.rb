@@ -26,6 +26,9 @@ BatchProduct.create(:product_id => product.id, :batch_id => batch.id)
 
 Retailer.create!(:name => "Sentinel Cafe", :description => "The sentinel cafe is inside of Cruz.io in Santa Cruz")
 
+# Seed the donations we made on paper that show in twitter feed
+# Donation.create!(:an)
+
 # product = Product.create!({
 #     :name => "Joy Coin Batch 1 for Cruzio",
 #     :description => "Joy coins are sweet, salty, granola coins consisting of the following ingredients: Oats, Organic Hemp Seed, Honey, Nature's balance, Coconut Crystal Sugar, Walnuts, Chocolate, Coconut Butter",
