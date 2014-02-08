@@ -7,7 +7,7 @@ class Purchase < ActiveRecord::Base
 
   attr_accessible :stripe_customer_token, :buyer_id, :product_id,
                   :seller_id, :state, :donation_id, :id, :stripe_transaction_id, :retailer_id,
-                  :batch_id, :cost, :final_purchase_price
+                  :batch_id, :cost, :purchase_price
 
   ## final purchase price is for auction only....
 
@@ -22,24 +22,24 @@ class Purchase < ActiveRecord::Base
 
 
  # TODO - does this make sense?  to ahndle here in intialize?  RYAN?
- def initialize(arg1=nil,arg2=nil)
-   super(arg1,arg2)
-   @purchase = self
-   @purchase.state = "open"
-   @purchase.save
-   # @purch
-   if @purchase.batch_id and @batch = Batch.find(@purchase.batch_id) and @batch.state == "closed"
-     puts @batch.state
-     @purchase.state = "invalid-batch-cancelled"
-     @purchase.save
-     @response = false
-     return false
-   else
-     @response =self
-     return self
-   end
-   @response
- end
+ # def initialize(arg1=nil,arg2=nil)
+ #   super(arg1,arg2)
+ #   @purchase = self
+ #   @purchase.state = "open"
+ #   @purchase.save
+ #   # @purch
+ #   if @purchase.batch_id and @batch = Batch.find(@purchase.batch_id) and @batch.state == "closed"
+ #     puts @batch.state
+ #     @purchase.state = "invalid-batch-cancelled"
+ #     @purchase.save
+ #     @response = false
+ #     return false
+ #   else
+ #     @response =self
+ #     return self
+ #   end
+ #   @response
+ # end
 
   validates_presence_of  :product_id
 

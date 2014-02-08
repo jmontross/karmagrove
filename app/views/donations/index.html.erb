@@ -1,26 +1,46 @@
+<style media="screen" type="text/css">
+
+.receipts {
+  transform:rotate(90deg);
+  -ms-transform:rotate(90deg); /* IE 9 */
+  -webkit-transform:rotate(90deg); /* Safari and Chrome */
+}
+
+</style>
+
 <%- model_class = Donation -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Amount Donated</th>
-      <th>Deductibility Status Description</th>
-      <th>Donation Date </th>
-      <th>Retailer</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @donations %>
-      <% @donations.each do |donation| %>
-        <tr charity_id="<%=donation.charity_id %>">
-          <td> $<%= donation.amount %></td>
-          <td> <%= @charities[donation.id].deductibility_status_description %></td>
-          <td> <%= donation.donation_date %></td>
-          <td> <%= @retailers.name %> </td>
-        </tr>
-      <% end %>
-   <% end %>
-  </tbody>
-</table>
+
+<p>
+In 2013 we gave away more Karma Coins than sold, and all 90% of revenue went to Grey Bears.  Thanks to early supporters <a href="https://twitter.com/sentinelcafe" target="new"> Sentinel Cafe </a> for partnering and Santa Cruzians of <a href="https://twitter.com/cruzio" target="new"> Cruzio </a>  supporting us.  In 2014 we hope to increase our sharing ten fold.  Will you join us?
+</p>
+<br /><br /><br /><br />
+<%= image_tag("grey_bears_receipts_2013.jpg", :class => "receipts") %>
+<br /><br /><br /><br />
+<br /><br /><br /><br />
+<% if @donations %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Amount Donated</th>
+        <th>Deductibility Status Description</th>
+        <th>Donation Date </th>
+        <th>Retailer</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <% @donations.each do |donation| %>
+          <tr charity_id="<%=donation.charity_id %>">
+            <td> $<%= donation.amount %></td>
+            <td> <%= @charities[donation.id].deductibility_status_description %></td>
+            <td> <%= donation.donation_date %></td>
+            <td> <%= @retailers.name %> </td>
+          </tr>
+        <% end %>
+
+    </tbody>
+  </table>
+<% end %>
