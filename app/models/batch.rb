@@ -1,5 +1,5 @@
 class Batch < ActiveRecord::Base
-  attr_accessible :batch_name, :sales, :workflow_state, :state
+  attr_accessible :batch_name, :sales, :state
   has_many :batch_products
   has_many :batch_charities
   has_many :batch_charity_payments
@@ -8,6 +8,8 @@ class Batch < ActiveRecord::Base
   # has_many_through :purchases batch_products
 
   include Workflow
+
+  ##TODO Isn't there some validation we can add so it is only destroyable by its creator?
 
   workflow do
     state :open do
@@ -30,8 +32,7 @@ class Batch < ActiveRecord::Base
     self.state = "open"
     ## This is where we would default it to something more intelligent based on their location.
     self.batch_charity_ids = Charity.all(:limit => 3).map {|charity| BatchCharity.create(:batch_id => self.id, :charity_id => charity.id).charity_id }
-
-    self.save
+    self.save!
   end
 
   def close

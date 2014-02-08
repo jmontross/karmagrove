@@ -3,6 +3,7 @@ class Donation < ActiveRecord::Base
   belongs_to :charity
   belongs_to :charity_payment
 
-  attr_accessible :amount, :charity_id, :donation_id, :donation_date, :purchase_id, :charity_payment_id
+  attr_accessible :amount, :charity_id, :donation_id, :donation_date, :purchase_id
+  #, :charity_payment_id
 
 end

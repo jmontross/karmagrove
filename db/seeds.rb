@@ -51,28 +51,36 @@ Purchase.create(:batch_id => batch2.id, :purchase_price => 50)
 Purchase.create(:batch_id => batch3.id, :purchase_price => 52)
 
 # some donations for each batch and their purchases
-Donation.create(:amount => 33.00, :charity_id => c1.id, :donation_date => "03/21/2013")
-Donation.create(:amount => 50.00, :charity_id => c1.id, :donation_date => "04/02/2013")
-Donation.create(:amount => 52.00, :charity_id => c1.id, :donation_date => "05/15/2013")
+donation1 = Donation.create(:amount => 33.00, :charity_id => c1.id, :donation_date => "03/21/2013")
+donation2 = Donation.create(:amount => 50.00, :charity_id => c1.id, :donation_date => "04/02/2013")
+donation3 = Donation.create(:amount => 52.00, :charity_id => c1.id, :donation_date => "05/15/2013")
 
-# actual payments made from the donations.
-CharityPayment.create(
+# actual payments made from the donations. Attach them to the batches!
+charityPayment = CharityPayment.create(
    :payment_provider => "joshua montra",  ## aka -> trust me. i copied the receipts and they show on donations page.
    :charity_id => c1.id,
    :amount => 3300
 )
+BatchCharityPayment.create(:charity_payment_id => charityPayment.id, :batch_id => batch.id)
 
-CharityPayment.create(
+#donation1.charity_payment = charityPayment
+
+charityPayment2 = CharityPayment.create(
    :payment_provider => "joshua montra",  ## aka -> trust me. i copied the receipts and they show on donations page.
    :charity_id => c1.id,
    :amount => 5000
 )
+BatchCharityPayment.create(:charity_payment_id => charityPayment2.id, :batch_id => batch2.id)
+#donation2.charity_payment = charityPayment2
 
-CharityPayment.create(
+charityPayment3 = CharityPayment.create(
    :payment_provider => "joshua montra",  ## aka -> trust me. i copied the receipts and they show on donations page.
    :charity_id => c1.id,
    :amount => 3300
 )
+BatchCharityPayment.create(:charity_payment_id => charityPayment3.id, :batch_id => batch3.id)
+
+#donation3.charity_payment = charityPayment3
 
 # Seed the donations we made on paper that show in twitter fed
 # Donation.create!(:an)

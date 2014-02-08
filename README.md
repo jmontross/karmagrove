@@ -14,7 +14,7 @@ Quick Start
 ```
 $ git clone git@github.com:jmontross/karmagrove.git
 $ cd karmagrove
-$ bundle exec rake db:migrate
+$ export RAILS_ENV=development; bundle exec rake db:seed
 $ bundle exec rake db:seed
 $ bundle exec rails s
 ```
@@ -55,7 +55,7 @@ Run tests
 ===========
 
 ```
-$ export RAILS_ENV=test;bundle exec rake db:migrate
+$ export RAILS_ENV=test; bundle exec rake db:migrate
 ```
 
 To test everything
