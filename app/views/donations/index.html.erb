@@ -35,9 +35,13 @@ In 2013 we gave away more Karma Coins than sold, and all 90% of revenue went to 
         <% @donations.each do |donation| %>
           <tr charity_id="<%=donation.charity_id %>">
             <td> $<%= donation.amount %></td>
+            <% if @charities %>
             <td> <%= @charities[donation.id].deductibility_status_description %></td>
+            <% end %>
             <td> <%= donation.donation_date %></td>
+            <% if @retailers %>
             <td> <%= @retailers.name %> </td>
+            <% end %>
           </tr>
         <% end %>
 
