@@ -17,7 +17,7 @@ describe BatchCharityPayment do
 
   it "should find all batches with the state 'closed'" do
     #@batch_charity_payment = BatchCharityPayment.create()
-    BatchCharityPayment.closed_batches.should =~ [@batch_complete,@batch_complete_two]
+    BatchCharityPayment.closed_batches.should =~ [@batch_complete.inspect, @batch_complete_two.inspect]
     BatchCharityPayment.closed_batches.include?(@batch_incomplete).should == false
   end
 

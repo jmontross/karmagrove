@@ -4,6 +4,7 @@ class Batch < ActiveRecord::Base
   has_many :batch_charities
   has_many :batch_charity_payments
   has_many :purchases
+
   # todo .. has many through ...
   # has_many_through :purchases batch_products
 
@@ -60,9 +61,13 @@ class Batch < ActiveRecord::Base
   end
 
   def calculate_charities_owed
-   map_of_charity_ids
+   map_of_charity_ids = {}
    self.purchases.each do |purchase|
-     map_of_charity_ids[purchase.donation.id] +=1
+     if map_of_charity_ids[purchase.donation_id] == nil
+      then map_of_charity_ids[purchase.donation_id] = 1
+     else
+        map_of_charity_ids[purchase.donation_id] += 1
+     end
    end
    map_of_charity_ids
   end
