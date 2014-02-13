@@ -61,4 +61,12 @@ class Purchase < ActiveRecord::Base
     end
   end
 
+  def new_donation(params)
+    @charity_id = params[:charity_id]
+    @donation = Donation.create!(:charity_id => @charity_id, :purchase_id => self.id)
+    self.donation_id = @donation.id
+    # @donation.save
+    return @donation
+  end
+
 end
