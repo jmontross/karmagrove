@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   #   end
   # end
 
+  def new_email_subscriber
+
+  end
+
   def self.find_or_create_by_facebook_id(facebook_id)
     if User.exists?(:facebook_id => facebook_id)
       return User.where(:facebook_id => facebook_id).first
