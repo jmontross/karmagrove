@@ -60,13 +60,16 @@ class Batch < ActiveRecord::Base
     @map_of_charities
   end
 
+
   def calculate_charities_owed
    map_of_charity_ids = {}
    self.purchases.each do |purchase|
-     if map_of_charity_ids[purchase.donation_id] == nil
-      then map_of_charity_ids[purchase.donation_id] = 1
-     else
-        map_of_charity_ids[purchase.donation_id] += 1
+    if purchase.donation_id != nil
+       if map_of_charity_ids[purchase.donation_id] == nil
+        then map_of_charity_ids[purchase.donation_id] = 1
+       else
+          map_of_charity_ids[purchase.donation_id] += 1
+       end
      end
    end
    map_of_charity_ids

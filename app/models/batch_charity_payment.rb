@@ -30,6 +30,11 @@ class BatchCharityPayment < ActiveRecord::Base
   end
 
   def process
+    @batches = BatchCharityPayment.open_batches
+    @batches.each do |batch|
+      batch.calculate_charities_owed
+    end
+
     return "success"
   end
 
