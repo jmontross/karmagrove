@@ -28,14 +28,21 @@ class Batch < ActiveRecord::Base
   end
 
   # pass params instead of all this junk and allow batch_charities to be created same time?
-  def initialize(arg1,arg2=nil)
-    super(arg1,arg2)
-    @batch = self
-    self.state = "open"
-    ## This is where we would default it to something more intelligent based on their location.
-    self.batch_charity_ids = Charity.all(:limit => 3).map {|charity| BatchCharity.create(:batch_id => @batch.id, :charity_id => charity.id).charity_id }
-    self.save!
-  end
+  # def initialize(arg1,arg2=nil)
+  #   super(arg1,arg2)
+  #   @batch = self
+  #   self.state = "open"
+  #   ## This is where we would default it to something more intelligent based on their location.
+  #   self.batch_charity_ids = Charity.all(:limit => 3).map {|charity| BatchCharity.create(:batch_id => @batch.id, :charity_id => charity.id).charity_id }
+  #   self.save!
+  # end
+
+
+  # def open
+  #    self.state = "open"
+  #    self.save
+  # end
+
 
   def close
      @batch.state = "closed"
