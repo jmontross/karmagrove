@@ -15,6 +15,12 @@ c1 = Charity.create!(:legal_name => "Grey Bears", :state => "CA", :deductibility
 c2 = Charity.create!(:legal_name => "Elephants and Bees", :state => "Africa", :deductibility_status_description => "Build fences out of beehives to save elephants lives and help African farmers.  http://www.elephantsandbees.com")
 c3 = Charity.create!(:legal_name => "Nuru International", :state => "Global", :deductibility_status_description => "Building the world's first self-sustaining, self-scaling, integrated development model to end extreme poverty.  http://http://www.nuruinternational.org/")
 
+# Dallas Charities
+
+batch4 = Batch.create!(:batch_name => "Dallas Full Moon Dance")
+c4 = Charity.create!(:legal_name => "Genesis Womens Shelter", :state => "TX", :deductibility_status_description => "Genesis provides shelter, safety, counseling, and expert services to battered women and their children http://www.genesisshelter.org/")
+c5 = Charity.create!(:legal_name => "Jubilee Center ", :state => "TX", :deductibility_status_description => "Jubilee Park is more than just the 62-block area that it occupies.  It is a collection of friends, neighbors, organizations, and communities working to inspire trust and hope in residents. http://www.jubileecenter.org/ ")
+
 
 # Make batch charities so each batch has three charities from which customers may choose
 BatchCharity.create!(:batch_id => batch.id, :charity_id => c1.id)
