@@ -2,7 +2,11 @@
 
 <h1 class="icon-align-center"> Give Good Karma </h1>
 <br>
-<h2> Choose the charity who benefits from your purchase </h2>
+<h2> Choose the charity who benefits from your purchase
+<% if @batch.batch_name %>
+ - <%= @batch.batch_name %>
+<% end %>
+</h2>
 
 <% if @charities.nil? %>
 
