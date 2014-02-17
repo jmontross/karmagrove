@@ -2,6 +2,9 @@ Karmagrove::Application.routes.draw do
 
   resources :buddhas
 
+  match '/buddha', to: 'buddhas#dharmaya'
+
+  # match '/buddhas', to: 'buddhas#dharmaya'
 
   resources :markets
 
