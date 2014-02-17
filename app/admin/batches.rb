@@ -6,7 +6,7 @@ ActiveAdmin.register Batch do
     f.input :sales
     f.input :state, :as => :radio, :collection => ["open","closed"]
 
-    f.input :batch_products, :as => :radio, :collection => Product.all.map {| p| [p.name, p.id] }
+    f.input :products, :as => :radio, :collection => Product.all.map {| p| [p.name, p.id] }
     # TODD : make batch products creatable for a batch,
     # f.input :batch_products, :as => :select, :collection => Product.all
     #f.input :roles, :as => :radio, :collection => User.roles.map { |role| [I18n.t("active_admin.user.role.#{role.name}"), role.id] }

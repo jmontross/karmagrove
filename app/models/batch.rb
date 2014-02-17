@@ -1,9 +1,9 @@
 class Batch < ActiveRecord::Base
-  attr_accessible :batch_name, :sales, :state #TODO = make this workflow state
-  attr_accessible :batch_product_ids
-  #has_many :products, through: :batch_products
-  has_many :batch_products
+  attr_accessible :batch_name, :sales, :state #, :product_ids #TODO = make this workflow state
+  attr_accessible :batch_product_ids, :product_ids
 
+  has_many :products, through: :batch_products
+  has_many :batch_products
 
   has_many :batch_charities
   has_many :batch_charity_payments
