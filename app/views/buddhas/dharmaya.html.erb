@@ -1,0 +1,73 @@
+<h3> Seek wisdom, find understanding: forget it not </h3>
+
+<h3> Listen to the teaching of Buddhas as you drive to work </h3>
+<h3> Learn something new and expand your world </h3>
+
+<%=  image_tag("buddha_green.jpg") %>
+
+<h3> Order the teaching of Buddha and choose where half the proceeds of your purchase flow </h3>
+
+<% javascript 'purchases.js' %>
+
+<%= form_for @purchase, :url => {:action => "create", :route => "/purchases"} do |f| %>
+  <% if @purchase.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+      <ul>
+      <% @purchase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <h2> You are purchasing <%= @product.name %> </h2>
+
+  <% if @product.image_url %>
+
+    <%= image_tag(@product.image_url,{:alt => @product.name}) %>
+
+  <% end %>
+
+  <%= f.hidden_field :buyer_id %>
+  <%= f.hidden_field :id %>
+
+
+  <%= fields_for :product do |product| %>
+    <%= product.hidden_field :id, :value => @product.id %>
+  <% end %>
+
+  <% if current_user %>
+  <%= fields_for :user do |buyer| %>
+    <%= buyer.hidden_field :email, :value => current_user.email %>
+  <% end %>
+  <%end %>
+
+
+  <div class="field">
+      <%= label_tag :card_number, "Credit Card Number " %>
+      <%= text_field_tag :card_number, nil, name: nil %>
+  </div>
+  <div class="field">
+      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+      <%= text_field_tag :card_code, nil, name: nil %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+  </div>
+
+  <% unless current_user %>
+    <%= fields_for :user do |buyer| %>
+    <%= label_tag :email, "Your email " %>
+    <%= text_field_tag :email, nil, name: nil %>
+    <% end %>
+  <% end %>
+   <div id="stripe_error">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+  <div class="actions"><%= f.submit "Purchase" %></div>
+
+<% end %>
