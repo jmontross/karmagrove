@@ -19,6 +19,9 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe BatchesController do
+  before do
+    Batch.delete_all
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Batch. As you add validations to Batch, be sure to
