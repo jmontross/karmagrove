@@ -1,13 +1,16 @@
 class UsersController < InheritedResources::Base
 
 
+
   def email_subscribe
     return "fail" unless params[:email]
     @email = params[:email]
     if User.exists?(:email => params[:email])
       @user = User.find_by_email params[:email]
+      Notifier.send_signup_email(@user).deliver
     else
       @user, @status = EmailSubscriber.subscribe params[:email]
+       Notifier.send_signup_email(@user).deliver
       return @status
     end
 
