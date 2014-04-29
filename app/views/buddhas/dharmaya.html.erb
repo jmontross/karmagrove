@@ -24,7 +24,7 @@
 
   <h2> You are purchasing <%= @product.name %> </h2>
 
-  <% if @product.image_url %>
+  <% if @product and @product.image_url %>
 
     <%= image_tag(@product.image_url,{:alt => @product.name}) %>
 

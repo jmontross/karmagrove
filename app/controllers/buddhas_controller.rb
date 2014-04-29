@@ -1,8 +1,8 @@
 class BuddhasController < InheritedResources::Base
 
   def dharmaya
-    @product = Product.create(:name => "Teaching of Buddha")
-    @purchase = Purchase.create(:product_id => @product.id)
+    @product = Product.find_by_name "Teaching of Buddha" ||  Product.create!(:name => "Teaching of Buddha")
+    @purchase = Purchase.create!(:product_id => @product.id)
 
     respond_to do |format|
       format.html # new.html.erb
