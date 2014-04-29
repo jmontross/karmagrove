@@ -10,6 +10,7 @@ Vagrant::Config.run do |config|
   # you get this one by installing with vagrant box add precise64
 
   config.vm.box = "precise64"
+  config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
 
 
 
