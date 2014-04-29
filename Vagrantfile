@@ -9,7 +9,7 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   # you get this one by installing with vagrant box add precise64
 
-  config.vm.box = "precise64"
+  config.vm.box = "ubuntu"
   config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
 
 
@@ -57,6 +57,7 @@ Vagrant::Config.run do |config|
     # chef.roles_path = "../my-recipes/roles"
     # chef.data_bags_path = "../my-recipes/data_bags"
     chef.add_recipe "karmagrove"
+    chef.add_recipe "chef-rvm::vagrant"
 
 
     # You may also specify custom JSON attributes:
