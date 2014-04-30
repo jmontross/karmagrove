@@ -13,6 +13,7 @@ module Karmagrove
   class Application < Rails::Application
 
     config.assets.enabled = true
+    config.assets.compile = false
     config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
   end
 end
