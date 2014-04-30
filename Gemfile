@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
-gem 'berkshelf'
+# gem 'berkshelf' http://www.getchef.com/downloads/chef-dk/mac/
 
 gem 'omniauth'
 gem 'omniauth-facebook'
