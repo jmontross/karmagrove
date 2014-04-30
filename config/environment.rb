@@ -2,8 +2,8 @@
 require File.expand_path('../application', __FILE__)
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => ENV['sendgrid_email'],
-  :password => ENV['sendgrid_password'],
+  :user_name => ENV['SENDGRID_USER'],
+  :password => ENV['SENDGRID_PASSWORD'],
   :domain => 'karmagrove.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,

@@ -11,6 +11,7 @@ class Notifier < ActionMailer::Base
       )
     rescue Exception => e
     	Rails.logger.info e
+      return true
     end  
   end
 end

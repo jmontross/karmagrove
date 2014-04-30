@@ -7,7 +7,11 @@ class UsersController < InheritedResources::Base
     @email = params[:email]
     if User.exists?(:email => params[:email])
       @user = User.find_by_email params[:email]
-      Notifier.send_signup_email(@user).deliver
+      begin 
+        Notifier.send_signup_email(@user).deliver
+      rescue
+        return true
+      end
     else
       @user, @status = EmailSubscriber.subscribe params[:email]
        Notifier.send_signup_email(@user).deliver
@@ -21,7 +25,6 @@ class UsersController < InheritedResources::Base
     @email = params[:email]
     if User.exists?(:id => params[:id])
       @user = User.find params[:id]
-
     end
     if @user
       if @email == "" then @email = @user.email end
