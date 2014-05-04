@@ -14,9 +14,22 @@ Quick Start
 ```
 $ git clone git@github.com:jmontross/karmagrove.git
 $ cd karmagrove
+$ bundle install
 $ export RAILS_ENV=development; bundle exec rake db:seed
 $ bundle exec rake db:seed
 $ bundle exec rails s
+
+Libv8 problems?  
+
+brew install libv8
+gem install libv8 -v 3.11.8.17 -- --with-system-v8
+
+pg problems? 
+brew install postgresql
+
+rmagick problems? 
+brew install imagemagick
+
 ```
 
 Quick Start with vagrant
@@ -26,8 +39,11 @@ This is a work in progress and describes the ideal.
 A vagrant file is provided
 ubuntu 12.04 if you want OS that is tested
 for info see vagrantup.com
-in short, gem install vagrant, install virtualbox, and get ubuntu 12.04 with
-vagrant box add precise64
+in short,  install vagrant from vagrantup.com, install virtualbox, and get ubuntu 12.04 with
+vagrant box add precise64 http://dl.dropbox.com/u/1537815/precise64.box
+you need berkshelf also for some plugins..
+vagrant plugin install --plugin-prerelease --plugin-source https://rubygems.org vagrant-berkshelf
+https://github.com/berkshelf/vagrant-berkshelf/issues/122
 
 ````
 git clone git@github.com:jmontross/karmagrove.git

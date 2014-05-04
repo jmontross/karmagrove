@@ -5,7 +5,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "friends@karmagrove.com"
-
+   config.secret_key = '83a673011e9873de25d7a23de38718b3235fe2f37c3f8094d6d9e1bb03a46309a2aa7ac904dae64938968190c9b7812540968156e512d5ae1d9f6f9cd9b2a25d'
 
   # this stuff is to make the username the login instead of email....
   # config.authentication_keys = [ :username ]

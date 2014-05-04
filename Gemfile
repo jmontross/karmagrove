@@ -1,24 +1,29 @@
-#ruby '1.9.3'
+ruby '1.9.3'
 
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 # gem 'berkshelf' http://www.getchef.com/downloads/chef-dk/mac/
+# 
+gem 'font-awesome-less'
 
+gem "font-awesome-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'balanced'
+gem 'faraday','~> 0.8.6'
+
 gem "koala", "~> 1.7.0rc1"
 gem "bitly"
 
 gem 'resque'
 gem 'resque-scheduler'
+gem 'libv8', '3.11.8.17'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development do
   gem 'sqlite3'
-  gem 'vagrant'
 end
 
 group :production do
