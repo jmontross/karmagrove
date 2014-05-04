@@ -1,7 +1,11 @@
 class BuddhasController < InheritedResources::Base
 
   def dharmaya
-    @product = Product.find_by_name "Teaching of Buddha" ||  Product.create!(:name => "Teaching of Buddha", :image_url => "/assets/buddha_green.jpg")
+    if Product.find_by_name "Teaching of Buddha" == nil 
+       @product = Product.create!(:name => "Teaching of Buddha", :image_url => "/assets/buddha_green.jpg") 
+    else
+       @product = Product.find_by_name "Teaching of Buddha"
+   end
     @purchase = Purchase.create!(:product_id => @product.id)
 
     respond_to do |format|
