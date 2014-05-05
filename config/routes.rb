@@ -3,6 +3,8 @@ Karmagrove::Application.routes.draw do
   resources :buddhas
 
   match '/buddha', to: 'buddhas#dharmaya'
+  put '/buddhas', to: 'buddhas#create'
+
 
   # match '/buddhas', to: 'buddhas#dharmaya'
 

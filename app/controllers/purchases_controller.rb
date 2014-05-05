@@ -31,7 +31,8 @@ end
 # GET /products/new
 # GET /products/new.json
   def new
-    if params[:product_id].is_a? Integer
+    if params[:product_id].to_i.is_a? Integer
+      puts "awesome!"
       @product = Product.find(params[:product_id])
     else
       # remove %20 and - and replace with space

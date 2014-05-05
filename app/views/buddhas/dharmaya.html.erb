@@ -9,7 +9,7 @@
 
 <% javascript 'purchases.js' %>
 
-<%= form_for @purchase, :url => {:action => "create", :route => "/products/#{@product.id}/purchase"} do |f| %>
+<%= form_for @purchase, :url => { :controller => "buddhas", :action => "create", :route => "/products/#{@product.id}/purchases" } do |f| %>
   <% if @purchase.errors.any? %>
     <div class="error_messages">
       <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
