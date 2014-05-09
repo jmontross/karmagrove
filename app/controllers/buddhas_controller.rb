@@ -7,6 +7,7 @@ class BuddhasController < InheritedResources::Base
        @product = Product.find_by_name "Teaching of Buddha"
    end
     @purchase = Purchase.create!(:product_id => @product.id)
+    # @donation = @donation.create | donation occurs right away?
 
     respond_to do |format|
       format.html # new.html.erb
@@ -15,7 +16,7 @@ class BuddhasController < InheritedResources::Base
 
   end
 
-  def update
+  def update  	
   	create
   end
 
@@ -29,10 +30,11 @@ class BuddhasController < InheritedResources::Base
   
     # Set your secret key: remember to change this to your live secret key in production
     # See your keys here https://manage.stripe.com/account
-    # Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
+    Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
   
     # Get the credit card details submitted by the form
     token = params[:stripeToken]
+
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
       charge = Stripe::Charge.create(

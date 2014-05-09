@@ -62,7 +62,12 @@ class Purchase < ActiveRecord::Base
   end
 
   def new_donation(params)
-    @charity_id = params[:charity_id]
+    if params[:charity_id]
+      @charity_id = params[:charity_id]
+    else
+      # bad workaround - just makeup a charity..
+      @charity_id = Charity.first.id
+    end
     @donation = Donation.create!(:charity_id => @charity_id, :purchase_id => self.id)
     self.donation_id = @donation.id
     # @donation.save

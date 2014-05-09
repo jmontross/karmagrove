@@ -28,7 +28,7 @@ def show
 end
 
 
-# GET /products/new
+# GET /products/:id/purchases new
 # GET /products/new.json
   def new
     if params[:product_id].to_i.is_a? Integer
@@ -42,6 +42,12 @@ end
     end
 
     @purchase = Purchase.create!(:product_id => @product.id)
+    #  @donation =  ActiveRecord::RecordNotFound in PurchasesController#update 
+    #  app/controllers/purchases_controller.rb:54:in `update'
+    #  
+    # @donation = Purchase.create!(:product_id => @product.id)
+    @donation_id = @purchase.new_donation(params)
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @purchase }
@@ -51,21 +57,44 @@ end
   def update
     @disable_nav = true
     @disable_sidebar = true
-    @charity = Charity.find(params[:donation_id])
-    @purchase = Purchase.find(params[:purchase_id])
+    if params[:purchase_id]
+      @purchase_id = params[:purchase_id]
+    end
+    if params[:purchase]
+       @purchase_id = params[:purchase][:id]
+    end
+    @purchase = Purchase.find(@purchase_id)
     @product = Product.find(@purchase.product_id)
-    @donation = Donation.where(:charity_id => @charity.id,:purchase_id => @purchase.id).first
-    @donation ||= Donation.create(:charity_id => @charity.id,:purchase_id => @purchase.id)
-    @donation.save
-    @purchase.donation_id = @donation.id
-    @purchase.save
+    @donation_id = 
+    if params[:donation] and params[:donation][:id].to_i.class == Fixnum
+      @donation_id = params[:donation][:id]
+      @charity_id = Donation.find(@donation_id).charity_id
+    end
+    if params[:donation_id]
+       Rails.logger.info "found donation id #{params[:donation_id]}"
+       @charity_id = params[:donation_id]
+    end
 
+    if @charity_id
+      @charity = Charity.find(@charity_id)
+      
+      Donation.where(:purchase_id => @purchase.id).each do |donation|
+        @donation = donation
+      end
+
+      @donation ||= Donation.create(:charity_id => @charity.id,:purchase_id => @purchase.id)
+      @donation.save
+      @purchase.donation_id = @donation.id
+      @purchase.save
+    end  
+    
     # session['callback_code'] = @code
     if @purchase.donation_id
       respond_to do |format|
         format.html
       end
     else
+      # no donation id then the purchase fails.  There is a donation at time of purchase...
       render "404"
     end
   end

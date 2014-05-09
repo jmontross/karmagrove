@@ -29,12 +29,6 @@
     <%= product.hidden_field :id, :value => @product.id %>
   <% end %>
 
-  <% if @donation_id %>
-    <%= fields_for :donation do |donation| %>
-      <%= donation.hidden_field :id, :value => @donation_id.id %>
-    <% end %>
-  <% end %>
-
   <% if current_user %>
   <%= fields_for :user do |buyer| %>
     <%= buyer.hidden_field :email, :value => current_user.email %>
