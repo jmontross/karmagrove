@@ -8,7 +8,7 @@ jQuery ->
 
 purchase =
   setupForm: ->
-    $('#new_purchase').submit ->
+    $('.edit_purchase').submit ->
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
         purchase.processCard()
@@ -26,7 +26,7 @@ purchase =
 
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#new_purchase').append($('<input type="hidden" name="stripeToken" />').val(response.id))
+      $('.edit_purchase').append($('<input type="hidden" name="stripeToken" />').val(response.id))
       # console.log(response);
       # console.log($('#purchase_stripe_card_token').val(response.id));
 
@@ -45,7 +45,7 @@ purchase =
       #   panelLabel:  'Checkout'
       #   token:       token
 
-      $('#new_purchase')[0].submit()
+      $('.edit_purchase')[0].submit()
       # $form.get(0).submit();
     else
       $('#stripe_error').text(response.error.message)

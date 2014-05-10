@@ -43,14 +43,19 @@ class Purchase < ActiveRecord::Base
 
   validates_presence_of  :product_id
 
-  def save_with_payment
+  def save_with_payment(params={})
     begin
       if valid?
         # email = params[user]['email']
           # customer = Stripe::Customer.create(description: email ,purchase_id: purchase_id,  card: stripe_card_token)
         customer = Stripe::Customer.create(description: self.product_id)
         self.stripe_customer_token = customer.id
-        self.stripe_transaction_id = customer.id
+        if params[:purchase_id]
+          self.stripe_transaction_id = params[:purchase_id]
+        else
+          self.stripe_transaction_id = customer.id  
+        end
+        
         # self.stripe_customer_token = customer.id
         save!
       end

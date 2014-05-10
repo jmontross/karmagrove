@@ -7,7 +7,6 @@
 
 <h3> Order the teaching of Buddha and choose where half the proceeds of your purchase flow </h3>
 
-<% javascript 'purchases.js' %>
 
 <%= form_for @purchase, :url => { :controller => "buddhas", :action => "create", :route => "/products/#{@product.id}/purchases" } do |f| %>
   <% if @purchase.errors.any? %>
