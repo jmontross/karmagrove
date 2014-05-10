@@ -1,0 +1,9 @@
+Thank you for purchasing the teaching of buddha and donating to charity. 
+
+You may download the audio files at most three times and the links will be available for three days.
+
+<a href="https://s3.amazonaws.com/karmagrove/BUDDHA.PDF"> Buddha pdf </a>
+
+<% @buddha_links.each_with_index do |audio_link, index| %>
+	<a href="<%= audio_link %>" Buddha audio file <%= index %> </a>
+<% end %>

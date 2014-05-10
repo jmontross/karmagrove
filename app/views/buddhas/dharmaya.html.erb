@@ -5,6 +5,8 @@
 
 <%=  image_tag("buddha_green.jpg") %>
 
+<% javascript 'buddhas.js' %>
+
 <h3> Order the teaching of Buddha and choose where half the proceeds of your purchase flow </h3>
 
 
@@ -32,7 +34,6 @@
   <%= f.hidden_field :buyer_id %>
   <%= f.hidden_field :id %>
 
-
   <%= fields_for :product do |product| %>
     <%= product.hidden_field :id, :value => @product.id %>
   <% end %>
@@ -42,7 +43,6 @@
     <%= buyer.hidden_field :email, :value => current_user.email %>
   <% end %>
   <%end %>
-
 
   <div class="field">
       <%= label_tag :card_number, "Credit Card Number " %>

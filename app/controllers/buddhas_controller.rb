@@ -28,20 +28,27 @@ class BuddhasController < InheritedResources::Base
     @product = Product.find @purchase.product_id 
     @purchase.save
   
-    # Set your secret key: remember to change this to your live secret key in production
-    # See your keys here https://manage.stripe.com/account
-    # Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
-  
     # Get the credit card details submitted by the form
     token = params[:stripeToken]
+    Rails.logger.info "stripe token #{token} "
 
-   
 
     # Create the charge on Stripe's servers - this will charge the user's card
     if params[:email]
       @email = params[:email]
+      if User.find_by_email @email
+        @user =  User.find_by_email @email
+      else
+        @user = Buyer.create @email
+      end
+        @user.provider="stripe"
+        @user.uid = @stripe_customer.id
+        # @stripe_customer = Stripe::Customer.find_by_email @email
+        # @stripe_customer ||= Stripe::Customer.create(
+        #                       :card => token,
+        #                       :description => @email
+        #                       )    
     end
-
 
     #   customer = Stripe::Customer.create(
     #     :card => token,
@@ -55,6 +62,8 @@ class BuddhasController < InheritedResources::Base
     #       :customer => customer.id
     #   )      
     begin
+      # replace with @stripe_customer
+      Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
       charge = Stripe::Charge.create(
         :amount => (@product.price * 100).to_i , # amount in cents, again
         :currency => "usd",
@@ -69,10 +78,11 @@ class BuddhasController < InheritedResources::Base
     # @purchase.stripe_customer_token = charge.id
   
     if @purchase.save_with_payment({:purchase_id => @purchase.id})
+      mailer_params = {user: @user}
+      Notifier.send_purchase_email mailer_params 
       redirect_to [@product, @purchase], :url => {:action => "index"}, :notice => "Thank you for purchasing!"
     else
       render :new
     end
-    end
-
+  end
 end
