@@ -26,12 +26,12 @@ class Notifier < ActionMailer::Base
         to: @user.email,
         subject: 'Thank you for your purchase at the grove'
         template_path: 'buddhas',
-        template_name: 'purchase_email')
+        template_name: 'purchase_email'
       )
     rescue Exception => e
       Rails.logger.info e
       return true
     end  
-
   end
+
 end
