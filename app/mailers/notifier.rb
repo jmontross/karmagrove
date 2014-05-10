@@ -24,7 +24,7 @@ class Notifier < ActionMailer::Base
       @user = params[:user]
       mail(
         to: @user.email,
-        subject: 'Thank you for your purchase at the grove'
+        subject: 'Thank you for your purchase at the grove',
         template_path: 'buddhas',
         template_name: 'purchase_email'
       )
