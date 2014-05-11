@@ -22,6 +22,9 @@ class BuddhasController < InheritedResources::Base
 
   def create
 
+    #  Til we have this under wraps do not want to be charging people
+    Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
+
     @purchase = Purchase.find(params[:purchase][:id]) 
     @purchase.product_id = params[:product_id] || params[:product][:id]
 
@@ -70,7 +73,7 @@ class BuddhasController < InheritedResources::Base
     #   )      
     begin
       # replace with @stripe_customer
-      Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
+      
       Rails.logger.info @stripe_customer
       charge = Stripe::Charge.create(
         :amount => (@product.price * 100).to_i , # amount in cents, again
