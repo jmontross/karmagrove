@@ -92,7 +92,7 @@ class BuddhasController < InheritedResources::Base
     if @purchase.save_with_payment({:purchase_id => @purchase.id})
       mailer_params = {user: @user}
       Rails.logger.info "purchase with payment..."
-      response = Notifier.send_purchase_email mailer_params 
+      response = Notifier.send_purchase_email(mailer_params).deliver
       Rails.logger.info response
       redirect_to [@product, @purchase], :url => {:action => "index"}, :notice => "Thank you for purchasing!"
     else
