@@ -1,7 +1,7 @@
 <h3> Seek wisdom, find understanding: forget it not </h3>
 
 <h3> Listen to the teaching of Buddhas as you drive to work </h3>
-<h3> Learn something new and expand your world </h3>
+<h3> You may have the teaching of buddha on <a href="https://s3.amazonaws.com/karmagrove/BUDDHA.PDF"> pdf for free </a></h3>
 
 <%=  image_tag("buddha_green.jpg") %>
 
@@ -23,7 +23,7 @@
   <% end %>
 
 
-  <h2> You are purchasing <%= @product.name %> </h2>
+  <h2> You are purchasing the audio of <%= @product.name %> </h2>
 
   <% if @product and @product.image_url %>
 
@@ -45,7 +45,7 @@
   <%end %>
   <div class="field">
       <%= label_tag :price, "Amount charged to your card " %>
-      <%= text_field_tag :price, @product.price, name: "price" %>
+      <%= text_field_tag :price, "5.00", name: "price" %>
   </div>
   <div class="field">
       <%= label_tag :card_number, "Credit Card Number " %>
