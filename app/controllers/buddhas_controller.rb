@@ -40,14 +40,19 @@ class BuddhasController < InheritedResources::Base
         @user =  User.find_by_email @email
       else
         @user = Buyer.create @email
-      end
+        @user = @user.first
         @user.provider="stripe"
-        @user.uid = @stripe_customer.id
-        # @stripe_customer = Stripe::Customer.find_by_email @email
-        # @stripe_customer ||= Stripe::Customer.create(
-        #                       :card => token,
-        #                       :description => @email
-        #                       )    
+      end
+        
+      if @user.uid
+        @stripe_customer = Stripe::Customer.fetch @user.uid
+      end
+      
+      @stripe_customer ||= Stripe::Customer.create(
+                             :card => token,
+                             :description => @email
+                             )    
+      @user.uid = @stripe_customer.id
     end
 
     #   customer = Stripe::Customer.create(
@@ -64,12 +69,14 @@ class BuddhasController < InheritedResources::Base
     begin
       # replace with @stripe_customer
       Stripe.api_key = "sk_test_B5RUJ3ZgW7BnB5VKp1vNbE7e"
+      Rails.logger.info @stripe_customer
       charge = Stripe::Charge.create(
         :amount => (@product.price * 100).to_i , # amount in cents, again
         :currency => "usd",
-        :card => token,
+        :customer => @stripe_customer.id,
         :description => @email
       )
+
     rescue Stripe::CardError => e
       # The card has been declined
       Rails.logger.info "error: #{e.message}"
@@ -79,7 +86,9 @@ class BuddhasController < InheritedResources::Base
   
     if @purchase.save_with_payment({:purchase_id => @purchase.id})
       mailer_params = {user: @user}
-      Notifier.send_purchase_email mailer_params 
+      Rails.logger.info "purchase with payment..."
+      response = Notifier.send_purchase_email mailer_params 
+      Rails.logger.info response
       redirect_to [@product, @purchase], :url => {:action => "index"}, :notice => "Thank you for purchasing!"
     else
       render :new

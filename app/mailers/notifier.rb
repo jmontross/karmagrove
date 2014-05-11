@@ -17,10 +17,10 @@ class Notifier < ActionMailer::Base
 
   def send_purchase_email(params={})
 
-      # hard code buddh links for now Buddha.create_links
-      @buddha_links = ["https://s3.amazonaws.com/karmagrove/tob-zips-1-17.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-18-34.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-35-49.sitx"]
+    # hard code buddh links for now Buddha.create_links
+    @buddha_links = ["https://s3.amazonaws.com/karmagrove/tob-zips-1-17.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-18-34.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-35-49.sitx"]
       
-      begin
+    begin
       @user = params[:user]
       mail(
         to: @user.email,

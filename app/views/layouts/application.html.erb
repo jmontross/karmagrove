@@ -14,6 +14,16 @@
     <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
     <%= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js", "application" %>
 
+
+    <script type="text/javascript">
+      // This identifies your website in the createToken call below
+      var public_key = $('meta[name=stripe-key]').attr('content')
+      Stripe.setPublishableKey(public_key);
+      
+    </script>
+
+
+
  <!--  modals and tooltips scripts -->
     <script src="http://w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
 
@@ -24,7 +34,7 @@
     <%= yield(:head) %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+    <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
   </head>
   <body>
     <div id="fb-root"></div>

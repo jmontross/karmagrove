@@ -5,7 +5,7 @@
 
 <%=  image_tag("buddha_green.jpg") %>
 
-<% javascript 'buddhas.js' %>
+<% javascript 'purchases.js' %>
 
 <h3> Order the teaching of Buddha and choose where half the proceeds of your purchase flow </h3>
 
@@ -61,7 +61,7 @@
   <% unless current_user %>
     <%= fields_for :user do |buyer| %>
     <%= label_tag :email, "Your email " %>
-    <%= text_field_tag :email, nil, name: nil %>
+    <%= text_field_tag :email, nil, name: "email" %>
     <% end %>
   <% end %>
    <div id="stripe_error">
