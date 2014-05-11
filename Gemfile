@@ -2,11 +2,12 @@ ruby '1.9.3'
 
 source 'https://rubygems.org'
 
+gem 'aws-sdk'
 gem 'rails', '3.2.9'
 # gem 'berkshelf' http://www.getchef.com/downloads/chef-dk/mac/
 # 
+gem 'bootstrap-sass'
 gem 'font-awesome-less'
-
 gem "font-awesome-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'

@@ -22,8 +22,8 @@ class BuddhasController < InheritedResources::Base
 
   def create
 
-     @purchase = Purchase.find(params[:purchase][:id]) 
-     @purchase.product_id = params[:product_id] || params[:product][:id]
+    @purchase = Purchase.find(params[:purchase][:id]) 
+    @purchase.product_id = params[:product_id] || params[:product][:id]
 
     @product = Product.find @purchase.product_id 
     @purchase.save
@@ -32,7 +32,9 @@ class BuddhasController < InheritedResources::Base
     token = params[:stripeToken]
     Rails.logger.info "stripe token #{token} "
 
-
+    if params[:price] and @product.price.nil?
+      @product.price = params[:price]
+    end
     # Create the charge on Stripe's servers - this will charge the user's card
     if params[:email]
       @email = params[:email]
