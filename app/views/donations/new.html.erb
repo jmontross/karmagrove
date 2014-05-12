@@ -3,7 +3,7 @@
 <h1 class="icon-align-center"> Give Good Karma </h1>
 <br>
 <h2> Choose the charity who benefits from your purchase
-<% if @batch.batch_name %>
+<% if @batch and @batch.batch_name %>
  - <%= @batch.batch_name %>
 <% end %>
 </h2>
@@ -19,7 +19,7 @@
     <% end %>
   <% end %>
 
-<% else %>
+<% elsif @batch and @batch.id %>
 
   <% @charities.each do |charity| %>
     <br />
@@ -40,4 +40,32 @@
     </button>
     </a>
   <% end %>
+
+<% else 
+# handle the purchase for a non batch purchase 
+# make this into a put at the purchase url for routes to be restful 
+%>
+  
+  <% @charities.each do |charity| %>
+    <br />
+    <a href="/donations/<%=charity.id%>/purchases/<%=@purchase.id%>/update"> <button class="btn btn-    large btn-block" type="button">
+      <h3> <%= charity.legal_name %>
+         <% if charity.city && charity.state %>
+           <small> <%= charity.city %>, <%= charity.state %> </small>
+         <% elsif charity.city %>
+           <small> <%= charity.city %> </small>
+         <% elsif charity.state %>
+           <small> <%= charity.state %> </small>
+         <% else %>
+         <% end %>
+      </h3>
+      <br />
+      <%= charity.deductibility_status_description %>
+
+    </button>
+    </a>
+  <% end %>
+
+
+
 <% end %>

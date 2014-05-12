@@ -20,6 +20,7 @@ def show
   else
     @purchase = Purchase.find(params[:id])
   end
+
    respond_to do |format|
      format.html
      format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
