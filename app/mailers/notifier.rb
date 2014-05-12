@@ -6,8 +6,10 @@ class Notifier < ActionMailer::Base
   	begin
       @user   = user
       mail(
-        :to => @user.email,
-        :subject => 'Thanks for signing up Karma Grove.  We will email you monthly with updates as to where donations have gone as well as keep you up to date on any new features.'
+        to: @user.email,
+        subject: 'Thanks for signing up Karma Grove.  We will email you monthly with updates as to where donations have gone as well as keep you up to date on any new features.',
+        template_path: 'notifier',
+        template_name: 'welcome_email'
       )
     rescue Exception => e
     	Rails.logger.info e
@@ -25,8 +27,8 @@ class Notifier < ActionMailer::Base
       mail(
         to: @user.email,
         subject: 'Thank you for your purchase at the grove',
-        template_path: 'buddhas',
-        template_name: 'purchase_email'
+        template_path: 'notifier',
+        template_name: 'send_purchase_email'
       )
     rescue Exception => e
       Rails.logger.info e

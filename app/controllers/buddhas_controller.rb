@@ -58,6 +58,7 @@ class BuddhasController < InheritedResources::Base
                              :description => @email
                              )    
       @user.uid = @stripe_customer.id
+      @purchase.buyer_id = @user.id
     end
 
     #   customer = Stripe::Customer.create(
@@ -71,6 +72,7 @@ class BuddhasController < InheritedResources::Base
     #       :currency => "usd",
     #       :customer => customer.id
     #   )      
+
     begin
       # replace with @stripe_customer
       
@@ -90,10 +92,12 @@ class BuddhasController < InheritedResources::Base
     # @purchase.stripe_customer_token = charge.id
   
     if @purchase.save_with_payment({:purchase_id => @purchase.id})
+      @buddha_links = ["https://s3.amazonaws.com/karmagrove/tob-zips-1-17.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-18-34.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-35-49.sitx"]
       mailer_params = {user: @user}
       Rails.logger.info "purchase with payment..."
-      response = Notifier.send_purchase_email(mailer_params).deliver
-      Rails.logger.info response
+      email = Notifier.send_purchase_email(mailer_params)
+      email.deliver
+      Rails.logger.info email
       redirect_to [@product, @purchase], :url => {:action => "index"}, :notice => "Thank you for purchasing!"
     else
       render :new
