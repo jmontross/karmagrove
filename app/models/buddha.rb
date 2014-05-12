@@ -1,3 +1,4 @@
+# could just make buddha inherit from product.. 
 class Buddha < ActiveRecord::Base
   attr_accessible :file_location, :media_type, :product
 

@@ -50,6 +50,18 @@ product = Product.create!({
     :image_url => "/assets/karma_coin_hand.gif"
 })
 
+product2 = Product.create!({
+    :name => "Teaching of Buddha",
+    :description => "Teaching of buddha on audio recorded by Andrew Allansmith",
+    :price => "5.00",
+    :image_url => "/assets/buddha_green.jpg"
+})
+
+ProductCharity.create!(:product_id => product2.id, :charity_id => c1.id)
+ProductCharity.create!(:product_id => product2.id, :charity_id => c2.id)
+ProductCharity.create!(:product_id => product2.id, :charity_id => c3.id)
+
+
 # Attach karma coins to the batches
 BatchProduct.create(:product_id => product.id, :batch_id => batch.id)
 BatchProduct.create(:product_id => product.id, :batch_id => batch2.id)

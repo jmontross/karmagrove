@@ -42,7 +42,7 @@ class BatchCharityPayment < ActiveRecord::Base
     return self.batches.where(:status => "open")
   end
 
-  def open_batches
+  def closed_batches
     return self.batches.where(:status => "closed")
   end
 
