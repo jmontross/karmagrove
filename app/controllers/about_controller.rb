@@ -36,10 +36,11 @@ class AboutController < ApplicationController
   def grove
   #  @products = Product.all
     @disable_sidebar = true
-    respond_to do |format|
-      format.html # joy_coin.html.erb
-   #   format.json { render json: @products }
-    end
+   #  respond_to do |format|
+   #    format.html # joy_coin.html.erb
+   # #   format.json { render json: @products }
+   #  end
+    render layout: "/layouts/front_page"
   end
 
 

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <div class="main">
+      <title><%= yield(:title) %></title>
+
+    </div>
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
+    <%= javascript_include_tag "https://checkout.stripe.com/v2/checkout.js", "application" %>
+
+
+
+
+    <script type="text/javascript">
+      // This identifies your website in the createToken call below
+      var public_key = $('meta[name=stripe-key]').attr('content')
+      Stripe.setPublishableKey(public_key);
+
+      </script>
+
+
+
+      <!--  modals and tooltips scripts -->
+      <script src="http://w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
+
+      <script src="http://w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-popover.js"></script>
+
+      <!--  modals and tooltips scripts -->
+
+      <%= yield(:head) %>
+      <%= csrf_meta_tags %>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLIC_KEY'] %>
+    </head>
+
+    <%= render "layouts/navbar-alternate"%>
+    <body>
+      <div class="container">
+<!-- Carousel
+  ================================================== -->
+  <div id="frontCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#frontCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#frontCarousel" data-slide-to="1"></li>
+      <li data-target="#frontCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+        <%=  image_tag "buddha_green.jpg", class: "image-responsive" %>
+        <!--         <img src="http://lorempixel.com/1500/600/abstract/1" class="img-responsive"> -->
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Support Local Charities</h1>
+            <p><a class="btn btn-lg btn-primary" href="/buddha">Learn More</a>
+            </p></p></div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="http://lorempixel.com/1500/600/abstract/1" class="img-responsive">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Changes to the Grid</h1>
+              <p>Bootstrap 3 still features a 12-column grid, but many of the CSS class names have completely changed.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="http://placehold.it/1500X500" class="img-responsive">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Percentage-based sizing</h1>
+              <p>With "mobile-first" there is now only one percentage-based grid.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Controls -->
+      <a class="left carousel-control" href="#frontCarousel" data-slide="prev">
+        <span class="icon-prev" style="font-size:20pt;"></span>
+      </a>
+      <a class="right carousel-control" href="#frontCarousel" data-slide="next">
+        <span class="icon-next" style="font-size:20pt;"></span>
+      </a>
+    </div>
+    <!-- /.carousel -->
+
+
+<!-- marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img class="img-circle" src="http://placehold.it/140x140">
+        <h2>Mobile-first</h2>
+        <p>Tablets, phones, laptops. The new 3 promises to be mobile friendly from the start.</p>
+        <p><a class="btn btn-default" href="#">View details »</a></p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img class="img-circle" src="http://placehold.it/140x140">
+        <h2>One Fluid Grid</h2>
+        <p>There is now just one percentage-based grid for Bootstrap 3. Customize for fixed widths.</p>
+        <p><a class="btn btn-default" href="#">View details »</a></p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img class="img-circle" src="http://placehold.it/140x140">
+        <h2>LESS is More</h2>
+        <p>Improved support for mixins make the new Bootstrap 3 easier to customize.</p>
+        <p><a class="btn btn-default" href="#">View details »</a></p>
+      </div>
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+      <img class="featurette-image img-circle pull-right" src="http://placehold.it/512">
+      <h2 class="featurette-heading">Responsive Design. <span class="text-muted">It'll blow your mind.</span></h2>
+      <p class="lead">In simple terms, a responsive web design figures out what resolution of device it's being served on. Flexible grids then size correctly to fit the screen.</p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+      <img class="featurette-image img-circle pull-left" src="http://placehold.it/512">
+      <h2 class="featurette-heading">Smaller Footprint. <span class="text-muted">Lightweight.</span></h2>
+      <p class="lead">The new Bootstrap 3 promises to be a smaller build. The separate Bootstrap base and responsive.css files have now been merged into one. There is no more fixed grid, only fluid.</p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+      <img class="featurette-image img-circle pull-right" src="http://placehold.it/512">
+      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Flatness.</span></h2>
+      <p class="lead">A big design trend for 2013 is "flat" design. Gone are the days of excessive gradients and shadows. Designers are producing cleaner flat designs, and Bootstrap 3 takes advantage of this minimalist trend.</p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+    <%= render partial: "/layouts/footer" %>
+
+  </div>
+</body>
+</html>
+
+<style>
+  /* BOOTSTRAP 3.x GLOBAL STYLES
+  -------------------------------------------------- */
+  body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+  }
+
+
+
+/* CUSTOMIZE THE navbar
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  border: 0px;
+  border-radius: 0px;
+  width: 763.219px;
+  height: 144px;
+  left: 15%;
+  right: 15%;
+  padding-bottom: 30px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, 0.0)
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 400px;
+  background-color:#555;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 400px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {
+  content: '\203a';
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  font-size: 50px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  opacity: 0.4;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  top: 47%;
+}
+
+.carousel-indicators{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  height: 20px;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.carousel-control {
+width: 45px;
+border: 0;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+ol {
+display: block;
+list-style-type: decimal;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+}
+
+/* marketing CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+  padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+  overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette-image {
+  margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+  margin-right: 40px;
+}
+.featurette-image.pull-right {
+  margin-left: 40px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remve the edge padding needed for mobile */
+  .marketing {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+}
+
+</style>
