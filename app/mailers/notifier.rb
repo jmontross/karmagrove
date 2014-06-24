@@ -24,6 +24,7 @@ class Notifier < ActionMailer::Base
       
     begin
       @user = params[:user]
+      @purchase = params[:purchase]
       mail(
         to: @user.email,
         subject: 'Thank you for your purchase at the grove',
