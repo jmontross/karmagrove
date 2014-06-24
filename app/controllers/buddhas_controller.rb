@@ -92,13 +92,17 @@ class BuddhasController < InheritedResources::Base
     # @purchase.stripe_customer_token = charge.id
   
     if @purchase.save_with_payment({:purchase_id => @purchase.id})
+      # @windows_buddha_links = ["https://s3.amazonaws.com/karmagrove/tob-zips-1-17.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-18-34.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-35-49.sitx"]
       @buddha_links = ["https://s3.amazonaws.com/karmagrove/tob-zips-1-17.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-18-34.sitx","https://s3.amazonaws.com/karmagrove/tob-zips-35-49.sitx"]
-      mailer_params = {user: @user}
+      
+      mailer_params = {user: @user, purchase: @purchase}
       Rails.logger.info "purchase with payment..."
       email = Notifier.send_purchase_email(mailer_params)
       email.deliver
       Rails.logger.info email
-      redirect_to [@product, @purchase], :url => {:action => "index"}, :notice => "Thank you for purchasing!"
+      redirect_to "/purchases/#{@purchase.id}/donations/new"
+
+      # , :url => {:action => "new"}, :notice => "Thank you for purchasing!"
     else
       render :new
     end

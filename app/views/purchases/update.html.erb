@@ -1,5 +1,32 @@
 <h1 style="text-align:center"> Thanks for donating! </h1>
+<% if @purchase.product.name == "Teaching of Buddha" %>
+<h3>
+ You just gave approximately $1.00 to <%= @charity.legal_name %>.  
+<%= link_to " Connect your facebook", "/auth/facebook/login?donation_id=#{params[:purchase_id]}", id: "sign_in" %>
+and share what you have done with your friends and family as well as review your past donations.
+</h3>
 
+
+<p>
+
+
+Thank you for purchasing:
+The teaching of buddha
+
+<a href="https://s3.amazonaws.com/karmagrove/BUDDHA.PDF"> Buddha pdf </a>
+
+The follow are the audio files in zip format.   <br />
+
+<a href="https://s3.amazonaws.com/karmagrove/Archive.zip"> Buddha part 1   </a> <br />
+<a href="https://s3.amazonaws.com/karmagrove/Archive2.zip"> Buddha part 2 </a> <br />
+<a href="https://s3.amazonaws.com/karmagrove/Archive3.zip"> Buddha part 3 </a> 
+
+You have also been sent an email to <%= @purchase.buyer.email %>
+
+Would you like to connect facebook and gain access to your transaction history, the marketplace, and easier transactions? <br /> We won't harass you or post anything to your wall EVER.
+</p>
+
+<% else %>
 <h3>
  You just gave approximately $1.50 to <%= @charity.legal_name %>.  The exact amount of the donation will be updated at the end of the month when costs are known.
 </h3>
@@ -8,6 +35,9 @@
   Would you like to update the amount?
   <input name="amount" type="text"> </input>
 </h3>
+
+
+<% end %>
 
 <h3>
   Why not log in with facebook and watch your karma grow?
@@ -20,4 +50,6 @@
 <% else %>
   <%= link_to "Sign in with Facebook", "/auth/facebook/login?donation_id=#{params[:purchase_id]}", id: "sign_in" %>
 <% end %>
+
 </div>
+
