@@ -95,12 +95,5 @@ class Batch < ActiveRecord::Base
     map_of_charities
   end
 
-
-  # def close(allowed_to_close = true)
-  #   # Let it close! ...
-  #   self.state = self.current_state
-  #   self.save
-  #   halt unless allowed_to_close
-  # end
 end
 
