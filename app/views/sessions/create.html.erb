@@ -13,7 +13,7 @@
   You have made <%= purchases.count %> on Karma Grove.
 <% end %>
 
-<% if @purchases.last.product.name == "Teaching of Buddha" %>
+<% if @purchases and @purchases.last.product.name == "Teaching of Buddha" %>
   <p> Would you like to share your most recent purchase of Teaching of Buddha and your donation to <%= @purchases.last.donation.charity.legal_name %>?
   </p>
   <div class="fb-share-button" data-href="http://www.karmagrove.com/buddha" data-type="button_count"></div>
