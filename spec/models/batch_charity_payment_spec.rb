@@ -22,7 +22,7 @@ describe BatchCharityPayment do
   end
 
   it "should figure out the charities for each of the closed batches and determine the distribution in dollars to each charity for this batch" do
-
+     
   end
 
   it "should determine the distribution in dollars to each charity for this batch " do
