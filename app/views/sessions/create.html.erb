@@ -29,3 +29,8 @@
 <h2> Browse the market </h2>
 
 <h2> Karma Grove donation record </h2>
+
+<% if @user %>
+	<%= link_to "Your past purchases", "/purchases/user/#{@user.id}" %>
+
+<% end %>

@@ -18,19 +18,28 @@ class Notifier < ActionMailer::Base
   end
 
   def send_purchase_email(params={})
-
-    # hard code buddh links for now Buddha.create_links
-    @buddha_links = ["https://s3.amazonaws.com/karmagrove/Archive.zip","https://s3.amazonaws.com/karmagrove/Archive2.zip","https://s3.amazonaws.com/karmagrove/Archive3.zip"]
       
     begin
       @user = params[:user]
       @purchase = params[:purchase]
+
+      # mail(
+      #   to: @user.email,
+      #   subject: 'Thank you for your purchase at the grove',
+      #   template_path: 'notifier',
+      #   template_name: 'purchase_email'
+      # ) do |format|
+      #   format.text
+      #   format.html 
+      # end
+
       mail(
         to: @user.email,
         subject: 'Thank you for your purchase at the grove',
         template_path: 'buddhas',
         template_name: 'purchase_email'
       )
+
     rescue Exception => e
       Rails.logger.info e
       return true

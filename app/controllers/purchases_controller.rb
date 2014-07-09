@@ -17,6 +17,7 @@ end
 def user
   if params[:user_id] then
     @purchases = Purchase.find_by_buyer_id params[:user_id]
+    @user = User.find params[:user_id]
   end
 
    respond_to do |format|
