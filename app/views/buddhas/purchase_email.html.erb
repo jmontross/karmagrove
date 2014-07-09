@@ -8,4 +8,12 @@ The follow are the audio files in zip format.   <br />
 <a href="https://s3.amazonaws.com/karmagrove/Archive2.zip"> Buddha part 2 </a> <br />
 <a href="https://s3.amazonaws.com/karmagrove/Archive3.zip"> Buddha part 3 </a> <br />
 
-<a href="http://www.karmagrove.com/auth/facebook/login?donation_id=<%=@purchase.purchase_id%>"> Connect your facebook to claim your account and review past purchases, participate in the marketplace, and help Karma Grow. </a>
+<% if @purchase and @purchase.purchase_id %>
+
+	<a href="http://www.karmagrove.com/auth/facebook/login?donation_id=<%=@purchase.purchase_id%>"> Connect your facebook to claim your account and review past purchases, participate in the marketplace, and help Karma Grow. </a>
+
+<% else %>
+
+	<a href="http://www.karmagrove.com/auth/facebook/login?donation_id="> Connect your facebook to claim your account and review past purchases, participate in the marketplace, and help Karma Grow. </a>
+
+<% end %> 
