@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140512162422) do
+ActiveRecord::Schema.define(:version => 20140708234455) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,33 @@ ActiveRecord::Schema.define(:version => 20140512162422) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "auction_items", :force => true do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.text     "description"
+    t.integer  "starting_price"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "auctions", :force => true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "market_id"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.integer  "auction_item_id"
+    t.boolean  "buy_now"
+    t.boolean  "published"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "auctions", ["auction_item_id"], :name => "index_auctions_on_auction_item_id"
+  add_index "auctions", ["buyer_id"], :name => "index_auctions_on_buyer_id"
+  add_index "auctions", ["market_id"], :name => "index_auctions_on_market_id"
+  add_index "auctions", ["seller_id"], :name => "index_auctions_on_seller_id"
 
   create_table "batch_charities", :force => true do |t|
     t.integer  "batch_id"
@@ -89,6 +116,15 @@ ActiveRecord::Schema.define(:version => 20140512162422) do
     t.datetime "updated_at", :null => false
     t.string   "state"
   end
+
+  create_table "bids", :force => true do |t|
+    t.integer  "auction_id"
+    t.integer  "amount"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bids", ["auction_id"], :name => "index_bids_on_auction_id"
 
   create_table "buddhas", :force => true do |t|
     t.integer  "product_id"
