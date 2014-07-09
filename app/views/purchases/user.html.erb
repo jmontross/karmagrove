@@ -6,7 +6,12 @@ Thanks for checking out the purchases of <%= @user.name %>
 
 <ul>
 	<% @purchases.each do |purchase| %>
-		<li> <%= purchase.inspect %> </li>
+
+		<li> <%= purchase.product.name %> 
+			<% if @purchase.donation and purchase.donation.charity and @purchase.donation.charity.legal_name %>
+			- <%= @purchase.donation.charity.legal_name %> 
+			<% end %>
+		</li>
 	<% end %>
 </ul>	
 
