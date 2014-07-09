@@ -14,6 +14,20 @@ def index
   #format.html "hello"
 end
 
+def user
+   if params[:user_id] then
+    @purchases = Purchase.find_by_buyer_id params[:user_id]
+  else
+    @purchase = Purchase.find(params[:id])
+  end
+
+   respond_to do |format|
+     format.html
+     format.svg  { render :qrcode => request.url.gsub('.svg','.html'), :unit => 10 }
+     format.json { render json: @purchase }
+   end
+end
+
 def show
   if params[:user] then
     @purchases = Purchase.find_by_buyer_id params[:user]

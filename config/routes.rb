@@ -2,6 +2,12 @@ Karmagrove::Application.routes.draw do
 
   resources :buddhas
 
+  resources :auctions
+  resources :auction_items
+
+
+  match '/purchases/user/:user_id', to: 'purchases#user'
+
   match '/buddha', to: 'buddhas#dharmaya'
   get '/buddhas', to:  'buddhas#dharmaya'
   put '/buddhas', to: 'buddhas#create'
