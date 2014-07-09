@@ -1,0 +1,13 @@
+<% if @purchases and @user %>
+
+Thanks for checking out the purchases of <%= @user.name %>
+
+<h2> Purchases </h2>
+
+<ul>
+	<% @purchases.each do |purchase| %>
+		<li> <%= purchase.inspect %> </li>
+	<% end %>
+</ul>	
+
+<% end %>

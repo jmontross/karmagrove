@@ -15,10 +15,8 @@ def index
 end
 
 def user
-   if params[:user_id] then
+  if params[:user_id] then
     @purchases = Purchase.find_by_buyer_id params[:user_id]
-  else
-    @purchase = Purchase.find(params[:id])
   end
 
    respond_to do |format|
