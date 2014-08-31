@@ -30,11 +30,15 @@ $(document).ready(function () {
   $("#about-slider").owlCarousel({
     singleItem:true,
     itemsScaleUp:true,
+    autoHeight: true,
     lazyLoad : true,
+    theme: "owl-theme",
     navigation : true,
-    autoPlay: 3000,
+    autoPlay: true,
+    // paginationNumbers: true,
+    stopOnHover: true,
     transitionStyle : "fade",
-    slideSpeed : 2000,
+    slideSpeed : 500,
     paginationSpeed : 1000,
     goToFirstSpeed : 2000,
     afterUpdate: function () {
