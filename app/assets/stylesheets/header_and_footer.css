@@ -14,10 +14,26 @@ footer .navbar-static-bottom{
   margin: 0px;
 }
 
+.nav{
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+}
+
+/*override bootswatch theme*/
 #cse{
  width: 30%;
- float: left;
+ float: right;
+ margin-top: 1%;
+ margin-bottom: 5px;
 }
+
+/*override bootswatch theme*/
+.gsc-search-button{
+height: 29px !important;
+min-width: 54px !important;
+width: initial !important;
+}
+
 
 html, body {
   height: 100%;
