@@ -9,8 +9,27 @@
   top: 550px !important;
 }
 
+.dict-head{
+  background-color: #E1EDFA;
+}
+
+#about-page-container{
+  text-align: justify;
+}
+
 ol.dict {
-  margin-left: 50px;
+  margin-left: 40px;
+}
+
+.owl-carousel .owl-item img {
+  height:auto;
+  width:100%;
+  display: block;
+  }
+
+
+.owl-carousel .item {
+
 }
 
 .modal-backdrop.fade.in {
