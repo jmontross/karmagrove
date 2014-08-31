@@ -10,8 +10,31 @@ margin-top: 0px !important;
 
 #backstretch-div{
 width:100%;
-height:350px;
+height:500px;
 }
+
+.btn-primary:hover{
+  background-color: #128ff2 !important;
+}
+
+.btn-default:hover {
+background-color: #f7f7f7 !important;
+}
+
+.btn-primary{
+  color: #ffffff !important;
+}
+
+a:hover, a:focus {
+color: #0a6ebd;
+text-decoration: underline;
+}
+
+a:active, a:hover {
+outline: 0;
+background-color: transparent !important;
+}
+
 
 .modal{
 position: fixed !important;
