@@ -1,7 +1,17 @@
 
 footer .navbar-static-bottom{
   margin-top: 20px;
-margin-bottom: 1px;
+  margin-bottom: 1px;
+}
+
+#copyright-disclaimer{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#footer-rule{
+  width: 100%;
+  margin: 0px;
 }
 
 #cse{
