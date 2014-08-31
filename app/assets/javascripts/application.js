@@ -18,7 +18,9 @@
 //= require batch_charities
 //= require batches
 //= require charities
+//= require about
 //= require donations
+//= require header_and_footer
 //= require facebook
 //= require products
 //= require donations

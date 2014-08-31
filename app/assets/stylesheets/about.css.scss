@@ -2,124 +2,171 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.modal-dialog{
+margin-bottom: 0px !important;
+margin-top: 0px !important;
+}
+
+.modal{
+position: fixed !important;
+top: 10% !important;
+left: 30% !important;
+overflow: auto !important;
+margin-left: 0px !important;
+width: auto !important;
+bottom: initial !important;
+right: initial !important;
+}
+
+#about-col-left{
+  margin-left: -1%;
+}
+
+.popover{
+width:800px;
+height:250px;
+top: 550px !important;
+}
+
+.dict-head{
+background-color: #E1EDFA;
+}
+
+#about-page-container{
+text-align: justify;
+margin-top: 20px;
+}
+
 ol.dict {
-  margin-left: 50px;
+margin-left: 40px;
+}
+
+.owl-carousel .owl-item img {
+height:auto;
+width:100%;
+display: block;
+}
+
+
+.owl-carousel .item {
+
 }
 
 .modal-backdrop.fade.in {
-  opacity: 0.2;
+opacity: 0.2;
 }
 
 body {
-  font-size: small;
-  line-height: 1.4;
+font-size: small;
+line-height: 1.4;
 }
 p {
-  margin: 0;
+margin: 0;
 }
 
 // Nutrition Facts Table
 
 .performance-facts {
-  border: 1px solid black;
-  margin: 20px;
-  float: left;
-  width: 320px;
-  padding: 0.5rem;
-  table {
-    border-collapse: collapse;
-  }
+border: 1px solid black;
+margin: 20px;
+float: left;
+width: 320px;
+padding: 0.5rem;
+table {
+border-collapse: collapse;
+}
 }
 .performance-facts__title {
-  font-weight: bold;
-  font-size: 2rem;
-  margin: 0 0 0.25rem 0;
+font-weight: bold;
+font-size: 2rem;
+margin: 0 0 0.25rem 0;
 }
 .performance-facts__header {
-  border-bottom: 10px solid black;
-  padding: 0 0 0.25rem 0;
-  margin: 0 0 0.5rem 0;
-  p {
-    margin: 0;
-  }
+border-bottom: 10px solid black;
+padding: 0 0 0.25rem 0;
+margin: 0 0 0.5rem 0;
+p {
+margin: 0;
+}
 }
 .performance-facts__table {
-  width: 100%;
-  thead tr {
-    th, td {
-      border: 0;
-    }
-  }
+width: 100%;
+thead tr {
+th, td {
+border: 0;
+}
+}
 
-  th, td {
-    font-weight: normal;
-    text-align: left;
-    padding: 0.25rem 0;
-    border-top: 1px solid black;
-    white-space: nowrap;
-  }
-  td {
-    &:last-child {
-      text-align: right;
-    }
-  }
-  .blank-cell {
-    width: 1rem;
-    border-top: 0;
-  }
-  .thick-row {
-    th, td {
-      border-top-width: 5px;
-    }
-  }
+th, td {
+font-weight: normal;
+text-align: left;
+padding: 0.25rem 0;
+border-top: 1px solid black;
+white-space: nowrap;
+}
+td {
+&:last-child {
+text-align: right;
+}
+}
+.blank-cell {
+width: 1rem;
+border-top: 0;
+}
+.thick-row {
+th, td {
+border-top-width: 5px;
+}
+}
 }
 .small-info {
-  font-size: 0.7rem;
+font-size: 0.7rem;
 }
 
 .performance-facts__table--small {
-  @extend .performance-facts__table;
-  border-bottom: 1px solid #999;
-  margin: 0 0 0.5rem 0;
-  thead {
-    tr {
-      border-bottom: 1px solid black;
-    }
-  }
-  td {
-    &:last-child {
-      text-align: left;
-    }
-  }
-  th, td {
-    border: 0;
-    padding: 0;
-  }
+@extend .performance-facts__table;
+border-bottom: 1px solid #999;
+margin: 0 0 0.5rem 0;
+thead {
+tr {
+border-bottom: 1px solid black;
+}
+}
+td {
+&:last-child {
+text-align: left;
+}
+}
+th, td {
+border: 0;
+padding: 0;
+}
 }
 
 .performance-facts__table--grid {
-  @extend .performance-facts__table;
-  margin: 0 0 0.5rem 0;
-  td {
-    &:last-child {
-      text-align: left;
-      &::before {
-        content: "•";
-        font-weight: bold;
-        margin: 0 0.25rem 0 0;
-      }
-    }
-  }
+@extend .performance-facts__table;
+margin: 0 0 0.5rem 0;
+td {
+&:last-child {
+text-align: left;
+&::before {
+content: "•";
+font-weight: bold;
+margin: 0 0.25rem 0 0;
+}
+}
+}
 }
 
 .text-center {
-  text-align: center;
+text-align: center;
 }
 .thick-end {
-  border-bottom: 10px solid black;
+border-bottom: 10px solid black;
 }
 .thin-end {
-  border-bottom: 1px solid black;
+border-bottom: 1px solid black;
 }
 
 // Ingredients Table
@@ -130,38 +177,38 @@ margin-left: 20px;
 }
 
 .table-header{
-  padding-left: 10px;
+padding-left: 10px;
 }
 
 table.table-condensed tr > td:not(.table-header){
 padding-left: 20px;
 }
 
- div.table-right{
-    float: right;
-  }
+div.table-right{
+float: right;
+}
 
-  div.table-left{
-    margin-top:17px;
-    float:left;
-  }
+div.table-left{
+margin-top:17px;
+float:left;
+}
 
-  div.table-bottom{
-    margin-left:20%;
-  }
+div.table-bottom{
+margin-left:20%;
+}
 
-  div.table-container{
-    overflow:hidden;
-    min-width: 700px;
-    width:93%
-  }
+div.table-container{
+overflow:hidden;
+min-width: 700px;
+width:93%
+}
 
-  h4.ingredients-table-label{
-    margin-left:60px;
-  }
+h4.ingredients-table-label{
+margin-left:60px;
+}
 
-  p.nutrition-info{
-  clear:both;
-  margin-left: 20px;
-  }
+p.nutrition-info{
+clear:both;
+margin-left: 20px;
+}
 

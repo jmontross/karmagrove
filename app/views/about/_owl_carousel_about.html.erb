@@ -1,0 +1,71 @@
+
+
+<div id="about-slider" class="owl-carousel itemsScaleUp-true owl-carousel">
+
+  <div class="item">
+    <%=  link_to image_tag("bigsurXS.jpg", class:"lazyOwl"), "/Get-Involved" %>
+  </div>
+
+   <div class="item">
+    <%=  link_to image_tag("karma_coin_hand.jpeg", class:"lazyOwl"), "/Get-Involved" %>
+  </div>
+
+  <div class="item">
+    <%=  image_tag("ocean_sun_asana.jpg", class:"lazyOwl", ) %>
+  </div>
+
+
+  <div class="item">
+    <%=  link_to image_tag("kalanigb.jpg", class:"lazyOwl"), "/Get-Involved" %>
+  </div>
+
+
+</div>
+
+
+<script>
+
+$(document).ready(function () {
+
+  $("#about-slider").owlCarousel({
+    singleItem:true,
+    itemsScaleUp:true,
+    autoHeight: true,
+    lazyLoad : true,
+    theme: "owl-theme",
+    navigation : true,
+    autoPlay: true,
+    // paginationNumbers: true,
+    stopOnHover: true,
+    transitionStyle : "fade",
+    slideSpeed : 500,
+    paginationSpeed : 1000,
+    goToFirstSpeed : 2000,
+    afterUpdate: function () {
+      updateSize();
+    },
+    afterInit:function(){
+      updateSize();
+    }
+  });
+
+  function updateSize(){
+    var minHeight=parseInt($('.owl-item').eq(0).css('height'));
+    $('.owl-item').each(function () {
+      var thisHeight = parseInt($(this).css('height'));
+      minHeight=(minHeight<=thisHeight?minHeight:thisHeight);
+    });
+    $('.owl-wrapper-outer').css('height',minHeight+'px');
+
+    /*show the bottom part of the cropped images*/
+    $('.owl-carousel .owl-item img').each(function(){
+      var thisHeight = parseInt($(this).css('height'));
+      if(thisHeight>minHeight){
+        $(this).css('margin-top',-1*(thisHeight-minHeight)+'px');
+      }
+    });
+
+  }
+
+});
+</script>
