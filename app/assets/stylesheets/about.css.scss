@@ -14,15 +14,27 @@ height:500px;
 }
 
 .btn-primary:hover{
-  background-color: #128ff2 !important;
+background-color: #128ff2 !important;
 }
 
 .btn-default:hover {
 background-color: #f7f7f7 !important;
 }
 
+.carousel-control{
+top: 50% !important;
+font-size: 6em !important;
+background: transparent !important;
+border: transparent !important;
+}
+
+.carousel-inner img{
+ min-height: 500px !important;
+ min-width: 400px;
+}
+
 .btn-primary{
-  color: #ffffff !important;
+color: #ffffff !important;
 }
 
 a:hover, a:focus {
