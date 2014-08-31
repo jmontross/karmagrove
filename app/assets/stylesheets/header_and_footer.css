@@ -19,6 +19,13 @@ footer .navbar-static-bottom{
   margin-bottom: 5px !important;
 }
 
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+text-decoration: none !important;
+color: #141414 !important;
+background-color: #eeeeee !important;
+background-image: none;
+}
+
 /*override bootswatch theme*/
 #cse{
  width: 30%;
