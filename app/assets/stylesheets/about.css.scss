@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.popover{
+  width:800px;
+  height:250px;
+  top: 550px !important;
+}
+
 ol.dict {
   margin-left: 50px;
 }
