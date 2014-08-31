@@ -1,3 +1,9 @@
+
+footer .navbar-static-bottom{
+  margin-top: 20px;
+margin-bottom: 1px;
+}
+
 #cse{
  width: 30%;
  float: left;
