@@ -1,0 +1,60 @@
+<div id="owl-demo">
+
+  <div class="item">
+    <%=  link_to image_tag("photo1.jpg"), "/Get-Involved" %>
+  </div>
+
+  <div class="item">
+    <%=  image_tag("ocean_sun_asana.jpg") %>
+  </div>
+
+  <div class="item">
+    <%=  link_to image_tag("karmabar.jpg"), "/Karma-Coin" %>
+  </div>
+
+  <div class="item">
+    <%=  link_to image_tag("ocean.jpg"), "/Karma-Coin" %>
+  </div>
+
+ <div class="item">
+    <%=  link_to image_tag("kalani.jpg"), "/Get-Involved" %>
+  </div>
+
+   <div class="item">
+    <%=  link_to image_tag("ocean.jpg"), "/Get-Involved" %>
+  </div>
+
+   <div class="item">
+    <%=  link_to image_tag("sentinel.png"), "/Get-Involved" %>
+  </div>
+
+</div>
+
+<style>
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+</style>
+
+<script>
+
+$(document).ready(function() {
+
+  $("#owl-demo").owlCarousel({
+
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+
+  });
+
+});
+
+</script>
