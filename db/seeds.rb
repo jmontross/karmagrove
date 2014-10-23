@@ -52,7 +52,7 @@ product = Product.create!({
 product2 = Product.create!({
     :name => "Teaching of Buddha",
     :description => "Teaching of buddha on audio recorded by Andrew Allansmith",
-    :price => "5.00",
+    :price => "10.00",
     :image_url => "/assets/buddha_green.jpg"
 })
 
@@ -108,6 +108,16 @@ charityPayment3 = CharityPayment.create(
 BatchCharityPayment.create(:charity_payment_id => charityPayment3.id, :batch_id => batch3.id)
 
 
+
+### Dallas Dance 10/23 and 10/24
+
+dallasMonicaAndJessica = Batch.create!(:batch_name => "Dallas Dance and Nahko Contact Improv")
+genesis = c4
+jubilee = c5
+
+BatchCharity.create!(:batch_id => dallasMonicaAndJessica.id, :charity_id => genesis.id)
+BatchCharity.create!(:batch_id => dallasMonicaAndJessica.id, :charity_id => jubilee.id)
+BatchCharity.create!(:batch_id => dallasMonicaAndJessica.id, :charity_id => elephants.id)
 
 #donation3.charity_payment = charityPayment3
 
