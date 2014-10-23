@@ -19,6 +19,7 @@
     <div class="col-lg-12">
         <div class="well text-center">
             Eat well, Do good.  Every time you make a purchase you are voting for the world you wish to see continue.
+            <b> Choose for yourself where our profits from the last event go - <a class="btn btn-default" href="/batches/<%= Batch.last.id =%>/donations/new">Choose</a> </b>
         </div>
     </div>
     <!-- /.col-lg-12 -->
@@ -57,9 +58,9 @@
     <!-- /.col-sm-4 -->
     <div class="col-sm-4">
         <h2> Giving is Receiving </h2>
-        <p> Have you recently received a gift or wish give one?  You may browse recent events to decide who ought to receive the money from the event.  You may also check out our products such as the teaching of buddha on audio.  </p>
+        <p> Have you recently received a gift or wish give one?  You may browse recent events to decide who ought to receive the money from the event.  You may also check out our products such as the teaching of buddha on audio.  Click more info to find our most recent event to choose where you who our profits serve. </p>
           <%= image_tag 'buddha_green.jpg' %>
-        <a class="btn btn-default" href="#">More Info</a>
+        <a class="btn btn-default" href="/batches/<%= Batch.last.id =%>/donations/new">More Info</a>
     </div>
     <!-- /.col-sm-4 -->
 </div>

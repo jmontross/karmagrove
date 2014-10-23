@@ -111,7 +111,7 @@ BatchCharityPayment.create(:charity_payment_id => charityPayment3.id, :batch_id 
 
 ### Dallas Dance 10/23 and 10/24
 
-dallasMonicaAndJessica = Batch.create!(:batch_name => "Dallas Dance and Nahko Contact Improv")
+dallasMonicaAndJessica = Batch.create!(:batch_name => "Dallas Moon Dance and Contact Improv 10/23 - 10/24 2014 - all sales over $20 donated where you choose")
 genesis = c4
 jubilee = c5
 
