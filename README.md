@@ -21,14 +21,14 @@ $ bundle exec rails s
 
 Libv8 problems?  
 
-brew install libv8
-gem install libv8 -v 3.11.8.17 -- --with-system-v8
-
-pg problems? 
-brew install postgresql
-
-rmagick problems? 
-brew install imagemagick
+    brew install libv8
+    gem install libv8 -v     3.11.8.17 -- --with-system-v8
+    
+    pg problems? 
+    brew install postgresql
+    
+    rmagick problems? 
+    brew install imagemagick
 
 ```
 
