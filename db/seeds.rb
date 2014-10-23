@@ -15,6 +15,7 @@ c1 = Charity.create!(:legal_name => "Grey Bears", :state => "CA", :deductibility
 c2 = Charity.create!(:legal_name => "Elephants and Bees", :state => "Africa", :deductibility_status_description => "Build fences out of beehives to save elephants lives and help African farmers.  http://www.elephantsandbees.com")
 c3 = Charity.create!(:legal_name => "Nuru International", :state => "Global", :deductibility_status_description => "Building the world's first self-sustaining, self-scaling, integrated development model to end extreme poverty.  http://http://www.nuruinternational.org/")
 
+elephants = c2
 
 # Make batch charities so each batch has three charities from which customers may choose
 BatchCharity.create!(:batch_id => batch.id, :charity_id => c1.id)
@@ -28,8 +29,6 @@ BatchCharity.create!(:batch_id => batch2.id, :charity_id => c3.id)
 BatchCharity.create!(:batch_id => batch3.id, :charity_id => c1.id)
 BatchCharity.create!(:batch_id => batch3.id, :charity_id => c2.id)
 BatchCharity.create!(:batch_id => batch3.id, :charity_id => c3.id)
-
-
 
 
 # Dallas Charities
@@ -80,6 +79,9 @@ donation1 = Donation.create(:amount => 33.00, :charity_id => c1.id, :donation_da
 donation2 = Donation.create(:amount => 50.00, :charity_id => c1.id, :donation_date => "04/02/2013")
 donation3 = Donation.create(:amount => 52.00, :charity_id => c1.id, :donation_date => "05/15/2013")
 
+## elephants and bees.  
+donation4 = Donation.create(:amount => 50.00, :charity_id => elephants.id, :donation_date => "09/17/2014")
+
 # actual payments made from the donations. Attach them to the batches!
 charityPayment = CharityPayment.create(
    :payment_provider => "joshua montra",  ## aka -> trust me. i copied the receipts and they show on donations page.
@@ -104,6 +106,8 @@ charityPayment3 = CharityPayment.create(
    :amount => 3300
 )
 BatchCharityPayment.create(:charity_payment_id => charityPayment3.id, :batch_id => batch3.id)
+
+
 
 #donation3.charity_payment = charityPayment3
 
@@ -155,3 +159,12 @@ BatchCharityPayment.create(:charity_payment_id => charityPayment3.id, :batch_id 
 #   })
 
 # d = Donation.create!(:charity_id => c.id, :amount => 30.00, :donation_date => "Thu, 21 Mar 2013 05:13:44 UTC +00:00")
+
+
+
+
+# All the batches from LIVE SYSTEM
+# first full moon dance receipts were 39.00 and it was split between genesis and elephants and bees.  
+#  
+
+# [#<Batch id: 4, batch_name: "Dr. Nick and Shelby help karma grow Santa Cruz", sales: nil, created_at: "2014-06-04 22:34:32", updated_at: "2014-06-04 22:55:14", state: "open">, #<Batch id: 2, batch_name: "All Coconut Oil and Honey for the caramel karma coi...", sales: 25.0, created_at: "2014-01-20 22:22:59", updated_at: "2014-01-20 22:23:29", state: "closed">, #<Batch id: 3, batch_name: "Dallas Full Moon Dance", sales: 39.0, created_at: "2014-02-16 01:31:43", updated_at: "2014-02-17 18:20:45", state: "closed">]

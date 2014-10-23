@@ -1,0 +1,1 @@
+heroku run "rails c" --app karma-grove
