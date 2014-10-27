@@ -119,6 +119,8 @@ BatchCharity.create!(:batch_id => dallasMonicaAndJessica.id, :charity_id => gene
 BatchCharity.create!(:batch_id => dallasMonicaAndJessica.id, :charity_id => jubilee.id)
 BatchCharity.create!(:batch_id => dallasMonicaAndJessica.id, :charity_id => elephants.id)
 
+dance1Dallas = Donation.create(:amount => 52.00, :charity_id => c1.id, :donation_date => "05/15/2013")
+
 #donation3.charity_payment = charityPayment3
 
 # Seed the donations we made on paper that show in twitter fed
