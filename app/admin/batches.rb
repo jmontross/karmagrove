@@ -10,6 +10,13 @@ ActiveAdmin.register Batch do
     # TODD : make batch products creatable for a batch,
     # f.input :batch_products, :as => :select, :collection => Product.all
     #f.input :roles, :as => :radio, :collection => User.roles.map { |role| [I18n.t("active_admin.user.role.#{role.name}"), role.id] }
+    # batch charity 
+    f.input :batch_charities, :as => :check_boxes, :collection => Charity.all.map {| p| [p.legal_name, p.id] }
+    # f.inputs do
+    #    f.has_many :batch_charities do |bc|
+    #      bc.input :charity_id
+    #    end
+    # end
   end
   f.buttons
 end
