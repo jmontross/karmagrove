@@ -43,7 +43,11 @@ Karmagrove::Application.routes.draw do
 
   resources :batch_charities
 
+  match '/admin/batches/:batch_id', to: "batches#update"
+
   ActiveAdmin.routes(self)
+  post '/admin/batches/:id', to: "batches#update"
+  put '/admin/batches/:id', to: "batches#update"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 

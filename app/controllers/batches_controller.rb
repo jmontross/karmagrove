@@ -44,5 +44,24 @@ class BatchesController < InheritedResources::Base
   end
 
 
+  # PUT /batches/1
+  # PUT /batches/1.json
+  def update
+    @batch = Batch.find(params[:batch_id])
 
+    respond_to do |format|
+      if params[:batch]
+
+
+      end
+      if @batch.update_attributes(params[:batch])
+        format.html { redirect_to "/admin/batches/#{params[:batch_id]}/edit", notice: 'Product was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @batch.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end
+
