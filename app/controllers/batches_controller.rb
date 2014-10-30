@@ -47,15 +47,28 @@ class BatchesController < InheritedResources::Base
   # PUT /batches/1
   # PUT /batches/1.json
   def update
-    @batch = Batch.find(params[:batch_id])
+    @batch_id = params[:batch_id]
+    @batch = Batch.find(@batch_id)
 
     respond_to do |format|
-      if params[:batch]
 
-
+      if params[:batch]  
+        @batch.state = params[:batch][:state]
+        @batch.sales = params[:batch][:sales].to_i
+        @batch.batch_name = params[:batch][:batch_name]
+        @batch.save
       end
-      if @batch.update_attributes(params[:batch])
-        format.html { redirect_to "/admin/batches/#{params[:batch_id]}/edit", notice: 'Product was successfully updated.' }
+      
+      if params[:batch][:batch_charity_ids]
+        if params[:batch][:batch_charity_ids].length > 2 
+          BatchCharity.delete_all(:batch_id => @batch_id)  
+        end
+        params[:batch][:batch_charity_ids].each do |charity_id| 
+          unless charity_id == ""
+            BatchCharity.create!(:batch_id => @batch_id,:charity_id => charity_id)  
+          end
+        end
+        format.html { redirect_to "/admin/batches/#{@batch_id}/edit", notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
