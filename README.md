@@ -12,7 +12,7 @@ Quick Start
 ===========
 
 ```
-$ git clone git@github.com:jmontross/karmagrove.git
+$ git clone https://github.com/karmagrove/karmagrove.com 
 $ cd karmagrove
 $ bundle install
 $ export RAILS_ENV=development; bundle exec rake db:seed
