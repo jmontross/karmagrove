@@ -8,7 +8,7 @@
         <p>We are a group of people dedicated to a sustainable gift economy.  We desire for commerce to be more conscious, and when you give gifts to us we insist a charity benefit. What we are fighting for cannot be bought or sold.  This is not about charity.  This is about justice.  </p>
 
         <a class="btn btn-primary btn-lg" href="/Get-Involved">Get involved</a>
-        <a href="/Get-Involved"><%= image_tag 'circle.png' %></a> 
+        <a href="/Get-Involved"><%= image_tag 'circle.png' %></a>
     </div>
     <!-- /.col-sm-4 -->
 </div>
@@ -45,18 +45,23 @@
         <% length = Batch.last.batch_charities.length %>
         <% Batch.last.batch_charities.each_with_index do |charity,i| %>
 
-            <%= Charity.find(charity.charity_id).legal_name %><%if i == length -1 %>.<%elsif length == 2%> and <%else%>, and
-            <%end%>
+        <%= Charity.find(charity.charity_id).legal_name %><%if i == length -1 %>.<%elsif length == 2%> and <%else%>, and
+        <%end%>
 
         <% end %>
         <p>
-        <% if Batch.last.state == "open" %>
-          It looks like this batch is still open and available to <a href="#donate"> receive your donations </a>
-          <%if Batch.last.sales > 0 %> we have raised <%= Batch.last.sales %> <% end %>
-        <% elsif Batch.last.state == "closed" %>
-          This batch has been closed and the profits will soon be divided amongst 
-        <% end %>
-        <%if Batch.last.sales >0 %>  We have raised <%= Batch.last.sales %>.  <% end %>
+            <% if Batch.last.state == "open" %>
+            It looks like this batch is still open and available to <a href="#donate"> receive your donations </a>
+            <%if Batch.last.sales > 0 %> we have raised <%= Batch.last.sales %> <% end %>
+            <% elsif Batch.last.state == "closed" %>
+            This batch has been closed and the profits will soon be divided amongst
+            <% end %>
+            <% unless Batch.last.sales.nil? %>
+
+            <% if Batch.last.sales > 0 %>
+            We have raised <%= Batch.last.sales %>.
+            <% end %>
+            <% end %>
         </p>
 
     </div>
@@ -74,28 +79,28 @@
     <!-- /.col-sm-4 -->
     <div class="col-sm-4">
         <h2>
-        <a href="http://www.facebook.com/karmagrovecafe" target="new">Find us on Facebook </a>
+            <a href="http://www.facebook.com/karmagrovecafe" target="new">Find us on Facebook </a>
         </h2>
         <p>We are doing bake sales wherever we travel, giving away our karma coins, karma bars, chocolate balls, and teachings. Currently we have recorded our giving at <a href="/#" >$<%= Donation.total_donations %>.</a>  Expect more updates on past donations we have not put into the system.  We are increasing in transparency and processes and desire your feedback for where you want to see this movement move. <a href="http://twitter.com/karmagrove"> twitter </a> </p>
         <div class="img">
-        <p><%= image_tag 'circle.png' %></p>
-        <p><a class="btn btn-default" href="http://www.facebook.com/karmagrovecafe">More Info</a></p>
-        <style>.ig-b- { display: inline-block; }
-.ig-b- img { visibility: hidden; }
-.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
-.ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-.ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }</style>
-<a href="http://instagram.com/karmagrovecafe?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
+            <p><%= image_tag 'circle.png' %></p>
+            <p><a class="btn btn-default" href="http://www.facebook.com/karmagrovecafe">More Info</a></p>
+            <style>.ig-b- { display: inline-block; }
+            .ig-b- img { visibility: hidden; }
+            .ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
+            .ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
+            @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+                .ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }</style>
+                <a href="http://instagram.com/karmagrovecafe?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
+            </div>
         </div>
+        <!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+            <h2> <a href="/batches/<%= Batch.last.id =%>/donations/new">Giving is Receiving </a></h2>
+            <p> Have you recently received a gift or wish give one?  You may browse recent events to decide who ought to receive the money from the event.  You may also check out our products such as the teaching of buddha on audio.  Click more info to find our most recent event to choose where you who our profits serve. </p>
+            <%= image_tag 'buddha_green.jpg' %>
+            <a class="btn btn-default" href="/batches/<%= Batch.last.id =%>/donations/new">More Info</a>
+        </div>
+        <!-- /.col-sm-4 -->
     </div>
-    <!-- /.col-sm-4 -->
-    <div class="col-sm-4">
-        <h2> <a href="/batches/<%= Batch.last.id =%>/donations/new">Giving is Receiving </a></h2>
-        <p> Have you recently received a gift or wish give one?  You may browse recent events to decide who ought to receive the money from the event.  You may also check out our products such as the teaching of buddha on audio.  Click more info to find our most recent event to choose where you who our profits serve. </p>
-          <%= image_tag 'buddha_green.jpg' %>
-        <a class="btn btn-default" href="/batches/<%= Batch.last.id =%>/donations/new">More Info</a>
-    </div>
-    <!-- /.col-sm-4 -->
-</div>
-<!-- /.row -->
+    <!-- /.row -->

@@ -1,6 +1,6 @@
 AdminUser.create! do |a|
 a.email = 'admin@karmagrove.com'
-a.password = a.password_confirmation = 'freedom'
+a.password = a.password_confirmation = 'freedoms'
 end
 # Create default user
 User.create! do |u|
@@ -13,7 +13,7 @@ end
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
-#
+#e
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = User.create(:username => "Emanuel")
@@ -90,7 +90,7 @@ donation1 = Donation.create(:amount => 33.00, :charity_id => c1.id, :donation_da
 donation2 = Donation.create(:amount => 50.00, :charity_id => c1.id, :donation_date => "04/02/2013")
 donation3 = Donation.create(:amount => 52.00, :charity_id => c1.id, :donation_date => "05/15/2013")
 
-## elephants and bees.  
+## elephants and bees.
 donation4 = Donation.create(:amount => 50.00, :charity_id => elephants.id, :donation_date => "09/17/2014")
 
 # actual payments made from the donations. Attach them to the batches!
@@ -187,7 +187,7 @@ dance1Dallas = Donation.create(:amount => 52.00, :charity_id => c1.id, :donation
 
 
 # All the batches from LIVE SYSTEM
-# first full moon dance receipts were 39.00 and it was split between genesis and elephants and bees.  
-#  
+# first full moon dance receipts were 39.00 and it was split between genesis and elephants and bees.
+#
 
 # [#<Batch id: 4, batch_name: "Dr. Nick and Shelby help karma grow Santa Cruz", sales: nil, created_at: "2014-06-04 22:34:32", updated_at: "2014-06-04 22:55:14", state: "open">, #<Batch id: 2, batch_name: "All Coconut Oil and Honey for the caramel karma coi...", sales: 25.0, created_at: "2014-01-20 22:22:59", updated_at: "2014-01-20 22:23:29", state: "closed">, #<Batch id: 3, batch_name: "Dallas Full Moon Dance", sales: 39.0, created_at: "2014-02-16 01:31:43", updated_at: "2014-02-17 18:20:45", state: "closed">]
