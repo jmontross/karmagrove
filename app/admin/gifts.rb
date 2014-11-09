@@ -19,12 +19,13 @@ ActiveAdmin.register Gift do
         @resources = Product.all
         f.input :products, :as => :check_boxes, :selected => @resources, :multiple => true,  :collection => @resources.map {| p| [p.name, p.id] }
    
-   		 # @receivers = User.all
+   		  @receivers = User.all
+        f.input :users, :as => :check_boxes, :selected => @receivers, :multiple => true,  :collection => @receivers.map {| p| [p.email, p.id] }
         # f.input :product_description
         # f.input :customer_email
 
   	  end
-
+      f.buttons
   end
   # form do |f|
   #   f.inputs "Batch" do 

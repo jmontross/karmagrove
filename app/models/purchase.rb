@@ -7,7 +7,7 @@ class Purchase < ActiveRecord::Base
 
   attr_accessible :stripe_customer_token, :buyer_id, :product_id,
                   :seller_id, :state, :donation_id, :id, :stripe_transaction_id, :retailer_id,
-                  :batch_id, :cost, :purchase_price, :product
+                  :batch_id, :cost, :purchase_price, :users
 
   ## final purchase price is for auction only....
 
