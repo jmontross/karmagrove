@@ -14,15 +14,30 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
-<p>
-  In 2013 we gave away more Karma Coins than sold, and all 90% of revenue went to Grey Bears.  Thanks to early supporters <a href="https://twitter.com/sentinelcafe" target="new"> Sentinel Cafe </a> for partnering and Santa Cruzians of <a href="https://twitter.com/cruzio" target="new"> Cruzio </a>  supporting us.  In 2014 we hope to increase our sharing ten fold.  Will you join us?
-</p>
-<br /><br /><br /><br />
-<%= image_tag("grey_bears_receipts_2013.jpg", :class => "receipts") %>
-<br /><br /><br /><br />
-<br /><br /><br /><br />
-<% if @donations %>
-<table class="table table-striped">
+<!-- Sidebar -->
+<div class="container">
+  <div class="row">
+   <div class="col-md-3" id="leftCol">
+
+    <div class="well">
+     <ul class="nav nav-stacked" id="sidebar">
+      <li><a href="#sec1">Elephants and Bees</a></li>
+      <li><a href="#sec2">GreyBears.org</a></li>
+      <li><a href="#sec3">Jubilee Center</a></li>
+      <li><a href="#sec4">Genesis Womens Center</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- end sidebar -->
+
+<div class="col-md-9">
+
+ <h2 id-"sec0">Join Us</h2>
+
+ <% if @donations %>
+ <table class="table table-striped">
   <thead>
     <tr>
       <th>Amount Donated</th>
@@ -50,44 +65,26 @@
 </table>
 <% end %>
 
-
-<!-- Begin Body -->
-<div class="container">
-  <div class="row">
-   <div class="col-md-3" id="leftCol">
-
-    <div class="well">
-     <ul class="nav nav-stacked" id="sidebar">
-      <li><a href="#sec1">Elephants and Bees</a></li>
-      <li><a href="#sec2">GreyBears.org</a></li>
-      <li><a href="#sec3">Jubilee Center</a></li>
-      <li><a href="#sec4">Genesis Womens Center</a></li>
-    </ul>
-  </div>
-
-</div>
-<div class="col-md-9">
- <h1 id-"sec0"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
- In 2013 we gave away more Karma Coins than sold, and all 90% of revenue went to Grey Bears.  Thanks to early supporters <a href="https://twitter.com/sentinelcafe" target="new"> Sentinel Cafe </a> for partnering and Santa Cruzians of <a href="https://twitter.com/cruzio" target="new"> Cruzio </a>  supporting us.  In 2014 we hope to increase our sharing ten fold.  Will you join us?
+In 2013 we gave away more Karma Coins than sold, and all 90% of revenue went to Grey Bears.  Thanks to early supporters <a href="https://twitter.com/sentinelcafe" target="new"> Sentinel Cafe </a> for partnering and Santa Cruzians of <a href="https://twitter.com/cruzio" target="new"> Cruzio </a>  supporting us.  In 2014 we hope to increase our sharing ten fold.  Will you join us?
 
 
 
- <hr class="col-md-12">
- Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
- dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
- eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
- sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
- Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.
- Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
- dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
- eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
- sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
- Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
+<hr class="col-md-12">
+Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.
+Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
 
 
 
- <h2 id="sec1">Content</h2>
- <p>
+<h2 id="sec1">Content</h2>
+<p>
   Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
   dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
 </p>
