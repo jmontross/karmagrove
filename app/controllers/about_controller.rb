@@ -3,40 +3,40 @@ class AboutController < ApplicationController
   def index
   #  @products = Product.all
   @disable_sidebar = true
-    respond_to do |format|
+  respond_to do |format|
       format.html # index.html.erb
    #   format.json { render json: @products }
-    end
-  end
+ end
+end
 
-  def get_involved
-    respond_to do |format|
+def get_involved
+  respond_to do |format|
       format.html # index.html.erb
    #   format.json { render json: @products }
-    end
-  end
+ end
+end
 
-  def joy_coin
+def joy_coin
   #  @products = Product.all
 
-    respond_to do |format|
+  respond_to do |format|
       format.html # joy_coin.html.erb
    #   format.json { render json: @products }
-    end
-  end
+ end
+end
 
-  def karma_coin
+def karma_coin
   #  @products = Product.all
 
-    respond_to do |format|
+  respond_to do |format|
       format.html # joy_coin.html.erb
    #   format.json { render json: @products }
-    end
-  end
+ end
+end
 
-  def grove
+def grove
   #  @products = Product.all
-    @disable_sidebar = true
+  @disable_sidebar = true
     # respond_to do |format|
     #   format.html # joy_coin.html.erb
    #   format.json { render json: @products }
@@ -44,5 +44,9 @@ class AboutController < ApplicationController
     # end
   end
 
+  def temp_donations
+    @disable_sidebar = true
+    render :temp_donations
+  end
 
 end

@@ -1,0 +1,169 @@
+<style media="screen" type="text/css">
+
+.receipts {
+  transform:rotate(90deg);
+  -ms-transform:rotate(90deg); /* IE 9 */
+  -webkit-transform:rotate(90deg); /* Safari and Chrome */
+}
+
+</style>
+
+<%- model_class = Donation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+<p>
+  In 2013 we gave away more Karma Coins than sold, and all 90% of revenue went to Grey Bears.  Thanks to early supporters <a href="https://twitter.com/sentinelcafe" target="new"> Sentinel Cafe </a> for partnering and Santa Cruzians of <a href="https://twitter.com/cruzio" target="new"> Cruzio </a>  supporting us.  In 2014 we hope to increase our sharing ten fold.  Will you join us?
+</p>
+<br /><br /><br /><br />
+<%= image_tag("grey_bears_receipts_2013.jpg", :class => "receipts") %>
+<br /><br /><br /><br />
+<br /><br /><br /><br />
+<% if @donations %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Amount Donated</th>
+      <th>Deductibility Status Description</th>
+      <th>Donation Date </th>
+      <th>Retailer</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @donations.each do |donation| %>
+    <tr charity_id="<%=donation.charity_id %>">
+      <td> $<%= donation.amount %></td>
+      <% if @charities %>
+      <td> <%= @charities[donation.id].deductibility_status_description %></td>
+      <% end %>
+      <td> <%= donation.donation_date %></td>
+      <% if @retailers %>
+      <td> <%= @retailers.name %> </td>
+      <% end %>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<% end %>
+
+
+<!-- Begin Body -->
+<div class="container">
+  <div class="row">
+   <div class="col-md-3" id="leftCol">
+
+    <div class="well">
+     <ul class="nav nav-stacked" id="sidebar">
+      <li><a href="#sec1">Section 1</a></li>
+      <li><a href="#sec2">Section 2</a></li>
+      <li><a href="#sec3">Section 3</a></li>
+      <li><a href="#sec4">Section 4</a></li>
+    </ul>
+  </div>
+
+</div>
+<div class="col-md-9">
+ <h2 id="sec0">Content</h2>
+ At Bootply we like to build simple Bootstrap templates that utilize the code Bootstap CSS without a lot of customization. Sure you can
+ find a lot of Bootstrap themes and inspiration, but these templates tend to be heavy on customization.
+
+
+
+ <hr class="col-md-12">
+ Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+ dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+ eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+ sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.
+ Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+ dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+ eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+ sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
+
+
+
+ <h2 id="sec1">Content</h2>
+ <p>
+  Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+  dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
+</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>Hello.</h3></div>
+      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+        Aliquam in felis sit amet augue.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>Hello.</h3></div>
+      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+        Aliquam in felis sit amet augue.
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="sec2">Section 2</h2>
+<p>
+  Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+  dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+  eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
+</p>
+<div class="row">
+  <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
+  <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
+  <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
+</div>
+
+<hr>
+
+<h2 id="sec3">Section 3</h2>
+Images are responsive sed @mdo but sum are more fun peratis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..
+<br>
+Fos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..
+
+
+<h2 id="sec4">Section 4</h2>
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+
+
+<hr>
+<h4><a href="#">Make Your Voice Heard</a></h4>
+<hr>
+
+
+</div>
+</div>
+</div>
+
+
+
+<!-- script references -->
+<script src="js/scripts.js"></script>
