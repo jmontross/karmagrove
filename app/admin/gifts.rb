@@ -17,7 +17,7 @@ ActiveAdmin.register Gift do
         
         # f.input :products 
         @resources = Product.all
-        f.input :products, :as => :check_boxes, :selected => @resources, :multiple => true,  :collection => @resources.map {| p| [p.name, p.id] }
+        f.input :product, :as => :check_boxes, :selected => @resources, :multiple => true,  :collection => @resources.map {| p| [p.name, p.id] }
    
    		  @receivers = User.all
         f.input :users, :as => :check_boxes, :selected => @receivers, :multiple => true,  :collection => @receivers.map {| p| [p.email, p.id] }
