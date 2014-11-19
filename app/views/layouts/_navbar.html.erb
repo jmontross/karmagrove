@@ -13,7 +13,7 @@
          <li class="dropdown"><%= link_to ("About " + content_tag(:span,"", class: "caret") + content_tag(:span,"", class: "sr-only")).html_safe, about_path, class: "dropdown-toggle", "data-toggle" => "dropdown", id: "drop1", role: "button" %>
           <ul class="dropdown-menu" role="menu", aria-labelledby="dropHead">
             <li class="dropper">
-              <%= link_to "Donations", "/about/donations" %>
+              <%= link_to "Recent Donations", "/about/donations" %>
             </li>
             <li>
               <%= link_to "Choose Who Benefits", new_batch_donation_path(Batch.last.id) %>
