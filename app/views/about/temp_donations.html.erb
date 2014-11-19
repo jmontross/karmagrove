@@ -1,0 +1,236 @@
+<style media="screen" type="text/css">
+
+.receipts {
+  transform:rotate(90deg);
+  -ms-transform:rotate(90deg); /* IE 9 */
+  -webkit-transform:rotate(90deg); /* Safari and Chrome */
+}
+
+</style>
+
+<%- model_class = Donation -%>
+
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+<!-- Sidebar -->
+<div class="container" id="donations_page_container">
+  <div class="row">
+   <div class="col-md-3" id="leftCol">
+
+    <div class="well" id="our_charities_nav_well">
+      <h4>Our Charities</h4>
+      <ul class="nav nav-stacked" id="sidebar">
+        <li><a href="#sec1">Elephants and Bees</a></li>
+        <li><a href="#sec2">Genesis Womens Center</a></li>
+        <li><a href="#sec3">GreyBears.org</a></li>
+        <li><a href="#sec4">Jubilee Center</a></li>
+        <li><a href="#sec5">Save the Elephants</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- end sidebar -->
+
+  <div class="col-md-9">
+
+   <h2 id-"sec0">Join Us</h2>
+
+   <% if @donations %>
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Amount Donated</th>
+        <th>Deductibility Status Description</th>
+        <th>Donation Date </th>
+        <th>Retailer</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @donations.each do |donation| %>
+      <tr charity_id="<%=donation.charity_id %>">
+        <td> $<%= donation.amount %></td>
+        <% if @charities %>
+        <td> <%= @charities[donation.id].deductibility_status_description %></td>
+        <% end %>
+        <td> <%= donation.donation_date %></td>
+        <% if @retailers %>
+        <td> <%= @retailers.name %> </td>
+        <% end %>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  <% end %>
+
+  <p>In 2013, Karma Grove gave away more Karma Coins than sold, and 90% of total revenue went to Grey Bears.  Thanks to early supporters <a href="https://twitter.com/sentinelcafe" target="new">Sentinel Cafe</a> for partnering and Santa Cruzians of <a href="https://twitter.com/cruzio" target="new"> Cruzio </a> for supporting us.  In 2014 we hope to increase our sharing ten fold.  <a href="/Karma-Coin">Will you join us?</a></p>
+
+
+
+  <hr class="col-md-12">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 id="sec1">Elephants and Bees</h2>
+
+      <p>
+        Tear down the murderous wall between humans and elephants. Build fences of beehives to protect the elephants from the farmers and give the farmers a cash crop and a skill to help them take care of eachother. We have given $50.00 from your gifts.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>$30.00</h3></div>
+        <div class="panel-body check_panel"><%= image_tag "greybears30.jpg", style:"max-height: 250px", class: "img-responsive img-rounded" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>$92.00 Donations</h3></div>
+        <div class="panel-body check_panel"><%= image_tag "greybears92.jpg", style:"max-height: 250px", class: "img-responsive img-rounded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 id="sec2"><a href="http://www.genesisshelter.org/">Genesis Womens Center</a></h2>
+      <p>
+        We raised $51 dollars for the Genesis Womens Shelter in Dallas Texas from our Karma Coins and Karma Bars. Karma Grove founder Joshua Montross baked and sold the bars at Monica Blossom's Ecstatic Moondance. Ecstatic Moondance is a community dance gathering offered on the day of a full moon every month. Check out their <a href="http://www.meetup.com/ecstatic-dance-dallas-movement-music-community/">meetup</a>.
+      </p>
+      <p>
+        Previously known as Shelter Ministries of Dallas, Genesis Women's Shelter & Support has been helping women and children who have been victims of domestic violence for over 30 years. The Dallas organization's mission is to end the epidemic of domestic violence against women and children by stopping individual victimization and reducing the devastating impact of family violence through safety, shelter and expert services to battered women and their children.
+      </p>
+      <p>
+        Genesis offers emergency shelter, safety and counseling for victims of domestic violence as well as trauma recovery, EMDR therapy, community education and the Genesis On-Site School--a safe place for children staying at the shelter to learn.
+        <p>
+          <p>
+            To learn more about about Genesis Women's Shelter & Support visit <a href="http://www.genesisshelter.org/">www.GenesisShelter.org</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>$25.00</h3></div>
+            <div class="panel-body check_panel"><a <a href="/assets/GenesisWomens25.jpg"><%= image_tag "GenesisWomens25.jpg", style:"max-height: 250px", class: "img-responsive img-rounded" %></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>$26.00</h3></div>
+            <div class="panel-body check_panel"><a <a href="http://www.theweathercompany.com/sites/default/files/images/coming_soon_0.jpg"><%= image_tag "http://www.theweathercompany.com/sites/default/files/images/coming_soon_0.jpg", style:"max-height: 250px", class: "img-responsive img-rounded" %></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-md-12">
+          <a href="http://www.greybears.org/"><h2 id="sec3">GreyBears.org</h2></a>
+          <p>
+            Karma Grove proceeds have been responsible for more than $122 in donations to Grey Bears so far in 2014.
+          </p>
+          <p>
+            Grey Bears is charity focused on improving the health and wellbeing of seniors through volunteerism and community participation. The Grey Bears network of more than 500 weekly volunteers gleans, assembles and delivers bags of healthy groceries to seniors throughout northern California communities. To date, their <a href="http://www.greybears.org/our-programs/brown-bag-program/">Brown Bag Program</a> has blessed seniors with over 2.7 million pounds of *healthy* food.</p>
+
+            <p>In addition to their alleviating hunger and promoting well-being in the senior community, GreyBears participates in environmental causes as well. The organization operates a duo of recycling centers in the Santa Cruz area and diverts approximately 7,500 tons of reusable material annually.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+           <div class="panel panel-default">
+            <div class="panel-heading"><h3>$30.00</h3></div>
+            <div class="panel-body check_panel"><a <a href="/assets/greybears30.jpg"><%= image_tag "greybears30.jpg", style:"max-height: 250px", class: "img-responsive img-rounded" %></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>$92.00 Donations</h3></div>
+            <div class="panel-body check_panel">
+              <a href="/assets/greybears92.png"><%= image_tag "greybears92.jpg", style:"max-height: 250px", class: "img-responsive img-rounded" %></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2 id="sec4">Jubilee Center</h2>
+          <p>
+            Images are responsive sed @mdo but sum are more fun peratis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores
+            eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..
+            <br>
+            Fos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+            sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h2 id="sec5">Save the Elephants</h2>
+            <p>We raised $51 dollars for the Genesis Womens Shelter in Dallas Texas from our karma coin and other snack batches at local Monica Blossom's Ecstatic Moondance. Ecstatic Moondance (yes, an awesome name) is a community dance gathering offered on the day of a full moon every month. Check out their <a href="http://www.meetup.com/ecstatic-dance-dallas-movement-music-community/">meetup</a>.</p>
+          </div>
+        </div>
+
+        <div class="row">
+
+         <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>$92.00 Donations</h3></div>
+            <div class="panel-body check_panel"><a href="/assets/save_the_elephants_donation.png"><%= image_tag "save_the_elephants_donation.png", style:"max-height: 250px", class: "img-responsive img-rounded" %></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+      <h4><a href="#">Make Your Voice Heard</a></h4>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- script references -->
+<script src="js/scripts.js"></script>

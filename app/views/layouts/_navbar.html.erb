@@ -10,82 +10,96 @@
       <a class="brand" href="/"> Karma Grove </a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="dropdown">
-            <%= link_to(("Karma Coins " + content_tag(:span,"", class: "caret") + content_tag(:span,"", class: "sr-only")).html_safe, "/Karma-Coin", class: "dropdown-toggle", "data-toggle" => "dropdown", id: "drop1", role: "button") %>
-            <ul class="dropdown-menu" role="menu", aria-labelledby="dropHead">
-              <li class="dropper">
-                <%= link_to "What Are They?", "/Karma-Coin" %>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Buy Karma Coins", "/products?name=Karma Coin" %>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Nutrition Facts", "#" %>
-              </li>
-            </ul>
-          </li>
-          <!-- <li><%= link_to "Charities",  "/charities" %></li> -->
-          <li><%= link_to "Get Involved", "/Get-Involved" %>
-          </li>
-          <li><%= link_to "About", about_path  %></li>
+         <li class="dropdown"><%= link_to ("About " + content_tag(:span,"", class: "caret") + content_tag(:span,"", class: "sr-only")).html_safe, about_path, class: "dropdown-toggle", "data-toggle" => "dropdown", id: "drop1", role: "button" %>
+          <ul class="dropdown-menu" role="menu", aria-labelledby="dropHead">
+            <li class="dropper">
+              <%= link_to "Donations", "/about/donations" %>
+            </li>
+            <li>
+              <%= link_to "Choose Who Benefits", new_batch_donation_path(Batch.last.id) %>
+            </li>
 
-          <!-- <li><%= link_to "Cart" %></li> -->
-          <!-- <div id="user_nav"> -->
+            <li>
+              <%= link_to "What is Karma Grove?", "/about" %>
+            </li>
 
-          <% if user_signed_in? %>
+          </ul>
+        </li>
+        <li><%= link_to "Get Involved", "/Get-Involved" %>
+        </li>
+        <li class="dropdown">
+          <%= link_to(("Karma Coins " + content_tag(:span,"", class: "caret") + content_tag(:span,"", class: "sr-only")).html_safe, "/Karma-Coin", class: "dropdown-toggle", "data-toggle" => "dropdown", id: "drop1", role: "button") %>
+          <ul class="dropdown-menu" role="menu", aria-labelledby="dropHead">
+            <li class="dropper">
+              <%= link_to "What Are They?", "/Karma-Coin" %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Buy Karma Coins", "/products?name=Karma Coin" %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Nutrition Facts", "#" %>
+            </li>
+          </ul>
+        </li>
+        <!-- <li><%= link_to "Charities",  "/charities" %></li> -->
 
-          <li>
-            <%= link_to 'My profile', edit_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          </li>
-          <li>
-            <a href="#">
-              Welcome <%= current_user.email %>
-            </a>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to "Market", "/markets" %>
-          </li>
+        <!-- <li><%= link_to "Cart" %></li> -->
+        <!-- <div id="user_nav"> -->
+
+        <% if user_signed_in? %>
+
+        <li>
+          <%= link_to 'My profile', edit_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        </li>
+        <li>
+          <a href="#">
+            Welcome <%= current_user.email %>
+          </a>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "Market", "/markets" %>
+        </li>
 
 
 
-          <% flash.each do |name, msg| %>
+        <% flash.each do |name, msg| %>
 
-          <li>
-            <a> <%= content_tag :div, msg, id: "flash_#{name}" %>
-            </a>
-          </li>
-          <% end %>
+        <li>
+          <a> <%= content_tag :div, msg, id: "flash_#{name}" %>
+          </a>
+        </li>
+        <% end %>
 
-          <% end %>
-        </ul> <!-- nav -->
+        <% end %>
+      </ul> <!-- nav -->
 
-        <div id='cse'>Loading</div>
-        <script src='//www.google.com/jsapi' type='text/javascript'></script>
-        <script type='text/javascript'>
-        google.load('search', '1', {language: 'en', style: google.loader.themes.V2_DEFAULT});
-        google.setOnLoadCallback(function() {
-          var customSearchOptions = {};
-          var orderByOptions = {};
-          orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
-          customSearchOptions['enableOrderBy'] = true;
-          customSearchOptions['orderByOptions'] = orderByOptions;
-          customSearchOptions['overlayResults'] = true;
-          var customSearchControl =   new google.search.CustomSearchControl('003387130402393903552:tjahuzpavvg', customSearchOptions);
-          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-          var options = new google.search.DrawOptions();
-          options.setAutoComplete(true);
-          customSearchControl.draw('cse', options);
-        }, true);
-        </script>
+      <div id='cse'>Loading</div>
+      <script src='//www.google.com/jsapi' type='text/javascript'></script>
+      <script type='text/javascript'>
+      google.load('search', '1', {language: 'en', style: google.loader.themes.V2_DEFAULT});
+      google.setOnLoadCallback(function() {
+        var customSearchOptions = {};
+        var orderByOptions = {};
+        orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+        customSearchOptions['enableOrderBy'] = true;
+        customSearchOptions['orderByOptions'] = orderByOptions;
+        customSearchOptions['overlayResults'] = true;
+        var customSearchControl =   new google.search.CustomSearchControl('003387130402393903552:tjahuzpavvg', customSearchOptions);
+        customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+        var options = new google.search.DrawOptions();
+        options.setAutoComplete(true);
+        customSearchControl.draw('cse', options);
+      }, true);
+      </script>
 
-      </div> <!-- .nav-collapse -->
-    </div> <!-- .container -->
-  </div><!--  .nav-inner -->
+    </div> <!-- .nav-collapse -->
+  </div> <!-- .container -->
+</div><!--  .nav-inner -->
 </div> <!-- navbar-fixed-top -->
 <% end %>
