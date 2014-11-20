@@ -11,7 +11,7 @@
       <a href="/batches/<%= Batch.last.id =%>/donations/new"><h4>Your Votes Decide Which Charities Benefit</h4>
       </a>
       <p>
-       90% of the profits made from each purchase in KarmaGrove.com's marketplace, or in person at a Karma Grove affiliated vendor, will be donated to charity. Of that 90%, 50% is donated to the charity of the buyer's choice, while the remaining 40% is donated to a charity decided upon with out voting system. The entire KarmaGrove community is free to vote on our <a href="/batches/<%= Batch.last.id =%>/donations/new">website here</a>.
+       90% of the profits made from each purchase in KarmaGrove.com's marketplace, or in person at a Karma Grove affiliated vendor, will be donated to charity. Of that 90%, 50% is donated to the charity of the buyer's choice, while the remaining 40% is donated to a charity decided upon with out voting system. The entire KarmaGrove community is free to <strong><a href="/batches/<%= Batch.last.id =%>/donations/new">vote on our website here</a>.</strong>
      </p>
 
    </div>
@@ -26,7 +26,7 @@
   <p>
     <strong> Help charities by purchasing hyperpalatable healthy snacks!</strong>
     <br />
-    <%= link_to "Buy some Karma Coins", "#{products_path}?name=Karma%20Coin", {:class=>"link"}  %> or <%= link_to "anything on Karma Grove", products_path %>, give away the profits, and tell your friends
+    <%= link_to "Buy some Karma Coins", "#{products_path}?name=Karma%20Coin", {:class=>"link"}  %> or <%= link_to "anything in the Karma Grove marketplace", products_path %>, give away the transaction profits, and then tell your friends about it!
   </p>
   <p>
     <strong> Help those you love by cooking them a delicious snack! </strong>
@@ -38,12 +38,17 @@
     <br />
     If you know how to program, write some code for us--this website is completely open source <%= link_to "Karma Grove Source Code", "www.github.com/jmontross/karmagrove", {:class=>"link"} %>
   </p>
+  <p>
+    <strong> Help grow Karma Grove and spread the beauty of conscious commerce with some free marketing! </strong>
+    <br />
+    Follow us on <%= link_to "Twitter (@KarmaGrove)", "https://twitter.com/karmagrove" , {:class=>"link"} %>, like us on <%= link_to "Facebook", "http://www.facebook.com/karmagrovecafe" %> and for you mobile moguls, check out our <%= link_to "Instagram account", "http://instagram.com/karmagrovecafe?ref=badge" %>!
+  </p>
 
 </div>
 </div>
 <!--  Email Subscription -->
 
-<div class="panel panel-default">
+<div class="panel panel-default col-md-8">
   <div class="panel-body">
 
     <%= render "about/email_subscription" %>
@@ -53,8 +58,3 @@
 
 <!-- / Email Subscription -->
 
-<!-- Call to Action Well -->
-
-<%= render partial: "about/call_to_action_well" %>
-
-<!-- /Call to Action Well -->
