@@ -1,12 +1,16 @@
 AdminUser.create! do |a|
+
 a.email = 'admin@karmagrove.com'
 a.password = a.password_confirmation = 'freedoms'
+
 end
+
 # Create default user
 User.create! do |u|
 u.username = 'user'
 u.email = 'user@karmagrove.com'
 u.password = u.password_confirmation = 'password'
+
 end
 
 # This file should contain all the record creation needed to seed the database with its default values.

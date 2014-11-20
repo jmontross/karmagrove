@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(:version => 20140708234455) do
   create_table "donations", :force => true do |t|
     t.integer  "purchase_id"
     t.integer  "charity_id"
-    t.decimal  "amount",        :precision => 8, :scale => 2
+    t.in  "amount",        :precision => 8, :scale => 2
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
     t.date     "donation_date"
