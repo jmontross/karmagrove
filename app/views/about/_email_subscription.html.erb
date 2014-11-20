@@ -1,46 +1,57 @@
- <h1> Plant yourself in the grove </h1>
-   <ul>
-    <strong>
-      <li> We will email you once per month showing what charities received donations </li>
-      <li> We will update you no more than once per month aside from the monthly donation email </li>
-      <li> We will never sell or share your email under any circumstances </li>
-    </strong>
-  </ul>
-  <div id="error-spot"></div>
-  <form id="signup-form" action="/users/email-subscribe" method="post">
-    <input type="text" class="email" name="email" text="valid email" placeholder="your email"> </input>
-    <br />
-    <input name="email-subscribe" type="submit" value="Grow My Karma!">
-    <br />
-  </form>
+<div class="well well-lg">
+ <h3>Signup for KarmaGrove.com Email Updates.</h3>
+ <ul>
+  <strong>
+    <li> We will email you once per month showing what charities received donations </li>
+    <li> We will update you no more than once per month aside from the monthly donation email </li>
+    <li> We will never sell or share your email under any circumstances </li>
+  </strong>
+</ul>
+<div id="error-spot"></div>
 
-    <script>
+<form id="signup-form" action="/users/email-subscribe" method="post" class="form-inline">
+  <div class="input-group input-group-lg">
+   <span class="input-group-addon">Email Address:</span>
+   <input type="text" class="email input-lg" name="email" text="valid email" placeholder=" email@example.com" id="signup-email-input">
+ </input>
 
-    $(document).ready(function(){
 
-      $('#signup-form').submit(function(event){
+ <button name="email-subscribe" type="submit" class="btn btn-md btn-primary">
+  <span class="glyphicon glyphicon-envelope"></span> Subscribe!
+</button>
 
-        var regEx = /[a-z0-9!#$%&'*+/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+</div>
 
-        var userInp = $(".email").val()
+</form>
 
-        if (regEx.test(userInp))
-        {
-          console.log("signup successful")
-        }
-        else
-        {
-          event.preventDefault();
+</div>
+<script>
 
-          var errorAlert = "<div class='alert alert-info'><a href='#'' class='close' data-dismiss='alert'>&times;</a><p><strong>Email Invalid.</strong> Please enter a valid email address.</p></div>"
+$(document).ready(function(){
 
-          $("#error-spot").html(errorAlert)
+  $('#signup-form').submit(function(event){
 
-          // alert("Please enter a valid email address and continue.")
-        }
+    var regEx = /[a-z0-9!#$%&'*+/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
 
-      });
+    var userInp = $(".email").val()
 
-    });
+    if (regEx.test(userInp))
+    {
+      console.log("signup successful")
+    }
+    else
+    {
+      event.preventDefault();
 
-    </script>
+      var errorAlert = "<div class='alert alert-info'><a href='#'' class='close' data-dismiss='alert'>&times;</a><p><strong>Email Invalid.</strong> Please enter a valid email address.</p></div>"
+
+      $("#error-spot").html(errorAlert)
+
+      // alert("Please enter a valid email address and continue.")
+    }
+
+  });
+
+});
+
+</script>
