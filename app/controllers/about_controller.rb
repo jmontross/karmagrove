@@ -10,6 +10,7 @@ class AboutController < ApplicationController
 end
 
 def get_involved
+  @disable_sidebar = true
   respond_to do |format|
       format.html # index.html.erb
    #   format.json { render json: @products }

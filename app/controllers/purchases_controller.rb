@@ -56,9 +56,9 @@ end
     end
 
     @purchase = Purchase.create!(:product_id => @product.id)
-    #  @donation =  ActiveRecord::RecordNotFound in PurchasesController#update 
+    #  @donation =  ActiveRecord::RecordNotFound in PurchasesController#update
     #  app/controllers/purchases_controller.rb:54:in `update'
-    #  
+    #
     # @donation = Purchase.create!(:product_id => @product.id)
     @donation_id = @purchase.new_donation(params)
 
@@ -79,7 +79,7 @@ end
     end
     @purchase = Purchase.find(@purchase_id)
     @product = Product.find(@purchase.product_id)
-    @donation_id = 
+    @donation_id =
     if params[:donation] and params[:donation][:id].to_i.class == Fixnum
       @donation_id = params[:donation][:id]
       @charity_id = Donation.find(@donation_id).charity_id
@@ -91,7 +91,7 @@ end
 
     if @charity_id
       @charity = Charity.find(@charity_id)
-      
+
       Donation.where(:purchase_id => @purchase.id).each do |donation|
         @donation = donation
       end
@@ -100,8 +100,8 @@ end
       @donation.save
       @purchase.donation_id = @donation.id
       @purchase.save
-    end  
-    
+    end
+
     # session['callback_code'] = @code
     if @purchase.donation_id
       respond_to do |format|
@@ -115,6 +115,7 @@ end
 
 #POST /products/:id/purchases
   def create
+    rails.logger.info "IN POST PRUCASE"
   @purchase = Purchase.new(params[:purchase])
   @purchase.product_id = params[:product_id]
   # @purchase.buyer_id =
@@ -129,6 +130,7 @@ end
   # Get the credit card details submitted by the form
   token = params[:stripeToken]
   # Create the charge on Stripe's servers - this will charge the user's card
+
   begin
     charge = Stripe::Charge.create(
       :amount => (@product.price * 100).to_i , # amount in cents, again

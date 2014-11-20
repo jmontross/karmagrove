@@ -46,7 +46,7 @@ vagrant plugin install --plugin-prerelease --plugin-source https://rubygems.org 
 https://github.com/berkshelf/vagrant-berkshelf/issues/122
 
 ````
-git clone git@github.com:jmontross/karmagrove.git
+git clone git@github.com:karmagrove/karmagrove.git
 bundle install | gem install vagrant
 vagrant up
 ````
@@ -58,7 +58,7 @@ localhost:8082 for https
 
 Contribute
 ===========
-tackle an issue from https://github.com/jmontross/karmagrove/issues
+tackle an issue from https://github.com/karmagrove/karmagrove/issues
 Join hipchat https://www.hipchat.com/invite/80443/cb97666cdcc40d22c4ffff1b0e9dc76b"
 
 Dependencies
