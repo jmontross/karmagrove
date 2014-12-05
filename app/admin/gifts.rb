@@ -17,11 +17,18 @@ ActiveAdmin.register Gift do
         
         # f.input :products 
         @resources = Product.all
-        f.input :product, :as => :check_boxes, :selected => @resources, :multiple => true,  :collection => @resources.map {| p| [p.name, p.id] }
-   
-   		  @receivers = User.all
-        f.input :users, :as => :check_boxes, :selected => @receivers, :multiple => true,  :collection => @receivers.map {| p| [p.email, p.id] }
-        # f.input :product_description
+        f.input :product, :as => :check_boxes, :selected => @resources, :multiple => false,  :collection => @resources.map {| p| [p.name, p.id] }
+        f.input :product_description
+        f.input :revenue_donation_percent
+        f.input :profit_donation_percent
+   		  
+        @receivers = User.all
+        f.input :users, :as => :check_boxes, :selected => @receivers, :multiple => false,  :collection => @receivers.map {| p| [p.email, p.id] }
+        
+        @charities = Charity.all
+        f.input :product_charities, :as => :check_boxes, :selected => @charities, :multiple => true,  :collection => @charities.map {| p| [p.legal_name, p.id] }
+        # f.input :user, :as => :text
+        
         # f.input :customer_email
 
   	  end
