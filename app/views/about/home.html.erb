@@ -4,10 +4,12 @@
     </div>
     <!-- /.col-sm-8 -->
     <div class="col-sm-4">
-        <h1>Welcome to Karma Grove</h1>
+        <h1> Welcome to Karma Grove</h1>
         <p>We are a group of people dedicated to a sustainable gift economy.  We desire for commerce to be more conscious, and when you give gifts to us we insist a charity benefit. What we are fighting for cannot be bought or sold.  This is not about charity.  This is about justice.  </p>
 
         <a id="home-get-involved-button"class="btn btn-default btn-lg" href="/Get-Involved"> <%= image_tag 'circle.png', size: "25x25" %> Get involved</a>
+
+
 
     </div>
     <!-- /.col-sm-4 -->
@@ -70,12 +72,15 @@
     <!-- /.col-sm-4 -->
     <div class="col-sm-4">
         <h2>
-            <a href="http://www.facebook.com/karmagrovecafe" target="new">Find us on Facebook </a>
+                 <div class="img">
+           
+        </div><a href="http://www.facebook.com/karmagrovecafe" target="new"> Connect with us online  </a>
         </h2>
-        <p>We are doing bake sales wherever we travel, giving away our karma coins, karma bars, chocolate balls, and teachings. Currently we have recorded our giving at <a href="/#" >$<%= Donation.total_donations %>.</a>  Expect more updates on past donations we have not put into the system.  We are increasing in transparency and processes and desire your feedback for where you want to see this movement move. <a href="http://twitter.com/karmagrove"> twitter </a> </p>
+        <p>We are doing bake sales wherever we travel, giving away our karma coins, karma bars, chocolate balls, and teachings. Currently we have recorded our giving at <a href="/#" >$<%= Donation.total_donations %>.</a>  Expect more updates on past donations we have not put into the system.  We are increasing in transparency and processes and desire your feedback for where you want to see this movement move.
+
         <div class="img">
-            <div class="center"> <%= image_tag 'circle.png' %></p></div>
-            <p><a class="btn btn-default" href="http://www.facebook.com/karmagrovecafe">More Info</a></p>
+            <div class="center"> <a href="http://www.facebook.com/karmagrovecafe"> <%= image_tag 'facebook.jpg' %> </a> <a href="http://www.twitter.com/karmagrove"> <%= image_tag 'twitter.png' %> </a> </div>  
+            <!-- <p><a class="btn btn-default" href="http://www.facebook.com/karmagrovecafe">More Info</a></p> -->
             <style>.ig-b- { display: inline-block; }
             .ig-b- img { visibility: hidden; }
             .ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
@@ -85,6 +90,7 @@
                 <a href="http://instagram.com/karmagrovecafe?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
             </div>
         </div>
+
         <!-- /.col-sm-4 -->
         <div class="col-sm-4">
             <h2> <a href="/batches/<%= Batch.last.id =%>/donations/new">Giving is Receiving </a></h2>

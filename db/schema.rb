@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140708234455) do
+ActiveRecord::Schema.define(:version => 20141204233329) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(:version => 20140708234455) do
   create_table "donations", :force => true do |t|
     t.integer  "purchase_id"
     t.integer  "charity_id"
-    t.in  "amount",        :precision => 8, :scale => 2
+    t.decimal  "amount",        :precision => 8, :scale => 2
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
     t.date     "donation_date"
@@ -206,8 +206,8 @@ ActiveRecord::Schema.define(:version => 20140708234455) do
     t.integer  "buyer_id"
     t.integer  "seller_id"
     t.integer  "donation_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.string   "state"
     t.string   "stripe_customer_token"
     t.string   "stripe_transaction_id"
@@ -215,6 +215,8 @@ ActiveRecord::Schema.define(:version => 20140708234455) do
     t.integer  "batch_id"
     t.float    "purchase_price"
     t.float    "cost"
+    t.integer  "revenue_donation_percent"
+    t.integer  "profit_donation_percent"
   end
 
   add_index "purchases", ["buyer_id"], :name => "index_purchases_on_buyer_id"
